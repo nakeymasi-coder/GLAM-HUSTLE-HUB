@@ -1766,3 +1766,114 @@ body::before {
     min-height: auto;
   }
 }
+/* ==========================================
+   WORKSHOP SECTION — COMPACT DESKTOP SIZE
+   Keeps the exact layout and content
+========================================== */
+
+@media (min-width: 901px) {
+  .workshop-section {
+    padding: 32px 7% !important;
+  }
+
+  .workshop-shell {
+    padding: 26px 32px !important;
+    border-radius: 26px !important;
+  }
+
+  .workshop-intro {
+    gap: 28px !important;
+  }
+
+  .workshop-label {
+    font-size: 0.68rem !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .workshop-kicker {
+    font-size: 0.78rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .workshop-copy h2 {
+    font-size: clamp(2rem, 3vw, 3rem) !important;
+    line-height: 0.98 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .workshop-description {
+    font-size: 0.88rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .workshop-btn {
+    padding: 12px 28px !important;
+    font-size: 0.82rem !important;
+  }
+
+  .workshop-info-panel {
+    gap: 10px !important;
+  }
+
+  .workshop-detail {
+    min-height: 68px !important;
+    padding: 12px 14px !important;
+    border-radius: 14px !important;
+  }
+
+  .workshop-detail span {
+    font-size: 0.64rem !important;
+    margin-bottom: 4px !important;
+  }
+
+  .workshop-detail strong {
+    font-size: 0.82rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .workshop-divider {
+    margin: 22px 0 !important;
+  }
+
+  .workshop-learning-heading {
+    margin-bottom: 18px !important;
+  }
+
+  .workshop-learning-heading h3 {
+    font-size: clamp(1.6rem, 2.5vw, 2.35rem) !important;
+    margin-bottom: 10px !important;
+  }
+
+  .workshop-learning-heading p {
+    font-size: 0.88rem !important;
+    line-height: 1.4 !important;
+    max-width: 720px !important;
+  }
+
+  .workshop-learning-grid {
+    gap: 12px !important;
+  }
+
+  .workshop-learning-card {
+    min-height: 115px !important;
+    padding: 14px 16px !important;
+    border-radius: 16px !important;
+  }
+
+  .workshop-learning-card > span {
+    font-size: 1rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .workshop-learning-card h4 {
+    font-size: 0.82rem !important;
+    margin-bottom: 6px !important;
+  }
+
+  .workshop-learning-card p {
+    font-size: 0.76rem !important;
+    line-height: 1.35 !important;
+  }
+}
