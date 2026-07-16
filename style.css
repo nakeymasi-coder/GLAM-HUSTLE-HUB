@@ -234,7 +234,7 @@ nav {
   left: 0;
   width: 100%;
   margin-bottom: 0;
-  padding: 18px 48px;
+  padding: 9px 40px;
 
   display: flex;
   justify-content: flex-start;
@@ -382,45 +382,6 @@ ul li a:hover::after {
 }
 .split-section::after {
   display: none !important;
-}
-
-/* PUT IT RIGHT HERE ↓↓↓ */
-
-.glam-marquee {
-  background: #061225;
-  border-top: 1px solid rgba(212, 175, 55, 0.35);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.35);
-  overflow: hidden;
-  padding: 18px 0;
-
-  margin-top: -55px;
-  position: relative;
-  z-index: 5;
-}
-
-.glam-marquee-track {
-  display: flex;
-  gap: 55px;
-  width: max-content;
-  animation: glamScroll 22s linear infinite;
-}
-
-.glam-marquee-track span {
-  color: #d4af37;
-  font-weight: 900;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-@keyframes glamScroll {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
 }
 
 .split-image img {
@@ -1744,7 +1705,7 @@ body::before {
   }
 
   .workshop-copy h2 {
-    font-size: 2.55rem;
+    font-size: 2.55rem !important;
   }
 
   .workshop-info-panel,
@@ -1803,8 +1764,8 @@ body::before {
   }
 
   .workshop-description {
-    font-size: 0.88rem !important;
-    line-height: 1.4 !important;
+    font-size: 1.05rem !important;
+    line-height: 1.6 !important;
     margin-bottom: 18px !important;
   }
 
@@ -1828,11 +1789,10 @@ body::before {
     margin-bottom: 4px !important;
   }
 
-  .workshop-detail strong {
-    font-size: 0.82rem !important;
-    line-height: 1.2 !important;
+  .workshop-description {
+    font-size: 1.05rem !important;
+    line-height: 1.6 !important;
   }
-
   .workshop-divider {
     margin: 22px 0 !important;
   }
@@ -1842,13 +1802,13 @@ body::before {
   }
 
   .workshop-learning-heading h3 {
-    font-size: clamp(1.6rem, 2.5vw, 2.35rem) !important;
+    font-size: 2.15rem !important;
     margin-bottom: 10px !important;
   }
 
   .workshop-learning-heading p {
-    font-size: 0.88rem !important;
-    line-height: 1.4 !important;
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
     max-width: 720px !important;
   }
 
@@ -1868,12 +1828,93 @@ body::before {
   }
 
   .workshop-learning-card h4 {
-    font-size: 0.82rem !important;
+    font-size: 1rem !important;
     margin-bottom: 6px !important;
   }
 
   .workshop-learning-card p {
-    font-size: 0.76rem !important;
+    font-size: 0.95rem !important;
     line-height: 1.35 !important;
+  }
+}
+/* ==========================================
+   SECTION DIVIDER
+========================================== */
+
+.section-divider {
+  width: 100%;
+  max-width: 1200px;
+  height: 1px;
+
+  margin: 60px auto;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(212, 175, 55, 0.45),
+    transparent
+  );
+}
+/* ==========================================
+   WORKSHOP ANNOUNCEMENT MARQUEE
+========================================== */
+
+.glam-marquee {
+  background: #050816;
+  border-top: 1px solid rgba(212, 175, 55, 0.35);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+
+  overflow: hidden;
+
+  padding: 14px 0;
+  margin: 0;
+
+  position: relative;
+  z-index: 9;
+}
+
+.glam-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+
+  width: max-content;
+
+  animation: glamScroll 22s linear infinite;
+}
+
+.glam-marquee-track span {
+  color: #d4af37;
+
+  font-size: 0.88rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@keyframes glamScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .glam-marquee {
+    padding: 9px 0;
+  }
+
+  .glam-marquee-track {
+    gap: 36px;
+    animation-duration: 18s;
+  }
+
+  .glam-marquee-track span {
+    font-size: 0.68rem;
+    letter-spacing: 1.5px;
   }
 }
