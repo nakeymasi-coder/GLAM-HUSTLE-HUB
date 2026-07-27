@@ -2,7 +2,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background: linear-gradient(to bottom, #000000, #0a1f44);
+  background: linear-gradient(to bottom, #000000, #2a0d38);
   color: gold;
   font-family: "Montserrat", sans-serif;
   text-align: center;
@@ -14,7 +14,7 @@ h1 {
   font-weight: 900;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #d4af37;
+  color: #e4bd72;
 
   display: inline-block;
 
@@ -41,7 +41,7 @@ p {
   margin-bottom: 24px;
 }
 button {
-  background: linear-gradient(135deg, #d4af37, #ffcc00);
+  background: linear-gradient(135deg, #e4bd72, #b76bd6);
   color: black;
   border: none;
 
@@ -171,7 +171,7 @@ button:hover {
   text-align: left;
   line-height: 0.88;
 
-  color: #d4af37;
+  color: #e4bd72;
 
   text-shadow: 0 1px 4px rgba(255, 215, 0, 0.12);
 }
@@ -196,7 +196,7 @@ button:hover {
   animation: fadeUp 1s ease forwards;
   animation-delay: 0.6s;
 
-  background: linear-gradient(to right, #fff6cc, #d4af37, #caa400);
+  background: linear-gradient(to right, #f8e8bf, #e4bd72, #9d4ab8);
 
   border: none;
 
@@ -261,7 +261,7 @@ nav {
 }
 
 ul li a:hover {
-  color: #d4af37;
+  color: #e4bd72;
   text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
 }
 
@@ -278,7 +278,7 @@ ul li a:hover::after {
 .menu-toggle {
   display: none;
   font-size: 32px;
-  color: #d4af37;
+  color: #e4bd72;
   cursor: pointer;
   margin-left: auto;
 }
@@ -321,13 +321,13 @@ ul li a::after {
   width: 0%;
   height: 2px;
 
-  background: #d4af37;
+  background: #e4bd72;
 
   transition: width 0.3s ease;
 }
 
 ul li a:hover {
-  color: #d4af37;
+  color: #e4bd72;
 
   text-shadow:
     0 0 8px rgba(255, 215, 0, 0.6),
@@ -339,7 +339,7 @@ ul li a:hover::after {
 
 .featured-mockup {
   padding: 60px 8% 55px;
-  background: linear-gradient(to bottom, #050b18, #061225);
+  background: linear-gradient(to bottom, #120817, #1b0b25);
   text-align: center;
 }
 .featured-mockup::after {
@@ -348,7 +348,7 @@ ul li a:hover::after {
 
 .featured-mockup h2 {
   display: inline-block;
-  color: #d4af37;
+  color: #e4bd72;
   font-size: 1rem;
   margin: 0 0 0 12px;
   vertical-align: middle;
@@ -398,7 +398,7 @@ ul li a:hover::after {
 }
 
 .split-text h2 {
-  color: #d4af37;
+  color: #e4bd72;
   font-size: clamp(1rem, 4vw, 2.25rem);
   line-height: 1.05;
   margin: 25px auto;
@@ -482,7 +482,7 @@ ul li a:hover::after {
   opacity: 1;
   color: black;
   text-decoration: none;
-  background: linear-gradient(135deg, #f8dc63, #d4af37) !important;
+  background: linear-gradient(135deg, #e7c27d, #e4bd72) !important;
   box-shadow: none !important;
   border-radius: 999px;
 
@@ -520,14 +520,14 @@ ul li a:hover::after {
     box-shadow 0.45s ease;
   box-shadow:
     0 12px 30px rgba(0, 0, 0, 0.45),
-    0 0 18px rgba(58, 123, 255, 0.08);
+    0 0 18px rgba(139, 55, 177, 0.12);
 }
 
 .mockup-card:hover img {
   transform: scale(1.045);
   box-shadow:
     0 0 32px rgba(212, 175, 55, 0.35),
-    0 0 70px rgba(58, 123, 255, 0.25);
+    0 0 70px rgba(139, 55, 177, 0.30);
 }
 
 @media (max-width: 768px) {
@@ -560,13 +560,13 @@ ul li a:hover::after {
     font-size: 42px;
     font-weight: 900;
 
-    color: #d4af37;
+    color: #e4bd72;
 
     background: rgba(0, 0, 0, 0.65);
     padding: 10px 16px;
     border-radius: 12px;
 
-    border: 2px solid #d4af37;
+    border: 2px solid #e4bd72;
 
     box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
 
@@ -577,7 +577,7 @@ ul li a:hover::after {
 .about {
   position: relative;
   padding: 50px 8%;
-  background: linear-gradient(to bottom, #050816, #081120, #0d1730);
+  background: linear-gradient(to bottom, #100914, #1e0d28, #24102f);
 }
 
 .about-container {
@@ -616,7 +616,7 @@ ul li a:hover::after {
   border-radius: 26px;
   box-shadow:
     0 0 28px rgba(212, 175, 55, 0.28),
-    0 0 55px rgba(58, 123, 255, 0.18);
+    0 0 55px rgba(139, 55, 177, 0.22);
 }
 .about-image img {
   width: 100%;
@@ -632,7 +632,7 @@ ul li a:hover::after {
   display: inline-block;
   margin-bottom: 18px;
 
-  color: #d4af37;
+  color: #e4bd72;
 
   font-size: 2rem;
   letter-spacing: 4px;
@@ -668,10 +668,10 @@ ul li a:hover::after {
 
   background: linear-gradient(
     to bottom,
-    #0d1730 0%,
-    #08152d 45%,
-    #06101f 70%,
-    #040814 100%
+    #24102f 0%,
+    #281037 45%,
+    #17091f 70%,
+    #09050c 100%
   );
 
   position: relative;
@@ -689,9 +689,9 @@ ul li a:hover::after {
 
   background: radial-gradient(
     ellipse at center,
-    rgba(0, 102, 255, 0.1) 0%,
-    rgba(0, 102, 255, 0.06) 35%,
-    rgba(0, 102, 255, 0.02) 55%,
+    rgba(139, 55, 177, 0.14) 0%,
+    rgba(139, 55, 177, 0.09) 35%,
+    rgba(139, 55, 177, 0.03) 55%,
     transparent 75%
   );
 
@@ -718,7 +718,7 @@ ul li a:hover::after {
   width: 320px;
   height: 320px;
   opacity: 0.45;
-  background: radial-gradient(circle, rgba(0, 102, 255, 0.18), transparent 70%);
+  background: radial-gradient(circle, rgba(139, 55, 177, 0.22), transparent 70%);
 
   top: -180px;
 
@@ -744,7 +744,7 @@ ul li a:hover::after {
   padding: 45px 8% 45px;
   text-align: center;
 
-  background: linear-gradient(to bottom, #020617, #031b4e);
+  background: linear-gradient(to bottom, #09060c, #321246);
 }
 
 .social-proof h2 {
@@ -781,7 +781,7 @@ ul li a:hover::after {
 .proof-card h3 {
   font-size: 4.7rem;
 
-  color: #d4af37;
+  color: #e4bd72;
 
   margin-bottom: 16px;
 }
@@ -797,7 +797,7 @@ ul li a:hover::after {
 .testimonials {
   padding: 35px 20px 30px;
 
-  background: linear-gradient(to bottom, #031b4e, #020617);
+  background: linear-gradient(to bottom, #321246, #09060c);
 
   text-align: center;
 }
@@ -839,7 +839,7 @@ ul li a:hover::after {
 }
 
 .testimonial-card h4 {
-  color: #d4af37;
+  color: #e4bd72;
   font-size: 1rem;
   letter-spacing: 1px;
   text-align: left;
@@ -848,7 +848,7 @@ ul li a:hover::after {
 
 .cta-section {
   padding: 26px 20px;
-  background: linear-gradient(to bottom, #020617, #041d56);
+  background: linear-gradient(to bottom, #09060c, #3b1454);
 }
 
 .cta-box {
@@ -904,7 +904,7 @@ ul li a:hover::after {
   padding: 12px 26px;
   border: none;
   border-radius: 999px;
-  background: linear-gradient(135deg, #d4af37, #ffea70);
+  background: linear-gradient(135deg, #e4bd72, #e7c27d);
   color: #111;
   font-weight: 800;
   cursor: pointer;
@@ -920,7 +920,7 @@ ul li a:hover::after {
 .footer {
   padding: 55px 8% 38px;
   text-align: center;
-  background: #041d56;
+  background: #3b1454;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   position: relative;
   overflow: hidden;
@@ -983,7 +983,7 @@ ul li a:hover::after {
 }
 
 .footer-links a:hover {
-  color: #d4af37;
+  color: #e4bd72;
   transform: translateY(-2px);
   text-shadow: 0 0 18px rgba(255, 215, 0, 0.55);
 }
@@ -1018,7 +1018,7 @@ body::before {
   position: fixed;
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(0, 102, 255, 0.18), transparent 70%);
+  background: radial-gradient(circle, rgba(139, 55, 177, 0.22), transparent 70%);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -1043,7 +1043,7 @@ body::before {
 
 .creator-banner {
   padding: 42px 8% 32px;
-  background: #07152d;
+  background: #21102d;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1137,7 +1137,7 @@ body::before {
 
   box-shadow:
     0 0 25px rgba(255, 215, 0, 0.14),
-    0 0 70px rgba(0, 70, 255, 0.22),
+    0 0 70px rgba(139, 55, 177, 0.26),
     0 24px 55px rgba(0, 0, 0, 0.55);
   transition: all 0.4s ease;
 }
@@ -1149,7 +1149,7 @@ body::before {
 
   box-shadow:
     0 0 35px rgba(255, 215, 0, 0.28),
-    0 0 95px rgba(0, 70, 255, 0.35),
+    0 0 95px rgba(139, 55, 177, 0.40),
     0 28px 65px rgba(0, 0, 0, 0.65);
 }
 
@@ -1202,7 +1202,7 @@ body::before {
   font-weight: 800;
   color: black;
   text-decoration: none;
-  background: linear-gradient(135deg, #d4af37, #ffcc00);
+  background: linear-gradient(135deg, #e4bd72, #b76bd6);
   border-radius: 999px;
   box-shadow: 0 10px 25px rgba(255, 215, 0, 0.35);
   transition: all 0.3s ease;
@@ -1231,7 +1231,7 @@ body::before {
 .hero-btn {
   display: inline-block !important;
   text-decoration: none !important;
-  background: linear-gradient(135deg, #d4af37, #ffcc00) !important;
+  background: linear-gradient(135deg, #e4bd72, #b76bd6) !important;
   color: #000 !important;
   border: none !important;
   padding: 16px 40px !important;
@@ -1315,7 +1315,7 @@ body::before {
     height: 2px;
     width: 85%;
     margin: 35px auto 0;
-    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    background: linear-gradient(90deg, transparent, #e4bd72, transparent);
     box-shadow: 0 0 18px rgba(212, 175, 55, 0.45);
   }
   .testimonial-card a {
@@ -1324,7 +1324,7 @@ body::before {
     margin: 18px auto 0;
     padding: 12px 24px !important;
     max-width: fit-content;
-    background: linear-gradient(135deg, #f7d33b, #d6a900) !important;
+    background: linear-gradient(135deg, #e4bd72, #8f3eb0) !important;
     color: #000 !important;
     text-decoration: none !important;
     font-weight: 900 !important;
@@ -1343,7 +1343,7 @@ body::before {
     display: inline-block !important;
     margin-top: 20px;
     padding: 13px 32px !important;
-    background: linear-gradient(135deg, #f7d33b, #d6a900) !important;
+    background: linear-gradient(135deg, #e4bd72, #8f3eb0) !important;
     color: #000 !important;
     text-decoration: none !important;
     font-weight: 900 !important;
@@ -1415,7 +1415,7 @@ body::before {
   width: fit-content !important;
   margin: 18px auto 0 !important;
   padding: 12px 24px !important;
-  background: linear-gradient(135deg, #f7d33b, #d6a900) !important;
+  background: linear-gradient(135deg, #e4bd72, #8f3eb0) !important;
   color: #000 !important;
   text-decoration: none !important;
   font-weight: 900 !important;
@@ -1442,7 +1442,7 @@ body::before {
       rgba(212, 175, 55, 0.1),
       transparent 32%
     ),
-    linear-gradient(145deg, #030711, #07142b 55%, #091a36);
+    linear-gradient(145deg, #09050c, #21102d 55%, #321246);
 }
 
 .workshop-shell {
@@ -1478,7 +1478,7 @@ body::before {
 
 .workshop-label {
   display: inline-block;
-  color: #d4af37;
+  color: #e4bd72;
   font-size: 0.82rem;
   font-weight: 900;
   letter-spacing: 3px;
@@ -1516,7 +1516,7 @@ body::before {
   padding: 17px 38px;
   border-radius: 999px;
 
-  background: linear-gradient(135deg, #f9dd69, #d4af37, #ffcc00);
+  background: linear-gradient(135deg, #e7c27d, #e4bd72, #b76bd6);
 
   color: #000000;
   text-decoration: none;
@@ -1561,7 +1561,7 @@ body::before {
 }
 
 .workshop-detail span {
-  color: #d4af37;
+  color: #e4bd72;
   font-size: 0.76rem;
   font-weight: 900;
   letter-spacing: 2px;
@@ -1660,7 +1660,7 @@ body::before {
 }
 
 .workshop-learning-card h4 {
-  color: #d4af37;
+  color: #e4bd72;
   font-size: 1.05rem;
   letter-spacing: 1px;
   margin: 0 0 12px;
@@ -1860,7 +1860,7 @@ body::before {
 ========================================== */
 
 .glam-marquee {
-  background: #050816;
+  background: #100914;
   border-top: 1px solid rgba(212, 175, 55, 0.35);
   border-bottom: 1px solid rgba(212, 175, 55, 0.35);
 
@@ -1884,7 +1884,7 @@ body::before {
 }
 
 .glam-marquee-track span {
-  color: #d4af37;
+  color: #e4bd72;
 
   font-size: 0.88rem;
   font-weight: 900;
@@ -1916,5 +1916,416 @@ body::before {
   .glam-marquee-track span {
     font-size: 0.68rem;
     letter-spacing: 1.5px;
+  }
+}
+
+/* ==========================================
+   PAID FACEBOOK COMMUNITY FEATURE
+   Reuses the former workshop section
+========================================== */
+.community-section {
+  padding: 42px 7% !important;
+}
+
+.community-shell {
+  padding: 30px !important;
+}
+
+.community-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(360px, 1.1fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.community-flyer-wrap {
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.5),
+    0 0 35px rgba(124, 58, 237, 0.16);
+}
+
+.community-flyer-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.community-copy h2 {
+  color: #ffffff;
+  font-size: clamp(2.25rem, 4vw, 4rem);
+  line-height: 1;
+  margin: 0 0 22px;
+}
+
+.community-benefits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 0 0 28px;
+}
+
+.community-benefits span {
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.35;
+  padding: 13px 15px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+}
+
+.community-btn {
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .community-layout {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .community-copy {
+    text-align: center;
+  }
+
+  .community-copy .workshop-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 650px) {
+  .community-section {
+    padding: 42px 16px !important;
+  }
+
+  .community-shell {
+    padding: 18px !important;
+  }
+
+  .community-flyer-wrap {
+    border-radius: 18px;
+  }
+
+  .community-copy h2 {
+    font-size: 2.35rem !important;
+  }
+
+  .community-benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .community-btn {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+
+/* ==========================================
+   BRAND PALETTE — PURPLE, GOLD, BLACK & WHITE
+   Updated to match the Facebook community flyer
+========================================== */
+:root {
+  --brand-black: #09050c;
+  --brand-plum: #21102d;
+  --brand-purple: #6f2d8f;
+  --brand-purple-bright: #9d4ab8;
+  --brand-gold: #e4bd72;
+  --brand-white: #ffffff;
+}
+
+::selection {
+  background: var(--brand-purple);
+  color: var(--brand-white);
+}
+
+.community-section {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(157, 74, 184, 0.22), transparent 34%),
+    linear-gradient(145deg, #09050c, #21102d 56%, #351448);
+}
+
+.community-shell {
+  border-color: rgba(228, 189, 114, 0.38);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55), 0 0 55px rgba(157, 74, 184, 0.18);
+}
+
+.community-benefits span {
+  background: linear-gradient(145deg, rgba(111, 45, 143, 0.22), rgba(255, 255, 255, 0.025));
+  border-color: rgba(228, 189, 114, 0.28);
+}
+
+
+/* ==========================================
+   HERO VIDEO
+========================================== */
+.hero-video-section {
+  background-image: none !important;
+  isolation: isolate;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+  z-index: 0;
+}
+
+.hero-video-section::before {
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.58),
+    rgba(20, 4, 28, 0.30),
+    rgba(0, 0, 0, 0.48)
+  );
+}
+
+.hero-video-section .hero-content {
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .hero-video-section {
+    background-image: none !important;
+    min-height: 72vh;
+  }
+
+  .hero-video {
+    object-position: center center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video {
+    display: none;
+  }
+
+  .hero-video-section {
+    background-image: url("images/hero-desktop.jpg") !important;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* ==========================================
+   NAVIGATION + ANNOUNCEMENT BANNER COLOR FIX
+   Matches the black, purple, metallic gold and white flyer palette
+========================================== */
+nav {
+  background: linear-gradient(
+    135deg,
+    rgba(9, 5, 12, 0.98) 0%,
+    rgba(33, 16, 45, 0.98) 48%,
+    rgba(53, 20, 72, 0.98) 100%
+  ) !important;
+  border-bottom: 1px solid rgba(228, 189, 114, 0.5) !important;
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.55),
+    0 0 24px rgba(111, 45, 143, 0.18) !important;
+}
+
+nav ul li a {
+  color: var(--brand-white) !important;
+}
+
+nav ul li a::after {
+  background: linear-gradient(90deg, var(--brand-gold), var(--brand-purple-bright)) !important;
+}
+
+nav ul li a:hover {
+  color: var(--brand-gold) !important;
+  text-shadow: 0 0 12px rgba(228, 189, 114, 0.5) !important;
+}
+
+.glam-marquee {
+  background: linear-gradient(
+    90deg,
+    #09050c 0%,
+    #351448 28%,
+    #6f2d8f 50%,
+    #351448 72%,
+    #09050c 100%
+  ) !important;
+  border-top: 1px solid rgba(228, 189, 114, 0.6) !important;
+  border-bottom: 1px solid rgba(228, 189, 114, 0.6) !important;
+  box-shadow: inset 0 0 28px rgba(0, 0, 0, 0.28) !important;
+}
+
+.glam-marquee-track span {
+  color: var(--brand-gold) !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.65) !important;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    color: var(--brand-gold) !important;
+    background: linear-gradient(145deg, rgba(9, 5, 12, 0.96), rgba(53, 20, 72, 0.96)) !important;
+    border-color: var(--brand-gold) !important;
+    box-shadow: 0 0 22px rgba(157, 74, 184, 0.42) !important;
+  }
+}
+
+/* ==========================================
+   COMPACT FACEBOOK COMMUNITY SECTION
+========================================== */
+.community-section {
+  padding: 26px 7% !important;
+}
+
+.community-shell {
+  max-width: 1120px;
+  padding: 22px 26px !important;
+  border-radius: 24px !important;
+}
+
+.community-layout {
+  grid-template-columns: minmax(260px, 0.72fr) minmax(420px, 1.28fr);
+  gap: 34px;
+}
+
+.community-flyer-wrap {
+  max-width: 360px;
+  max-height: 500px;
+  margin: 0 auto;
+  border-radius: 18px;
+}
+
+.community-flyer-wrap img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.community-copy h2 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  margin-bottom: 14px;
+}
+
+.community-copy .workshop-label {
+  margin-bottom: 8px !important;
+}
+
+.community-copy .workshop-kicker {
+  margin-bottom: 8px !important;
+}
+
+.community-copy .workshop-description {
+  font-size: 0.98rem !important;
+  line-height: 1.55 !important;
+  margin-bottom: 18px !important;
+}
+
+.community-benefits {
+  gap: 9px;
+  margin-bottom: 20px;
+}
+
+.community-benefits span {
+  padding: 10px 12px;
+  font-size: 0.82rem;
+}
+
+.community-btn {
+  padding: 13px 28px !important;
+  font-size: 0.84rem !important;
+}
+
+@media (max-width: 900px) {
+  .community-layout {
+    grid-template-columns: minmax(230px, 0.75fr) minmax(360px, 1.25fr);
+    gap: 24px;
+  }
+
+  .community-flyer-wrap,
+  .community-flyer-wrap img {
+    height: 430px;
+    max-height: 430px;
+  }
+}
+
+@media (max-width: 700px) {
+  .community-section {
+    padding: 28px 16px !important;
+  }
+
+  .community-shell {
+    padding: 18px !important;
+  }
+
+  .community-layout {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .community-flyer-wrap {
+    width: min(100%, 330px);
+    height: 430px;
+    max-height: 430px;
+  }
+
+  .community-flyer-wrap img {
+    height: 430px;
+  }
+
+  .community-copy h2 {
+    font-size: 2rem !important;
+  }
+
+  .community-benefits {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 430px) {
+  .community-flyer-wrap,
+  .community-flyer-wrap img {
+    height: 370px;
+    max-height: 370px;
+  }
+
+  .community-benefits {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================
+   COMPACT FEATURED COLLECTION BANNER
+========================================== */
+.split-section {
+  min-height: 460px !important;
+  height: 460px;
+  margin-top: 24px !important;
+  background-position: center 36% !important;
+  background-size: cover !important;
+}
+
+.split-section .hero-btn {
+  margin: 0 !important;
+  position: static !important;
+}
+
+@media (max-width: 768px) {
+  .split-section {
+    min-height: 320px !important;
+    height: 320px !important;
+    padding: 0 18px !important;
+    margin-top: 18px !important;
+    background-position: center 34% !important;
+  }
+
+  .split-section .hero-btn {
+    padding: 12px 26px !important;
+    font-size: 0.85rem !important;
   }
 }
