@@ -1367,3 +1367,33 @@ footer p {
     animation: none;
   }
 }
+/* Remove the jump from the infinite carousel */
+.product-row {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 5vw;
+  will-change: transform;
+}
+
+/* Exact measured carousel — overrides the older percentage animation */
+.product-row {
+  width: 100% !important;
+  margin-left: 0 !important;
+  padding: 10px 5vw 45px !important;
+  overflow-x: hidden !important;
+  scroll-snap-type: none !important;
+  scroll-behavior: auto !important;
+  animation: none !important;
+  transform: none !important;
+  scrollbar-width: none;
+}
+
+.product-row::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-row {
+    overflow-x: auto !important;
+  }
+}
