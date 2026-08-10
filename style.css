@@ -1325,3 +1325,45 @@ footer p {
     #02060b 72%
   ) !important;
 }
+/* Show the complete About photo without cropping Glam */
+.about-image {
+  height: auto !important;
+}
+
+.about-image img {
+  display: block;
+  width: 100%;
+  height: auto !important;
+  object-fit: contain !important;
+  object-position: center top !important;
+}
+/* Slow luxury Best Sellers carousel */
+.products {
+  overflow: hidden;
+}
+
+.product-row {
+  width: max-content;
+  overflow: visible;
+  animation: bestSellerLuxuryScroll 55s linear infinite;
+}
+
+.product-row:hover {
+  animation-play-state: paused;
+}
+
+@keyframes bestSellerLuxuryScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 11px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-row {
+    animation: none;
+  }
+}
