@@ -1,46 +1,92 @@
 const drawer = document.getElementById("drawer");
 const shade = document.getElementById("shade");
 const nav = document.getElementById("topNav");
+const openDrawerButton = document.getElementById("openDrawer");
+const menuButton = document.getElementById("menuButton");
+const closeDrawerButton = document.getElementById("closeDrawer");
 
-document.getElementById("openDrawer").onclick = () => {
+function openDrawer() {
   drawer.classList.add("open");
   shade.classList.add("on");
-};
+  drawer.setAttribute("aria-hidden", "false");
 
-document.getElementById("closeDrawer").onclick = closeDrawer;
-shade.onclick = closeDrawer;
+  if (openDrawerButton) {
+    openDrawerButton.setAttribute("aria-expanded", "true");
+  }
+
+  if (menuButton) {
+    menuButton.setAttribute("aria-expanded", "true");
+    menuButton.setAttribute("aria-label", "Close categories");
+  }
+}
 
 function closeDrawer() {
   drawer.classList.remove("open");
   shade.classList.remove("on");
+  drawer.setAttribute("aria-hidden", "true");
+
+  if (openDrawerButton) {
+    openDrawerButton.setAttribute("aria-expanded", "false");
+  }
+
+  if (menuButton) {
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "Open categories");
+  }
 }
 
-document.getElementById("menuButton").onclick = () => {
-  nav.classList.toggle("open");
-};
+if (openDrawerButton) {
+  openDrawerButton.addEventListener("click", openDrawer);
+}
 
-nav.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("open");
+if (menuButton) {
+  menuButton.addEventListener("click", () => {
+    if (drawer.classList.contains("open")) {
+      closeDrawer();
+    } else {
+      openDrawer();
+    }
   });
+}
+
+if (closeDrawerButton) {
+  closeDrawerButton.addEventListener("click", closeDrawer);
+}
+
+if (shade) {
+  shade.addEventListener("click", closeDrawer);
+}
+
+/* Close the category drawer after a category is selected. */
+drawer.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", closeDrawer);
 });
 
+/* Escape key closes the drawer. */
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && drawer.classList.contains("open")) {
+    closeDrawer();
+  }
+});
+
+/* Desktop navigation remains normal. No full-screen mobile nav overlay. */
+if (nav) {
+  nav.classList.remove("open");
+}
+
 const observer = new IntersectionObserver(
-  (entries) => {
+  (entries) =>
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
       }
-    });
-  },
+    }),
   { threshold: 0.12 },
 );
 
-document.querySelectorAll(".rise").forEach((item) => {
-  observer.observe(item);
-});
+document.querySelectorAll(".rise").forEach((item) => observer.observe(item));
 
-// Exact, seamless Best Sellers carousel
+/* Slow luxury carousel for Best Sellers in Motion */
 const bestSellerRow = document.querySelector(".product-row");
 
 if (bestSellerRow && !bestSellerRow.dataset.carouselReady) {
@@ -56,79 +102,5 @@ if (bestSellerRow && !bestSellerRow.dataset.carouselReady) {
     duplicate.classList.add("visible");
 
     bestSellerRow.appendChild(duplicate);
-  });
-
-  let loopWidth = 0;
-  let position = 0;
-  let lastTime = 0;
-  let paused = false;
-
-  const pixelsPerSecond = 18;
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-  function measureLoop() {
-    const firstOriginal = bestSellerRow.children[0];
-    const firstDuplicate = bestSellerRow.children[originalProducts.length];
-
-    if (firstOriginal && firstDuplicate) {
-      loopWidth = firstDuplicate.offsetLeft - firstOriginal.offsetLeft;
-
-      position = position % loopWidth;
-      bestSellerRow.scrollLeft = position;
-    }
-  }
-
-  function animateCarousel(time) {
-    if (!lastTime) {
-      lastTime = time;
-    }
-
-    const elapsed = Math.min(time - lastTime, 50);
-    lastTime = time;
-
-    if (!paused && !reduceMotion.matches && loopWidth > 0) {
-      position += pixelsPerSecond * (elapsed / 1000);
-
-      if (position >= loopWidth) {
-        position -= loopWidth;
-      }
-
-      bestSellerRow.scrollLeft = position;
-    }
-
-    requestAnimationFrame(animateCarousel);
-  }
-
-  bestSellerRow.addEventListener("mouseenter", () => {
-    paused = true;
-  });
-
-  bestSellerRow.addEventListener("mouseleave", () => {
-    paused = false;
-  });
-
-  bestSellerRow.addEventListener(
-    "touchstart",
-    () => {
-      paused = true;
-    },
-    { passive: true },
-  );
-
-  bestSellerRow.addEventListener(
-    "touchend",
-    () => {
-      position = bestSellerRow.scrollLeft;
-      paused = false;
-    },
-    { passive: true },
-  );
-
-  window.addEventListener("resize", measureLoop);
-  window.addEventListener("load", measureLoop);
-
-  requestAnimationFrame(() => {
-    measureLoop();
-    requestAnimationFrame(animateCarousel);
   });
 }
