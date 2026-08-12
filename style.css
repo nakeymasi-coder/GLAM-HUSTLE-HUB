@@ -407,16 +407,18 @@ aside > a span {
     url("images/bundle-birthday.png");
 }
 .screen small {
-  font-size: 7px;
-  letter-spacing: 0.16em;
+  font-size: clamp(12px, 1.15vw, 16px);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
 }
 .screen h3 {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(22px, 2.3vw, 37px);
+  font-size: clamp(18px, 1.75vw, 28px);
   font-weight: 500;
-  line-height: 0.98;
-  margin: 12px 0;
-  letter-spacing: -0.02em;
+  line-height: 1;
+  margin: 10px 0 12px;
+  letter-spacing: -0.015em;
 }
 .screen b {
   font-size: 7px;
@@ -801,12 +803,18 @@ footer p {
     border-radius: 11px;
     padding: 24px 6px 9px;
   }
+  .screen small {
+    font-size: 2.8vw;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+
   .screen h3 {
     font-family: "Playfair Display", Georgia, serif;
-    font-size: 4.7vw;
+    font-size: 3.8vw;
     font-weight: 500;
-    line-height: 0.98;
-    letter-spacing: -0.02em;
+    line-height: 1;
+    letter-spacing: -0.015em;
   }
   .modern-title span {
     font-size: 10vw;
