@@ -631,14 +631,14 @@ aside > a span {
   font-weight: 900;
 }
 .community {
-  padding: 120px 5vw;
+  padding: 45px 5vw;
   text-align: center;
   background: radial-gradient(circle, #2fc3ff, #077fbd 42%, #02070d 80%);
 }
 .community > div {
   max-width: 1100px;
   margin: auto;
-  padding: 70px 30px;
+  padding: 35px 30px;
   border: 1px solid #ffffff77;
   background: #010d17bb;
 }
@@ -653,6 +653,14 @@ aside > a span {
   max-width: 680px;
   margin: 0 auto 25px;
   line-height: 1.8;
+}
+
+.community-logo {
+  display: block;
+  width: min(420px, 82%);
+  height: auto;
+  margin: 0 auto 18px;
+  object-fit: contain;
 }
 footer {
   text-align: center;
@@ -1369,66 +1377,6 @@ footer p {
   object-fit: contain !important;
   object-position: center top !important;
 }
-/* Slow luxury Best Sellers carousel */
-.products {
-  overflow: hidden;
-}
-
-.product-row {
-  width: max-content;
-  overflow: visible;
-  animation: bestSellerLuxuryScroll 55s linear infinite;
-}
-
-.product-row:hover {
-  animation-play-state: paused;
-}
-
-@keyframes bestSellerLuxuryScroll {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(calc(-50% - 11px));
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .product-row {
-    animation: none;
-  }
-}
-/* Remove the jump from the infinite carousel */
-.product-row {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: 5vw;
-  will-change: transform;
-}
-
-/* Exact measured carousel — overrides the older percentage animation */
-.product-row {
-  width: 100% !important;
-  margin-left: 0 !important;
-  padding: 10px 5vw 45px !important;
-  overflow-x: hidden !important;
-  scroll-snap-type: none !important;
-  scroll-behavior: auto !important;
-  animation: none !important;
-  transform: none !important;
-  scrollbar-width: none;
-}
-
-.product-row::-webkit-scrollbar {
-  display: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .product-row {
-    overflow-x: auto !important;
-  }
-}
 /* =========================================================
    MOBILE RESPONSIVE FIXES
    Added to keep categories accessible and prevent image crop
@@ -2108,5 +2056,50 @@ footer p {
 
   .workshop-support {
     padding: 75px 0;
+  }
+}
+
+/* =========================================================
+   BEST SELLERS — SINGLE CLEAN INFINITE CAROUSEL
+   ========================================================= */
+.products {
+  overflow: hidden;
+}
+
+.product-row {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  width: max-content !important;
+  gap: 22px !important;
+  margin: 0 !important;
+  padding: 10px 0 45px !important;
+  overflow: visible !important;
+  scroll-snap-type: none !important;
+  scrollbar-width: none;
+
+  animation-name: glamBestSellerScroll !important;
+  animation-duration: 40s !important;
+  animation-timing-function: linear !important;
+  animation-iteration-count: infinite !important;
+  animation-play-state: running !important;
+
+  will-change: transform;
+}
+
+.product-row::-webkit-scrollbar {
+  display: none;
+}
+
+.product-row:hover {
+  animation-play-state: paused !important;
+}
+
+@keyframes glamBestSellerScroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(calc(-50% - 11px), 0, 0);
   }
 }

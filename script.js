@@ -6,6 +6,8 @@ const menuButton = document.getElementById("menuButton");
 const closeDrawerButton = document.getElementById("closeDrawer");
 
 function openDrawer() {
+  if (!drawer || !shade) return;
+
   drawer.classList.add("open");
   shade.classList.add("on");
   drawer.setAttribute("aria-hidden", "false");
@@ -21,6 +23,8 @@ function openDrawer() {
 }
 
 function closeDrawer() {
+  if (!drawer || !shade) return;
+
   drawer.classList.remove("open");
   shade.classList.remove("on");
   drawer.setAttribute("aria-hidden", "true");
@@ -41,7 +45,7 @@ if (openDrawerButton) {
 
 if (menuButton) {
   menuButton.addEventListener("click", () => {
-    if (drawer.classList.contains("open")) {
+    if (drawer && drawer.classList.contains("open")) {
       closeDrawer();
     } else {
       openDrawer();
@@ -57,19 +61,18 @@ if (shade) {
   shade.addEventListener("click", closeDrawer);
 }
 
-/* Close the category drawer after a category is selected. */
-drawer.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", closeDrawer);
-});
+if (drawer) {
+  drawer.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeDrawer);
+  });
+}
 
-/* Escape key closes the drawer. */
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && drawer.classList.contains("open")) {
+  if (event.key === "Escape" && drawer && drawer.classList.contains("open")) {
     closeDrawer();
   }
 });
 
-/* Desktop navigation remains normal. No full-screen mobile nav overlay. */
 if (nav) {
   nav.classList.remove("open");
 }
@@ -96,11 +99,9 @@ if (bestSellerRow && !bestSellerRow.dataset.carouselReady) {
 
   originalProducts.forEach((product) => {
     const duplicate = product.cloneNode(true);
-
     duplicate.setAttribute("aria-hidden", "true");
     duplicate.classList.remove("rise");
     duplicate.classList.add("visible");
-
     bestSellerRow.appendChild(duplicate);
   });
 }
