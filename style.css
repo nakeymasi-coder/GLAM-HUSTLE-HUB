@@ -304,20 +304,20 @@ aside > a span {
   font-size: 7px;
 }
 .ad1 {
-  background-image: url("images/reference-grid.png");
-  background-position: 0 0;
+  background-image: url("images/luxury-prompt-generators.png");
+  background-position: center;
 }
 .ad2 {
-  background-image: url("images/reference-grid.png");
-  background-position: 100% 0;
+  background-image: url("images/top-sell.png");
+  background-position: center;
 }
 .ad3 {
-  background-image: url("images/reference-grid.png");
-  background-position: 0 100%;
+  background-image: url("images/editable-canva-templates.png");
+  background-position: center;
 }
 .ad4 {
-  background-image: url("images/reference-grid.png");
-  background-position: 100% 100%;
+  background-image: url("images/prompts.png");
+  background-position: center;
 }
 .phone-showcase {
   min-height: 630px;
