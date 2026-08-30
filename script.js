@@ -28,6 +28,10 @@
   hero.parentNode.insertBefore(mansion, hero);
 })();
 
+/* Remove the retired homepage creative promo grid entirely. */
+const creativeGrid = document.querySelector(".creative-grid");
+if (creativeGrid) creativeGrid.remove();
+
 const drawer = document.getElementById("drawer");
 const shade = document.getElementById("shade");
 const nav = document.getElementById("topNav");
