@@ -1,0 +1,429 @@
+/* Glam Hustle Hub — Mansion Interface Layer
+   KEEP THE ENGINE. CHANGE THE EXPERIENCE.
+   This file only re-skins the homepage interface. Existing links, cards,
+   sections, products, reviews, workshops and routes remain intact. */
+
+.mansion-mode {
+  --mansion-blue: var(--blue, #28bfff);
+  --mansion-deep: var(--deep, #087ec8);
+  --mansion-black: var(--black, #02050a);
+  --mansion-silver: var(--silver, #dce7ed);
+  --mansion-white: #ffffff;
+  background:
+    radial-gradient(circle at 50% -10%, color-mix(in srgb, var(--mansion-blue) 28%, transparent), transparent 36%),
+    #02050a;
+}
+
+.mansion-mode .agency-hero {
+  display: none;
+}
+
+.mansion-world {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 760px;
+  padding: clamp(30px, 4vw, 58px) clamp(16px, 3vw, 44px) clamp(40px, 5vw, 76px);
+  background:
+    radial-gradient(circle at 50% 28%, rgba(40, 191, 255, 0.24), transparent 25%),
+    radial-gradient(circle at 8% 42%, rgba(220, 231, 237, 0.11), transparent 28%),
+    radial-gradient(circle at 92% 42%, rgba(40, 191, 255, 0.12), transparent 28%),
+    linear-gradient(180deg, #07111c 0%, #02050a 54%, #000 100%);
+  border-bottom: 1px solid rgba(220, 231, 237, 0.2);
+}
+
+.mansion-world::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0.65;
+  background-image:
+    radial-gradient(circle at 10% 14%, #fff 0 1px, transparent 1.8px),
+    radial-gradient(circle at 28% 8%, #28bfff 0 1px, transparent 2px),
+    radial-gradient(circle at 55% 16%, #fff 0 1px, transparent 1.8px),
+    radial-gradient(circle at 76% 6%, #dce7ed 0 1px, transparent 2px),
+    radial-gradient(circle at 92% 22%, #28bfff 0 1px, transparent 2px);
+  background-size: 240px 170px, 310px 210px, 280px 190px, 350px 220px, 300px 190px;
+}
+
+.mansion-world::after {
+  content: "";
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 18px;
+  height: 180px;
+  z-index: -1;
+  opacity: 0.7;
+  background: radial-gradient(ellipse at center, rgba(40, 191, 255, 0.22), transparent 68%);
+  filter: blur(24px);
+}
+
+.mansion-intro {
+  position: relative;
+  z-index: 5;
+  width: min(820px, 92%);
+  margin: 0 auto 34px;
+  padding: 18px 24px 20px;
+  text-align: center;
+  border: 1px solid rgba(220, 231, 237, 0.38);
+  border-radius: 26px;
+  background: linear-gradient(180deg, rgba(3, 9, 16, 0.94), rgba(1, 5, 10, 0.82));
+  box-shadow:
+    inset 0 0 0 1px rgba(40, 191, 255, 0.18),
+    0 0 46px rgba(40, 191, 255, 0.17);
+}
+
+.mansion-intro small {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--mansion-silver);
+  font: 800 9px/1.3 Lato, Arial, sans-serif;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.mansion-intro h1 {
+  margin: 0;
+  color: var(--mansion-white);
+  font: 700 clamp(36px, 5.4vw, 76px)/0.95 Cinzel, Georgia, serif;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  text-shadow: 0 0 28px rgba(40, 191, 255, 0.34);
+}
+
+.mansion-intro h1 span {
+  color: var(--mansion-blue);
+}
+
+.mansion-intro p {
+  max-width: 680px;
+  margin: 12px auto 0;
+  color: #d6e6ee;
+  font: 500 13px/1.6 Lato, Arial, sans-serif;
+}
+
+.mansion-building {
+  width: min(1540px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.74fr 1.75fr 0.74fr 1.05fr;
+  grid-template-rows: 172px 180px 154px;
+  gap: 12px;
+  perspective: 1500px;
+}
+
+.mansion-room,
+.mansion-center {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  border: 1px solid rgba(220, 231, 237, 0.34);
+  background:
+    linear-gradient(145deg, rgba(40, 191, 255, 0.16), transparent 30%),
+    linear-gradient(180deg, #0a111a, #02050a 72%);
+  box-shadow:
+    inset 0 0 0 1px rgba(40, 191, 255, 0.12),
+    inset 0 -30px 50px rgba(0, 0, 0, 0.5),
+    0 16px 34px rgba(0, 0, 0, 0.42);
+}
+
+.mansion-room {
+  display: flex;
+  align-items: flex-end;
+  min-height: 140px;
+  padding: 18px;
+  border-radius: 28px 28px 15px 15px;
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.mansion-room::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px 20px 9px 9px;
+  background:
+    linear-gradient(90deg, transparent 0 30%, rgba(220, 231, 237, 0.08) 30% 31%, transparent 31% 68%, rgba(220, 231, 237, 0.08) 68% 69%, transparent 69%),
+    radial-gradient(circle at 50% 20%, rgba(40, 191, 255, 0.2), transparent 52%);
+  pointer-events: none;
+}
+
+.mansion-room::after {
+  content: "";
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  top: 11px;
+  height: 2px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, transparent, var(--mansion-blue), var(--mansion-silver), var(--mansion-blue), transparent);
+  box-shadow: 0 0 14px var(--mansion-blue);
+  opacity: 0.78;
+}
+
+.mansion-room:hover,
+.mansion-room:focus-visible {
+  transform: translateY(-6px) scale(1.012);
+  border-color: rgba(40, 191, 255, 0.82);
+  box-shadow:
+    inset 0 0 0 1px rgba(220, 231, 237, 0.14),
+    0 0 32px rgba(40, 191, 255, 0.25),
+    0 20px 44px rgba(0, 0, 0, 0.52);
+  outline: none;
+}
+
+.room-label {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 11px 12px 10px;
+  border: 1px solid rgba(220, 231, 237, 0.28);
+  border-radius: 12px;
+  background: rgba(1, 6, 12, 0.78);
+  backdrop-filter: blur(8px);
+}
+
+.room-label small {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--mansion-blue);
+  font: 800 8px/1.2 Lato, Arial, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.room-label strong {
+  display: block;
+  color: #fff;
+  font: 700 clamp(13px, 1.2vw, 17px)/1.15 Cinzel, Georgia, serif;
+  letter-spacing: 0.025em;
+}
+
+.room-label em {
+  display: block;
+  margin-top: 5px;
+  color: #cbd9df;
+  font: 700 8px/1.3 Lato, Arial, sans-serif;
+  font-style: normal;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.room-freebies { grid-column: 1; grid-row: 1; }
+.room-templates { grid-column: 1; grid-row: 2 / span 2; }
+.room-community { grid-column: 2; grid-row: 1 / span 2; }
+.room-one { grid-column: 2; grid-row: 3; }
+.room-workshops { grid-column: 4; grid-row: 1 / span 2; }
+.room-reviews { grid-column: 4; grid-row: 3; }
+.room-generators { grid-column: 5; grid-row: 1; }
+.room-bundles { grid-column: 5; grid-row: 2; }
+.room-best { grid-column: 5; grid-row: 3; }
+
+.room-templates,
+.room-community,
+.room-workshops {
+  align-items: center;
+}
+
+.mansion-center {
+  grid-column: 3;
+  grid-row: 1 / span 3;
+  border-radius: 54px 54px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 34px clamp(18px, 3vw, 46px) 24px;
+  text-align: center;
+  background:
+    linear-gradient(180deg, rgba(40, 191, 255, 0.18), transparent 30%),
+    radial-gradient(circle at 50% 52%, rgba(40, 191, 255, 0.19), transparent 22%),
+    linear-gradient(180deg, #0a131e 0%, #02050a 78%);
+}
+
+.mansion-center::before {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: 22px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--mansion-blue), var(--mansion-silver), var(--mansion-blue), transparent);
+  box-shadow: 0 0 22px rgba(40, 191, 255, 0.72);
+}
+
+.mansion-center-copy {
+  position: relative;
+  z-index: 2;
+  margin-top: 26px;
+}
+
+.mansion-center-copy small {
+  color: var(--mansion-silver);
+  font: 800 8px/1.2 Lato, Arial, sans-serif;
+  letter-spacing: 0.2em;
+}
+
+.mansion-center-copy h2 {
+  margin: 10px 0 8px;
+  color: #fff;
+  font: 700 clamp(28px, 4vw, 60px)/0.98 Cinzel, Georgia, serif;
+  text-transform: uppercase;
+}
+
+.mansion-center-copy h2 em {
+  color: var(--mansion-blue);
+  font-style: normal;
+  text-shadow: 0 0 24px rgba(40, 191, 255, 0.38);
+}
+
+.mansion-center-copy p {
+  max-width: 520px;
+  margin: 0 auto;
+  color: #c9d9e1;
+  font: 500 12px/1.55 Lato, Arial, sans-serif;
+}
+
+.mansion-entry {
+  position: relative;
+  z-index: 3;
+  width: min(360px, 86%);
+  margin: 18px auto 0;
+  padding: 18px 18px 16px;
+  border: 1px solid rgba(220, 231, 237, 0.42);
+  border-radius: 26px 26px 8px 8px;
+  color: #fff;
+  background:
+    linear-gradient(90deg, transparent 0 16%, rgba(40, 191, 255, 0.14) 16% 17%, transparent 17% 49%, rgba(220, 231, 237, 0.16) 49% 50%, transparent 50% 82%, rgba(40, 191, 255, 0.14) 82% 83%, transparent 83%),
+    linear-gradient(180deg, #0b1622, #02050a);
+  box-shadow:
+    inset 0 0 28px rgba(40, 191, 255, 0.12),
+    0 0 32px rgba(40, 191, 255, 0.12);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.mansion-entry:hover,
+.mansion-entry:focus-visible {
+  transform: translateY(-5px);
+  box-shadow: 0 0 42px rgba(40, 191, 255, 0.3);
+  outline: none;
+}
+
+.mansion-entry span {
+  display: block;
+  font: 700 18px/1.1 Cinzel, Georgia, serif;
+}
+
+.mansion-entry small {
+  display: block;
+  margin-top: 5px;
+  color: var(--mansion-blue);
+  font: 800 8px/1.2 Lato, Arial, sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.mansion-room-list {
+  display: none;
+}
+
+/* Carry the mansion palette into the existing website without rebuilding it. */
+.mansion-mode .creative-grid,
+.mansion-mode .phone-showcase,
+.mansion-mode .products,
+.mansion-mode .paths,
+.mansion-mode .about,
+.mansion-mode .reviews,
+.mansion-mode .community {
+  border-color: rgba(220, 231, 237, 0.16);
+}
+
+.mansion-mode .product,
+.mansion-mode .path,
+.mansion-mode .review-grid article {
+  border-color: rgba(220, 231, 237, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(40, 191, 255, 0.04);
+}
+
+@media (max-width: 1080px) {
+  .mansion-building {
+    grid-template-columns: 1fr 1fr 1.55fr 1fr;
+    grid-template-rows: repeat(4, 150px);
+  }
+
+  .mansion-center { grid-column: 2 / span 2; grid-row: 1 / span 3; }
+  .room-freebies { grid-column: 1; grid-row: 1; }
+  .room-templates { grid-column: 1; grid-row: 2 / span 2; }
+  .room-community { grid-column: 1; grid-row: 4; }
+  .room-one { grid-column: 2; grid-row: 4; }
+  .room-workshops { grid-column: 4; grid-row: 1 / span 2; }
+  .room-reviews { grid-column: 3; grid-row: 4; }
+  .room-generators { grid-column: 4; grid-row: 3; }
+  .room-bundles { grid-column: 4; grid-row: 4; }
+  .room-best { display: none; }
+}
+
+@media (max-width: 760px) {
+  .mansion-world {
+    min-height: auto;
+    padding: 24px 14px 34px;
+  }
+
+  .mansion-intro {
+    margin-bottom: 16px;
+    border-radius: 20px;
+  }
+
+  .mansion-intro h1 {
+    font-size: clamp(32px, 10vw, 48px);
+  }
+
+  .mansion-building {
+    display: block;
+  }
+
+  .mansion-center {
+    min-height: 470px;
+    border-radius: 36px 36px 18px 18px;
+  }
+
+  .mansion-building > .mansion-room {
+    display: none;
+  }
+
+  .mansion-room-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .mansion-room-list a {
+    min-height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 10px;
+    text-align: center;
+    border: 1px solid rgba(220, 231, 237, 0.24);
+    border-radius: 14px;
+    background: linear-gradient(180deg, #09131e, #02050a);
+    color: #fff;
+    font: 700 10px/1.3 Cinzel, Georgia, serif;
+    letter-spacing: 0.04em;
+  }
+
+  .mansion-room-list a:focus-visible {
+    outline: 2px solid var(--mansion-blue);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mansion-room,
+  .mansion-entry {
+    transition: none;
+  }
+}
