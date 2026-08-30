@@ -3,29 +3,25 @@
   const hero = document.querySelector(".agency-hero");
   if (!hero || document.querySelector(".mansion-interface")) return;
 
-  if (!document.querySelector('link[href="mansion.css"]')) {
-    const mansionStyles = document.createElement("link");
-    mansionStyles.rel = "stylesheet";
-    mansionStyles.href = "mansion.css";
-    document.head.appendChild(mansionStyles);
-  }
-
   const mansion = document.createElement("section");
   mansion.className = "mansion-interface";
   mansion.setAttribute("aria-label", "Explore the Glam Hustle Hub mansion");
   mansion.innerHTML = `
     <div class="mansion-stage">
-      <img src="images/glam-mansion-interface.svg" alt="Bright Caribbean Sapphire Glam Hustle Hub mansion with clickable creator rooms" />
-      <a class="mansion-hotspot room-freebies" data-room="Freebie Lounge" href="https://pin.it/7EFoolKlz" aria-label="Enter the Freebie Lounge"></a>
-      <a class="mansion-hotspot room-templates" data-room="Template Gallery" href="https://pin.it/LundB3IIK" aria-label="Enter the Template Gallery"></a>
-      <a class="mansion-hotspot room-bestsellers" data-room="Best Sellers" href="#best" aria-label="View Best Sellers"></a>
-      <a class="mansion-hotspot room-shop" data-room="Main Shop" href="https://payhip.com/GlowUpbyGlam/collection/all" aria-label="Enter the Main Shop"></a>
-      <a class="mansion-hotspot room-creators" data-room="Creator Studios" href="workshops.html" aria-label="Enter Creator Studios and Workshops"></a>
-      <a class="mansion-hotspot room-generators" data-room="Prompt Generator Lab" href="https://payhip.com/GlowUpbyGlam/collection/luxury-prompt-generators" aria-label="Enter the Prompt Generator Lab"></a>
-      <a class="mansion-hotspot room-community" data-room="Glam Vault Lounge" href="https://payhip.com/b/54LoK" aria-label="Enter the Glam Vault Lounge"></a>
-      <a class="mansion-hotspot room-bundles" data-room="Generator Bundle Vault" href="https://payhip.com/GlowUpbyGlam/collection/bundles" aria-label="Enter the Generator Bundle Vault"></a>
-      <a class="mansion-hotspot room-reviews" data-room="Review Gallery" href="#reviews" aria-label="Enter the Review Gallery"></a>
-      <div class="mansion-entry-note">Tap a room to enter</div>
+      <img src="images/sapphire-mansion-city.png" alt="Bright Caribbean Sapphire Glam City mansion filled with Black creators, glass rooms, sweeping stairs, balconies, and creator wings" />
+      <a class="mansion-hotspot room-freebies" href="https://pin.it/7EFoolKlz" aria-label="Enter the Freebie Lounge"><b>Freebie Lounge</b><span>Claim your gifts</span></a>
+      <a class="mansion-hotspot room-templates" href="https://pin.it/LundB3IIK" aria-label="Enter the Template Gallery"><b>Template Gallery</b><span>Canva-ready designs</span></a>
+      <a class="mansion-hotspot room-bestsellers" href="#best" aria-label="View Best Sellers"><b>Best-Seller Gallery</b><span>Customer favorites</span></a>
+      <a class="mansion-hotspot room-shop" href="https://payhip.com/GlowUpbyGlam/collection/all" aria-label="Enter the Main Shop"><b>The Grand Shop</b><span>Explore every collection</span></a>
+      <a class="mansion-hotspot room-creators" href="workshops.html" aria-label="Enter Creator Studios and Workshops"><b>Workshop Studio</b><span>Learn live with Glam</span></a>
+      <a class="mansion-hotspot room-support" href="one-on-one.html" aria-label="Enter the One-on-One Support Suite"><b>1:1 Support Suite</b><span>Private help, real clarity</span></a>
+      <a class="mansion-hotspot room-generators" href="https://payhip.com/GlowUpbyGlam/collection/luxury-prompt-generators" aria-label="Enter the Prompt Generator Lab"><b>Generator Lab</b><span>Luxury prompt tools</span></a>
+      <a class="mansion-hotspot room-community" href="https://payhip.com/b/54LoK" aria-label="Enter the Glam Vault Lounge"><b>Glam Vault Lounge</b><span>Skool community</span></a>
+      <a class="mansion-hotspot room-facebook" href="https://www.facebook.com/share/g/1Sv3VVCSaR/" aria-label="Enter the Facebook Community Lounge"><b>Community Lounge</b><span>Connect on Facebook</span></a>
+      <a class="mansion-hotspot room-bundles" href="https://payhip.com/GlowUpbyGlam/collection/bundles" aria-label="Enter the Generator Bundle Vault"><b>Bundle Vault</b><span>More tools, one collection</span></a>
+      <a class="mansion-hotspot room-pngs" href="https://pin.it/NGr63tHjX/" aria-label="Enter the two dollar PNG gallery"><b>$2 PNG Gallery</b><span>Quick creative finds</span></a>
+      <a class="mansion-hotspot room-reviews" href="#reviews" aria-label="Enter the Review Gallery"><b>Review Salon</b><span>Real women, real results</span></a>
+      <div class="mansion-entry-note">Choose a room to enter</div>
     </div>
   `;
 

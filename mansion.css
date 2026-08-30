@@ -1,16 +1,472 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
-:root{--glam-sapphire:#168FEA;--glam-deep:#103B63;--glam-black:#171A1E;--glam-white:#fff;--glam-silver:#dce7ed;}
-body{background:#eef9ff!important;font-family:"Montserrat",Arial,sans-serif!important;}
-.mansion-interface{position:relative;width:100%;overflow:hidden;background:linear-gradient(180deg,#f9fdff 0%,#dff4ff 58%,#fff 100%);border-bottom:1px solid rgba(16,59,99,.14)}
-.mansion-stage{position:relative;width:100%;aspect-ratio:1867/768;min-height:520px;background:linear-gradient(180deg,#f7fcff,#d8f1ff)}
-.mansion-stage>img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover}
-.mansion-hotspot{position:absolute;display:block;border:2px solid transparent;border-radius:24px;background:transparent;transition:.25s ease;z-index:4;outline:none}
-.mansion-hotspot::after{content:attr(data-room);position:absolute;left:50%;bottom:8px;transform:translateX(-50%) translateY(7px);padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.96);color:var(--glam-deep);border:1px solid rgba(22,143,234,.28);box-shadow:0 8px 28px rgba(16,59,99,.12);font:700 10px/1 "Montserrat",Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;opacity:0;pointer-events:none;transition:.2s ease}
-.mansion-hotspot:hover,.mansion-hotspot:focus-visible{border-color:rgba(255,255,255,.98);background:rgba(22,143,234,.10);box-shadow:0 0 0 4px rgba(22,143,234,.24),0 0 36px rgba(22,143,234,.42)}
-.mansion-hotspot:hover::after,.mansion-hotspot:focus-visible::after{opacity:1;transform:translateX(-50%) translateY(0)}
-.room-freebies{left:1%;top:10%;width:20%;height:29%}.room-templates{left:1%;top:40%;width:21%;height:40%}.room-bestsellers{left:21%;top:54%;width:18%;height:28%}.room-shop{left:31%;top:34%;width:27%;height:28%}.room-creators{left:68%;top:7%;width:31%;height:30%}.room-generators{left:63%;top:34%;width:19%;height:29%}.room-community{left:62%;top:62%;width:20%;height:21%}.room-bundles{left:83%;top:36%;width:16%;height:27%}.room-reviews{left:83%;top:64%;width:16%;height:24%}
-.mansion-entry-note{position:absolute;left:50%;bottom:2.4%;transform:translateX(-50%);z-index:5;padding:10px 18px;border-radius:999px;background:rgba(255,255,255,.95);color:var(--glam-deep);border:1px solid rgba(22,143,234,.22);box-shadow:0 12px 40px rgba(16,59,99,.16);font:700 10px/1 "Montserrat",Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;pointer-events:none}
-header{background:rgba(255,255,255,.98)!important;color:var(--glam-deep)!important;border-bottom:1px solid rgba(22,143,234,.18)!important}nav a{color:var(--glam-deep)!important}.explore,.hamb{background:var(--glam-sapphire)!important;color:#fff!important;border-radius:999px!important}.page-shell{background:#fff!important;box-shadow:none!important}
-.agency-hero{background:linear-gradient(100deg,rgba(22,143,234,.96),rgba(82,180,245,.86) 52%,rgba(255,255,255,.78)),url("images/reference-hero.png") center/cover!important}.hero-text h1,.hero-text p{color:#fff!important}.hero-text h1 em{color:#fff!important;text-shadow:0 4px 18px rgba(16,59,99,.18)!important}.hero-text>small,.grid-lead>small,.section-title>small,.about-copy>small{color:var(--glam-sapphire)!important}.hero-text>a,.grid-lead>a,.about-copy>a,.community a{background:#fff!important;color:var(--glam-deep)!important;border:1px solid rgba(22,143,234,.25)!important;box-shadow:0 10px 30px rgba(16,59,99,.14)!important}.products,.paths,.reviews,.about,.community{background:#fff!important;color:var(--glam-black)!important}.section-title h2,.about-copy h2{color:var(--glam-deep)!important}.section-title h2 em,.about-copy h2 em{color:var(--glam-sapphire)!important}.product,.path,.review-grid article{background:#f7fcff!important;border-color:rgba(22,143,234,.18)!important;color:var(--glam-black)!important}.marquee{background:var(--glam-sapphire)!important;color:#fff!important}footer{background:var(--glam-deep)!important;color:#fff!important}
-@media(max-width:900px){.mansion-stage{min-height:0;aspect-ratio:1867/768}.mansion-entry-note{font-size:8px;padding:8px 11px;bottom:1.5%}.mansion-hotspot{border-radius:12px}.mansion-hotspot::after{display:none}}
-@media(max-width:620px){.mansion-interface{overflow-x:auto;scrollbar-width:thin}.mansion-stage{width:980px;max-width:none;aspect-ratio:1867/768}}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  --glam-sapphire: #168fea;
+  --glam-sapphire-bright: #45b7ff;
+  --glam-deep: #103b63;
+  --glam-ink: #171a1e;
+  --glam-white: #fff;
+  --glam-cloud: #eef9ff;
+  --glam-silver: #dce7ed;
+  --glam-chrome: #f8fdff;
+}
+
+html { scroll-padding-top: 82px; }
+body,
+button,
+input,
+textarea,
+select { font-family: "Montserrat", Arial, sans-serif !important; }
+body {
+  background:
+    radial-gradient(circle at 50% 0, #fff 0 10%, transparent 35%),
+    linear-gradient(180deg, #eaf8ff 0, #fff 38%, #d9f1ff 100%) !important;
+  color: var(--glam-ink) !important;
+}
+
+.page-shell {
+  max-width: none !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  box-shadow: none !important;
+}
+
+header {
+  min-height: 78px;
+  background: rgba(255, 255, 255, .94) !important;
+  color: var(--glam-deep) !important;
+  border-bottom: 1px solid rgba(22, 143, 234, .2) !important;
+  box-shadow: 0 12px 40px rgba(16, 59, 99, .09);
+  backdrop-filter: blur(18px) saturate(1.4);
+}
+nav a { color: var(--glam-deep) !important; }
+nav a:hover { border-color: var(--glam-sapphire) !important; }
+.explore,
+.hamb {
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, #43b8ff, var(--glam-sapphire)) !important;
+  color: #fff !important;
+  box-shadow: 0 10px 26px rgba(22, 143, 234, .26);
+}
+aside {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.98), rgba(182,228,255,.96) 55%, rgba(22,143,234,.96)) !important;
+  color: var(--glam-deep) !important;
+  box-shadow: -25px 0 80px rgba(16,59,99,.2);
+}
+
+.mansion-interface {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #dff3ff;
+  border-bottom: 1px solid rgba(22, 143, 234, .2);
+}
+.mansion-stage {
+  position: relative;
+  width: 100%;
+  min-height: clamp(620px, 62vw, 960px);
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(180deg, #73b9ef, #dff5ff);
+}
+.mansion-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.08), transparent 58%, rgba(16,59,99,.1)),
+    radial-gradient(ellipse at 50% 44%, transparent 25%, rgba(16,59,99,.08) 100%);
+}
+.mansion-stage > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.1) contrast(1.02) brightness(1.04);
+}
+.mansion-brand {
+  position: absolute;
+  top: 4.2%;
+  left: 50%;
+  z-index: 4;
+  width: min(700px, 68vw);
+  padding: 18px 32px 20px;
+  transform: translateX(-50%);
+  text-align: center;
+  color: var(--glam-deep);
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 0 0 32px 32px;
+  background: linear-gradient(135deg, rgba(255,255,255,.94), rgba(223,246,255,.84));
+  box-shadow: 0 18px 54px rgba(16,59,99,.16), inset 0 1px 0 #fff;
+  backdrop-filter: blur(18px) saturate(1.3);
+}
+.mansion-brand small,
+.mansion-brand strong,
+.mansion-brand span { display: block; }
+.mansion-brand small {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .32em;
+}
+.mansion-brand strong {
+  margin: 6px 0;
+  font-size: clamp(28px, 4.2vw, 68px);
+  font-weight: 900;
+  line-height: .92;
+  letter-spacing: -.04em;
+  color: var(--glam-sapphire);
+  text-shadow: 0 2px 0 #fff, 0 7px 20px rgba(22,143,234,.2);
+}
+.mansion-brand span {
+  font-size: clamp(7px, .75vw, 11px);
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+.mansion-hotspot {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  width: max-content;
+  max-width: 190px;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px 13px 9px;
+  color: var(--glam-deep);
+  border: 1px solid rgba(255,255,255,.96);
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255,255,255,.94), rgba(222,244,255,.82));
+  box-shadow: 0 10px 34px rgba(16,59,99,.17), inset 0 1px 0 #fff;
+  backdrop-filter: blur(11px) saturate(1.35);
+  transition: transform .22s ease, background .22s ease, box-shadow .22s ease;
+  outline: none;
+}
+.mansion-hotspot::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: -8px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--glam-sapphire);
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 3px rgba(22,143,234,.2), 0 0 24px var(--glam-sapphire);
+}
+.mansion-hotspot b {
+  font-size: clamp(9px, .8vw, 12px);
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.mansion-hotspot span {
+  font-size: clamp(6px, .54vw, 8px);
+  font-weight: 700;
+  color: #3f6e91;
+  letter-spacing: .03em;
+}
+.mansion-hotspot:hover,
+.mansion-hotspot:focus-visible {
+  z-index: 8;
+  color: #fff;
+  background: linear-gradient(135deg, #47baff, var(--glam-sapphire));
+  box-shadow: 0 14px 44px rgba(16,59,99,.28), 0 0 0 4px rgba(255,255,255,.7);
+  transform: translateY(-6px) scale(1.04);
+}
+.mansion-hotspot:hover span,
+.mansion-hotspot:focus-visible span { color: #fff; }
+
+.room-freebies { left: 4%; top: 29%; }
+.room-templates { left: 2.5%; top: 53%; }
+.room-bestsellers { left: 17%; top: 69%; }
+.room-shop { left: 38%; top: 44%; }
+.room-creators { right: 25%; top: 24%; }
+.room-support { right: 4%; top: 24%; }
+.room-generators { right: 28%; top: 49%; }
+.room-community { right: 5%; top: 48%; }
+.room-facebook { right: 19%; top: 68%; }
+.room-bundles { right: 3%; top: 70%; }
+.room-pngs { left: 31%; top: 76%; }
+.room-reviews { left: 55%; top: 77%; }
+.mansion-entry-note {
+  position: absolute;
+  left: 50%;
+  bottom: 2.2%;
+  z-index: 5;
+  transform: translateX(-50%);
+  padding: 10px 19px;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.72);
+  border-radius: 999px;
+  background: rgba(16,59,99,.72);
+  box-shadow: 0 12px 35px rgba(16,59,99,.2);
+  backdrop-filter: blur(12px);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.agency-hero {
+  display: none !important;
+  min-height: 610px !important;
+  background:
+    linear-gradient(98deg, rgba(22,143,234,.96), rgba(68,179,248,.89) 48%, rgba(255,255,255,.7)),
+    url("images/reference-hero.png") center/cover !important;
+  border-block: 14px solid #fff;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.65), inset 0 -100px 120px rgba(16,59,99,.12);
+}
+.hero-text { width: min(720px, 70%) !important; }
+.hero-text > small,
+.hero-text h1,
+.hero-text p { color: #fff !important; }
+.hero-text h1,
+.grid-lead h2,
+.section-title h2,
+.about-copy h2,
+.community h2,
+.workshops-page h1,
+.workshops-page h2,
+.one-on-one-page h1,
+.one-on-one-page h2 {
+  font-family: "Montserrat", Arial, sans-serif !important;
+  font-weight: 900 !important;
+}
+.hero-text h1 em { color: #fff !important; text-shadow: 0 5px 22px rgba(16,59,99,.22); }
+.hero-text > a,
+.grid-lead > a,
+.about-copy > a,
+.community a {
+  border-radius: 999px;
+  background: #fff !important;
+  color: var(--glam-deep) !important;
+  box-shadow: 0 12px 34px rgba(16,59,99,.19) !important;
+}
+.hero-stats p { border-color: #fff !important; }
+.hero-stats b,
+.hero-stats span { color: #fff !important; }
+
+.creative-grid {
+  grid-template-rows: repeat(2, minmax(260px, 1fr)) !important;
+  gap: 14px !important;
+  padding: clamp(30px, 5vw, 90px) !important;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(255,255,255,.96), transparent 38%),
+    linear-gradient(135deg, #dff4ff, #fff 45%, #aeddff) !important;
+  border-block: 1px solid rgba(22,143,234,.2);
+}
+.grid-lead {
+  color: var(--glam-deep) !important;
+  border: 1px solid rgba(255,255,255,.94) !important;
+  border-radius: 100px 24px 24px 24px;
+  background: linear-gradient(145deg, rgba(255,255,255,.95), rgba(224,245,255,.88)) !important;
+  box-shadow: 0 28px 80px rgba(16,59,99,.12), inset 0 1px 0 #fff;
+}
+.grid-lead > small,
+.section-title > small,
+.about-copy > small { color: var(--glam-sapphire) !important; }
+.grid-lead h2 { color: var(--glam-deep); }
+.grid-lead h2 em { color: var(--glam-sapphire) !important; }
+.grid-lead p { color: #466b86 !important; }
+.ad {
+  border: 1px solid rgba(255,255,255,.82);
+  border-radius: 24px;
+  box-shadow: 0 22px 55px rgba(16,59,99,.15), inset 0 1px 0 #fff;
+}
+.ad::after { background: linear-gradient(90deg, rgba(16,59,99,.9), rgba(16,59,99,.16) 80%) !important; }
+
+.phone-showcase {
+  min-height: 670px !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.92), rgba(173,224,255,.88)),
+    url("images/sapphire-mansion-city.png") center/cover !important;
+  border-block: 18px solid #fff;
+}
+.device {
+  background: linear-gradient(135deg, #fff, #b8cbd7 18%, #fff 38%, var(--glam-sapphire)) !important;
+  box-shadow: 0 34px 55px rgba(16,59,99,.27), 0 0 30px rgba(255,255,255,.8) !important;
+}
+.screen { background-color: var(--glam-deep) !important; }
+.screen b { background: var(--glam-sapphire) !important; color: #fff !important; }
+.modern-title span { color: #fff !important; -webkit-text-stroke: 1px rgba(16,59,99,.25) !important; text-shadow: 0 12px 36px rgba(16,59,99,.18); }
+.modern-title strong { color: var(--glam-sapphire) !important; font-family: "Montserrat", Arial, sans-serif !important; font-style: normal !important; }
+
+.marquee { background: var(--glam-sapphire) !important; color: #fff !important; }
+.products,
+.paths,
+.about,
+.reviews,
+.community {
+  color: var(--glam-ink) !important;
+  background-color: #fff !important;
+}
+.products {
+  background:
+    linear-gradient(180deg, rgba(235,248,255,.98), rgba(255,255,255,.96)),
+    url("images/sapphire-mansion-city.png") center/cover fixed !important;
+}
+.section-title h2,
+.about-copy h2 { color: var(--glam-deep) !important; }
+.section-title h2 em,
+.about-copy h2 em { color: var(--glam-sapphire) !important; }
+.product-row { padding-top: 30px !important; }
+.product {
+  position: relative;
+  overflow: hidden;
+  color: var(--glam-deep) !important;
+  border: 1px solid rgba(255,255,255,.94) !important;
+  border-radius: 140px 140px 24px 24px;
+  background: linear-gradient(160deg, rgba(255,255,255,.98), rgba(214,240,255,.95)) !important;
+  box-shadow: 0 28px 70px rgba(16,59,99,.16), inset 0 1px 0 #fff;
+}
+.product::after {
+  content: "";
+  position: absolute;
+  inset: auto 18% 0;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--glam-sapphire);
+  box-shadow: 0 0 24px var(--glam-sapphire);
+}
+.product img { border-radius: 120px 120px 18px 18px; background: #fff; }
+.product b { color: var(--glam-sapphire); }
+
+.paths {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.97), rgba(166,220,255,.9)),
+    url("images/sapphire-mansion-city.png") center/cover !important;
+}
+.path-grid { gap: 24px !important; }
+.path {
+  min-height: 390px !important;
+  color: var(--glam-deep) !important;
+  border: 1px solid rgba(255,255,255,.96) !important;
+  border-top: 0 !important;
+  border-radius: 34px 34px 120px 34px;
+  background: linear-gradient(150deg, rgba(255,255,255,.96), rgba(221,244,255,.88)) !important;
+  box-shadow: 0 30px 80px rgba(16,59,99,.14), inset 0 1px 0 #fff;
+}
+.path:nth-child(2) { border-radius: 34px 34px 34px 120px; }
+.path:nth-child(3) { background: linear-gradient(150deg, rgba(84,187,250,.96), rgba(22,143,234,.93)) !important; color: #fff !important; }
+
+.about {
+  background: linear-gradient(125deg, #dff3ff, #fff 48%, #c2e8ff) !important;
+}
+.about-image {
+  border: 10px solid #fff;
+  border-radius: 220px 220px 28px 28px;
+  box-shadow: 25px 25px 0 var(--glam-sapphire), 0 30px 80px rgba(16,59,99,.2) !important;
+}
+.about-image img { border-radius: inherit; }
+.about-copy p { color: #466b86 !important; }
+
+.reviews {
+  background:
+    radial-gradient(circle at 50% 0, #fff 0 5%, transparent 35%),
+    linear-gradient(180deg, #cbeaff, #f8fdff) !important;
+}
+.review-grid { gap: 28px !important; }
+.review-grid article {
+  color: var(--glam-deep) !important;
+  border: 1px solid rgba(255,255,255,.98) !important;
+  border-bottom: 0 !important;
+  border-radius: 120px 120px 26px 26px;
+  background: linear-gradient(150deg, rgba(255,255,255,.98), rgba(224,245,255,.93)) !important;
+  box-shadow: 0 26px 70px rgba(16,59,99,.13), inset 0 1px 0 #fff;
+}
+.review-grid article::before { content: "★★★★★"; display: block; margin-bottom: 14px; color: var(--glam-sapphire); letter-spacing: .22em; }
+.review-grid p { font-family: "Montserrat", Arial, sans-serif !important; font-style: normal !important; }
+.review-buttons a { border-radius: 999px; background: var(--glam-sapphire) !important; color: #fff !important; }
+
+.community {
+  background:
+    linear-gradient(115deg, rgba(22,143,234,.93), rgba(87,190,253,.88)),
+    url("images/sapphire-mansion-city.png") center/cover !important;
+}
+.community > div {
+  border: 1px solid rgba(255,255,255,.9) !important;
+  border-radius: 180px 180px 32px 32px;
+  background: rgba(255,255,255,.88) !important;
+  color: var(--glam-deep) !important;
+  box-shadow: 0 30px 90px rgba(16,59,99,.22), inset 0 1px 0 #fff;
+  backdrop-filter: blur(18px);
+}
+.community h2 { color: var(--glam-deep) !important; }
+.community h2 em { color: var(--glam-sapphire) !important; }
+
+footer {
+  color: #fff !important;
+  background: linear-gradient(135deg, var(--glam-sapphire), var(--glam-deep)) !important;
+}
+footer p { color: rgba(255,255,255,.7) !important; }
+
+.workshops-page,
+.one-on-one-page { background: var(--glam-cloud) !important; color: var(--glam-deep) !important; }
+.workshops-page header,
+.one-on-one-page nav { background: rgba(255,255,255,.96) !important; color: var(--glam-deep) !important; border-bottom-color: rgba(22,143,234,.22) !important; }
+.workshops-page .workshops-hero,
+.one-on-one-page .coaching-hero {
+  background:
+    linear-gradient(100deg, rgba(22,143,234,.96), rgba(80,188,253,.88) 54%, rgba(255,255,255,.44)),
+    url("images/sapphire-mansion-city.png") center/cover !important;
+  color: #fff !important;
+}
+.workshops-page section,
+.one-on-one-page section { border-color: rgba(22,143,234,.18) !important; }
+.workshops-page .workshop-feature,
+.workshops-page .workshop-support,
+.workshops-page .workshop-upcoming,
+.workshops-page .workshop-portal-section,
+.one-on-one-page .coaching-intro,
+.one-on-one-page .coaching-booking-section,
+.one-on-one-page .coaching-process-section,
+.one-on-one-page .coaching-policy-section,
+.one-on-one-page .coaching-final-cta { background: linear-gradient(145deg, #fff, #e6f6ff) !important; color: var(--glam-deep) !important; }
+
+@media (max-width: 1100px) {
+  .mansion-brand { top: 2.5%; padding: 12px 22px 14px; }
+  .mansion-hotspot { max-width: 145px; padding: 8px 10px 7px; border-radius: 11px; }
+  .room-freebies { left: 2%; }
+  .room-support { right: 2%; }
+}
+
+@media (max-width: 900px) {
+  .mansion-interface { overflow-x: auto; scroll-snap-type: x proximity; }
+  .mansion-stage { width: 1180px; min-height: 680px; scroll-snap-align: center; }
+  .mansion-brand { position: sticky; left: 50vw; width: 540px; }
+  .mansion-entry-note { position: sticky; left: 50vw; top: 630px; bottom: auto; width: max-content; }
+  .mansion-hotspot { max-width: 155px; }
+  .creative-grid { padding: 40px 24px !important; }
+  .community > div { border-radius: 90px 90px 28px 28px; }
+}
+
+@media (max-width: 560px) {
+  .mansion-stage { width: 1040px; min-height: 600px; }
+  .mansion-brand { left: 50vw; width: 430px; }
+  .mansion-brand strong { font-size: 34px; }
+  .mansion-brand span { font-size: 7px; }
+  .mansion-hotspot { max-width: 135px; }
+  .mansion-hotspot b { font-size: 9px; }
+  .mansion-hotspot span { font-size: 7px; }
+  .mansion-entry-note { left: 50vw; top: 555px; }
+  .agency-hero { padding-inline: 22px !important; }
+  .hero-text { width: 96% !important; }
+  .creative-grid { gap: 8px !important; padding: 28px 10px !important; }
+  .grid-lead { border-radius: 60px 18px 18px 18px; }
+  .ad { border-radius: 18px; }
+  .product { border-radius: 110px 110px 22px 22px; }
+  .path { border-radius: 28px 28px 70px 28px; }
+  .review-grid article { border-radius: 80px 80px 22px 22px; }
+  .community > div { padding-inline: 20px !important; border-radius: 64px 64px 24px 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mansion-hotspot { transition: none; }
+}
