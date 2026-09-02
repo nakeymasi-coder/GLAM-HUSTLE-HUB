@@ -5,27 +5,113 @@
 
   const mansion = document.createElement("section");
   mansion.className = "mansion-interface";
-  mansion.setAttribute("aria-label", "Explore the Glam Hustle Hub mansion");
+  mansion.setAttribute("aria-label", "Explore the Glam Hustle Hub market");
   mansion.innerHTML = `
-    <div class="mansion-stage">
-      <img src="images/sapphire-mansion-city.png" alt="Bright Caribbean Sapphire Glam City mansion filled with Black creators, glass rooms, sweeping stairs, balconies, and creator wings" />
-      <a class="mansion-hotspot room-freebies" href="https://pin.it/7EFoolKlz" aria-label="Enter the Freebie Lounge"><b>Freebie Lounge</b><span>Claim your gifts</span></a>
-      <a class="mansion-hotspot room-templates" href="https://pin.it/LundB3IIK" aria-label="Enter the Template Gallery"><b>Template Gallery</b><span>Canva-ready designs</span></a>
-      <a class="mansion-hotspot room-bestsellers" href="#best" aria-label="View Best Sellers"><b>Best-Seller Gallery</b><span>Customer favorites</span></a>
-      <a class="mansion-hotspot room-shop" href="https://payhip.com/GlowUpbyGlam/collection/all" aria-label="Enter the Main Shop"><b>The Grand Shop</b><span>Explore every collection</span></a>
-      <a class="mansion-hotspot room-creators" href="workshops.html" aria-label="Enter Creator Studios and Workshops"><b>Workshop Studio</b><span>Learn live with Glam</span></a>
-      <a class="mansion-hotspot room-support" href="one-on-one.html" aria-label="Enter the One-on-One Support Suite"><b>1:1 Support Suite</b><span>Private help, real clarity</span></a>
-      <a class="mansion-hotspot room-generators" href="https://payhip.com/GlowUpbyGlam/collection/luxury-prompt-generators" aria-label="Enter the Prompt Generator Lab"><b>Generator Lab</b><span>Luxury prompt tools</span></a>
-      <a class="mansion-hotspot room-community" href="https://payhip.com/b/54LoK" aria-label="Enter the Glam Vault Lounge"><b>Glam Vault Lounge</b><span>Skool community</span></a>
-      <a class="mansion-hotspot room-facebook" href="https://www.facebook.com/share/g/1Sv3VVCSaR/" aria-label="Enter the Facebook Community Lounge"><b>Community Lounge</b><span>Connect on Facebook</span></a>
-      <a class="mansion-hotspot room-bundles" href="https://payhip.com/GlowUpbyGlam/collection/bundles" aria-label="Enter the Generator Bundle Vault"><b>Bundle Vault</b><span>More tools, one collection</span></a>
-      <a class="mansion-hotspot room-pngs" href="https://pin.it/NGr63tHjX/" aria-label="Enter the two dollar PNG gallery"><b>$2 PNG Gallery</b><span>Quick creative finds</span></a>
-      <a class="mansion-hotspot room-reviews" href="#reviews" aria-label="Enter the Review Gallery"><b>Review Salon</b><span>Real women, real results</span></a>
-      <div class="mansion-entry-note">Choose a room to enter</div>
+    <div class="mansion-stage market-video-stage">
+      <video
+        class="market-hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="images/sapphire-mansion-city.png"
+        aria-label="Animated Glam Hustle Hub luxury creator market"
+      >
+        <source src="https://assets.grok.com/users/742979fd-7012-4f33-a191-67ba97a31205/generated/993c5acd-5371-4052-a329-246c1298831f/generated_video.mp4?cache=1" type="video/mp4" />
+      </video>
+
+      <a class="mansion-hotspot room-freebies" href="https://pin.it/7EFoolKlz" aria-label="Enter the Freebie Lounge"></a>
+      <a class="mansion-hotspot room-templates" href="https://pin.it/LundB3IIK" aria-label="Enter the Chocolate Gallery"></a>
+      <a class="mansion-hotspot room-bestsellers" href="#best" aria-label="View Best Sellers"></a>
+      <a class="mansion-hotspot room-shop" href="https://payhip.com/GlowUpbyGlam/collection/all" aria-label="Enter the Grand Shop"></a>
+      <a class="mansion-hotspot room-creators" href="workshops.html" aria-label="Enter Workshop Studio"></a>
+      <a class="mansion-hotspot room-support" href="one-on-one.html" aria-label="Enter the One-on-One Support Suite"></a>
+      <a class="mansion-hotspot room-generators" href="https://payhip.com/GlowUpbyGlam/collection/luxury-prompt-generators" aria-label="Enter Creator Lab"></a>
+      <a class="mansion-hotspot room-community" href="https://payhip.com/b/54LoK" aria-label="Enter the Glam Vault Lounge"></a>
+      <a class="mansion-hotspot room-facebook" href="https://www.facebook.com/share/g/1Sv3VVCSaR/" aria-label="Enter the Community Lounge"></a>
+      <a class="mansion-hotspot room-bundles" href="https://payhip.com/GlowUpbyGlam/collection/bundles" aria-label="Enter the Bundle Vault"></a>
+      <a class="mansion-hotspot room-pngs" href="https://pin.it/NGr63tHjX/" aria-label="Enter the Trending Gallery"></a>
+      <a class="mansion-hotspot room-reviews" href="#reviews" aria-label="Enter the Review Salon"></a>
     </div>
   `;
 
   hero.parentNode.insertBefore(mansion, hero);
+
+  /* The video already contains the beautiful glass labels. These invisible
+     click zones sit directly over those labels so we do not duplicate or
+     redesign anything visually. */
+  const style = document.createElement("style");
+  style.textContent = `
+    .market-video-stage {
+      width: 100%;
+      aspect-ratio: 1168 / 784;
+      min-height: 0 !important;
+      height: auto !important;
+      background: #103b63;
+    }
+    .market-video-stage::before { display: none !important; }
+    .market-hero-video {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .market-video-stage .mansion-hotspot {
+      z-index: 5;
+      display: block !important;
+      width: auto !important;
+      max-width: none !important;
+      height: auto !important;
+      padding: 0 !important;
+      border: 0 !important;
+      border-radius: 16px !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      opacity: 0 !important;
+      transform: none !important;
+    }
+    .market-video-stage .mansion-hotspot::before,
+    .market-video-stage .mansion-hotspot b,
+    .market-video-stage .mansion-hotspot span { display: none !important; }
+    .market-video-stage .mansion-hotspot:focus-visible {
+      opacity: 1 !important;
+      outline: 3px solid #fff !important;
+      outline-offset: 2px !important;
+      background: rgba(22,143,234,.12) !important;
+    }
+
+    .market-video-stage .room-freebies    { left: 1.7% !important; top: 22.0% !important; width: 15.0% !important; height: 9.5% !important; }
+    .market-video-stage .room-templates   { left: 2.6% !important; top: 46.5% !important; width: 18.2% !important; height: 9.2% !important; }
+    .market-video-stage .room-bestsellers { left: 18.8% !important; top: 61.0% !important; width: 16.4% !important; height: 9.4% !important; }
+    .market-video-stage .room-shop        { left: 41.0% !important; top: 38.3% !important; width: 13.0% !important; height: 8.8% !important; }
+    .market-video-stage .room-creators    { left: 43.8% !important; top: 55.0% !important; width: 14.5% !important; height: 8.0% !important; }
+    .market-video-stage .room-support     { left: 82.0% !important; top: 18.5% !important; width: 15.4% !important; height: 8.4% !important; }
+    .market-video-stage .room-generators  { left: 59.5% !important; top: 42.0% !important; width: 12.8% !important; height: 8.2% !important; }
+    .market-video-stage .room-community   { left: 79.5% !important; top: 40.5% !important; width: 18.8% !important; height: 8.8% !important; }
+    .market-video-stage .room-facebook    { left: 67.7% !important; top: 59.7% !important; width: 15.8% !important; height: 8.8% !important; }
+    .market-video-stage .room-bundles     { left: 84.5% !important; top: 62.3% !important; width: 14.0% !important; height: 8.4% !important; }
+    .market-video-stage .room-pngs        { left: 15.3% !important; top: 71.1% !important; width: 14.8% !important; height: 9.0% !important; }
+    .market-video-stage .room-reviews     { left: 56.8% !important; top: 69.5% !important; width: 13.5% !important; height: 8.3% !important; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .market-hero-video { display: none !important; }
+      .market-video-stage {
+        background: url("images/sapphire-mansion-city.png") center / cover no-repeat !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+  const video = mansion.querySelector(".market-hero-video");
+  if (video) {
+    video.play().catch(() => {});
+  }
 })();
 
 /* Remove the retired homepage creative promo grid entirely. */
