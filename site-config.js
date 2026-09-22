@@ -117,8 +117,8 @@ window.GLAM_SITE_CONFIG = {
     contactEmail:
       "glamorousgrammyglowup@gmail.com",
 
-    // We will connect the real Ask Glam Help Desk here later.
-    helpSupport: "#"
+    // Sapphire Support public form.
+    helpSupport: "https://sapphire-assist-suite.lovable.app/support/b04f8f25905e4cefaf7577728f217338"
   },
 
 
@@ -263,8 +263,8 @@ window.GLAM_SITE_CONFIG = {
     menuLabel:
       "Help & Support",
 
-    // Ask Glam Help Desk will go here.
-    url: "#"
+    // Sapphire Support public form.
+    url: "https://sapphire-assist-suite.lovable.app/support/b04f8f25905e4cefaf7577728f217338"
   }
 
 };
