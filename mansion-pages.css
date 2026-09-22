@@ -1,0 +1,94 @@
+/* Scoped page layout: the mansion is the homepage, rooms are destinations. */
+.hub-site { margin: 0; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
+.hub-site [hidden] { display: none !important; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.hub-site .skip-link { position: fixed; top: 8px; left: 12px; z-index: 100; padding: 12px 18px; background: white; color: #103b63; transform: translateY(-160%); }
+.hub-site .skip-link:focus { transform: none; }
+.hub-site a:focus-visible, .hub-site button:focus-visible { outline: 3px solid #168fea; outline-offset: 4px; }
+.hub-site .hub-header { flex: 0 0 auto; height: 72px; min-height: 72px; padding: 0 24px; gap: 20px; }
+.hub-site .logo { flex: 0 0 auto; }
+.hub-site .logo img { width: 150px !important; height: 54px; object-fit: contain; display: block; }
+.hub-site #topNav { display: flex; gap: clamp(14px, 2vw, 28px); }
+.hub-site .explore { display: block !important; min-width: 100px; min-height: 44px; }
+.hub-site #drawer { height: 100vh; height: 100dvh; padding: 24px; }
+.hub-site #drawer > a { display: flex; min-height: 48px; font: 600 15px/1.4 Montserrat, Arial, sans-serif; }
+.hub-site #drawer > div { gap: 12px; }
+.hub-site #drawer button { min-width: 44px; min-height: 44px; }
+.hub-site main { width: 100%; flex: 1; }
+.hub-site .hub-footer { flex: 0 0 auto; padding: 10px 22px !important; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.hub-site .hub-footer div { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 16px; padding: 0; }
+.hub-site .hub-footer a { font-size: 11px; line-height: 1.5; letter-spacing: 0; text-transform: none; }
+.hub-site .hub-footer p { margin: 0; font-size: 10px; line-height: 1.5; }
+.mansion-home { height: 100vh; height: 100svh; }
+.mansion-home main { display: flex; min-height: 420px; }
+.mansion-home .mansion-interface { display: flex; margin: 0; padding: 0; border: 0; }
+.mansion-home .mansion-stage { width: 100%; min-height: 0; height: 100%; padding: 0; display: block; }
+.mansion-home .mansion-stage > img { position: absolute; inset: 0; width: 100%; max-width: none; height: 100%; margin: 0; object-fit: cover; object-position: center; }
+.mansion-home .mansion-hotspot { position: absolute; inset: auto; left: var(--room-x); top: var(--room-y); width: clamp(118px, 12vw, 172px); max-width: none; min-height: 54px; height: auto; padding: 10px 12px; justify-content: center; background: rgba(16,59,99,.94); color: white; transform: none; }
+.mansion-home .mansion-hotspot:nth-of-type(odd) { background: rgba(12,122,203,.95); }
+.mansion-home .mansion-hotspot b { font-size: clamp(10px, .9vw, 13px); line-height: 1.2; letter-spacing: .02em; }
+.mansion-home .mansion-hotspot span { color: #eaf8ff; font-size: 10px; line-height: 1.25; }
+.mansion-home .mansion-hotspot:hover, .mansion-home .mansion-hotspot:focus-visible { transform: translateY(-3px); background: #103b63; outline-color: white; }
+.mansion-home .room-freebies { --room-x: 16%; --room-y: 61%; }
+.mansion-home .room-bestsellers { --room-x: 35%; --room-y: 42%; }
+.mansion-home .room-shop { --room-x: 52%; --room-y: 55%; }
+.mansion-home .room-support { --room-x: 72%; --room-y: 66%; }
+.mansion-home .room-generators { --room-x: 26%; --room-y: 23%; }
+.mansion-home .room-community { --room-x: 65%; --room-y: 27%; }
+.mansion-home .room-facebook { --room-x: 82%; --room-y: 42%; }
+.mansion-home .room-bundles { --room-x: 45%; --room-y: 75%; }
+.mansion-home .room-pngs { --room-x: 21%; --room-y: 81%; }
+.mansion-home .room-reviews { --room-x: 77%; --room-y: 82%; }
+.mansion-home .mansion-entry-note { position: absolute; inset: auto; top: 16px; left: 50%; bottom: auto; transform: translateX(-50%); width: max-content; max-width: calc(100% - 24px); margin: 0; padding: 9px 18px; font-size: 10px; }
+.destination-page main { max-width: 1440px; margin-inline: auto; }
+.destination-return { padding: 24px 5% 0; }
+.destination-return a { display: inline-block; padding: 10px 0; font-size: 14px; font-weight: 700; color: #103b63; }
+.destination-page .products, .destination-page .about, .destination-page .reviews, .destination-page .community { padding: 32px 5% 48px !important; margin: 0; }
+.destination-page h1 { font-size: clamp(32px, 4.2vw, 60px); line-height: 1.08; margin: 12px 0 22px; letter-spacing: -.035em; color: #103b63; }
+.destination-page h1 em { color: #168fea; font-style: normal; }
+.destination-page .section-title { padding: 0 0 24px !important; }
+.destination-page .section-title p { line-height: 1.6; }
+.destination-page .destination-cta { display: inline-block; padding: 12px 20px; margin-top: 8px; background: #103b63; border-radius: 8px; color: #fff; font-size: 14px; font-weight: 700; }
+.destination-page .products::before, .destination-page .products::after { display: none; }
+.destination-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.destination-grid .product { display: flex; flex-direction: column; width: 100% !important; min-width: 0 !important; max-width: none !important; min-height: 0 !important; margin: 0; padding-bottom: 22px; transform: none; opacity: 1; }
+.destination-grid .product img { width: calc(100% - 32px) !important; height: auto !important; aspect-ratio: 1; object-fit: contain !important; margin: 16px !important; }
+.destination-grid .product h3 { font-size: 18px !important; line-height: 1.3; padding: 0 22px; margin: 0 0 18px; }
+.destination-grid .product > b { margin-top: auto; padding: 0 22px; }
+.destination-page .about { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1fr); align-items: center; gap: 5%; }
+.destination-page .about-image { width: 100%; height: auto; min-height: 0; margin: 0; transform: none; }
+.destination-page .about-image img { width: 100%; max-height: 560px; object-fit: contain; }
+.destination-page .about-copy { padding: 0; }
+.destination-page .about-copy p { font-size: 17px; line-height: 1.75; }
+.destination-page .review-grid { gap: 20px; }
+.destination-page .review-grid article { min-width: 0; }
+.destination-page .community > div { width: 100%; padding: 32px !important; }
+.destination-page .community-logo { max-height: 120px; object-fit: contain; }
+.destination-page .rise { opacity: 1; transform: none; }
+@media (max-width: 900px) {
+  .hub-site .hub-header { height: 64px !important; min-height: 64px; padding: 0 16px !important; }
+  .hub-site #topNav { display: none; }
+  .hub-site .hub-footer { flex-direction: column; gap: 6px; padding: 9px 12px !important; text-align: center; }
+  .hub-site .hub-footer div { gap: 4px 14px; }
+  .mansion-home main { min-height: 470px; }
+  .mansion-home .mansion-interface { overflow: visible; }
+  .mansion-home .mansion-stage { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; grid-template-rows: minmax(130px, 1fr) 28px repeat(5, minmax(46px, auto)); gap: 6px; padding: 0 12px 10px; }
+  .mansion-home .mansion-stage > img { position: relative; inset: auto; grid-column: 1 / -1; width: calc(100% + 24px); height: 100%; min-height: 0; margin: 0 0 0 -12px; object-fit: cover; object-position: center; }
+  .mansion-home .mansion-hotspot { position: relative; inset: auto; width: 100%; min-height: 46px; padding: 8px 10px; border-radius: 9px; text-align: center; align-items: center; }
+  .mansion-home .mansion-hotspot::before { display: none; }
+  .mansion-home .mansion-hotspot b { font-size: 12px; line-height: 1.2; text-transform: none; letter-spacing: 0; }
+  .mansion-home .mansion-hotspot span { display: none; }
+  .mansion-home .mansion-entry-note { position: relative; inset: auto; grid-column: 1 / -1; width: 100%; max-width: none; padding: 6px; margin: 0; transform: none; background: none; color: #103b63; box-shadow: none; border: 0; font-size: 10px; }
+  .destination-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .destination-page .about { grid-template-columns: 1fr; gap: 26px; }
+  .destination-page .about-image img { max-height: 360px; }
+  .destination-page .review-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .destination-grid { grid-template-columns: 1fr; }
+  .destination-page .products, .destination-page .about, .destination-page .reviews, .destination-page .community { padding: 24px 18px 36px !important; }
+  .destination-page .community > div { padding: 24px 18px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hub-site *, .hub-site *::before, .hub-site *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
