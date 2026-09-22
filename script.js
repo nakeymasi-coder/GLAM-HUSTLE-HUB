@@ -102,3 +102,304 @@ if (bestSellerRow && !bestSellerRow.dataset.carouselReady) {
     bestSellerRow.appendChild(duplicate);
   });
 }
+
+
+/* =========================================================
+   GLAM HUSTLE HUB — SITE CONFIG CONTROLLER
+   Reads site-config.js without replacing the existing site engine.
+   ========================================================= */
+
+(function applyGlamSiteConfig() {
+  const config = window.GLAM_SITE_CONFIG;
+  if (!config) return;
+
+  const visibility = config.visibility || {};
+  const navigation = config.navigation || {};
+  const links = config.links || {};
+
+  function hide(element) {
+    if (!element) return;
+    element.hidden = true;
+    element.style.setProperty("display", "none", "important");
+  }
+
+  function show(element) {
+    if (!element) return;
+    element.hidden = false;
+    element.style.removeProperty("display");
+  }
+
+  function setVisible(element, value) {
+    if (!element) return;
+    value === false ? hide(element) : show(element);
+  }
+
+  function findLinkByText(container, text) {
+    if (!container) return null;
+
+    return Array.from(container.querySelectorAll("a")).find((link) =>
+      link.textContent.toLowerCase().includes(text.toLowerCase())
+    );
+  }
+
+  // Remove sidebar numbers
+  document.querySelectorAll("#drawer a > span").forEach((number) => {
+    number.remove();
+  });
+
+  // Remove Templates completely
+  const drawerTemplate = findLinkByText(
+    document.getElementById("drawer"),
+    "Templates"
+  );
+
+  if (drawerTemplate) drawerTemplate.remove();
+
+  const mansionTemplate = document.querySelector(".room-templates");
+  if (mansionTemplate) mansionTemplate.remove();
+
+  // Hide Workshops without deleting them
+  const topWorkshop = document.querySelector(
+    '#topNav a[href="workshops.html"]'
+  );
+
+  const drawerWorkshop = findLinkByText(
+    document.getElementById("drawer"),
+    "Workshop"
+  );
+
+  const mansionWorkshop = document.querySelector(".room-creators");
+
+  setVisible(topWorkshop, navigation.showWorkshops);
+  setVisible(drawerWorkshop, visibility.workshops);
+  setVisible(mansionWorkshop, visibility.workshops);
+
+  // Main sections
+  setVisible(document.querySelector("#best"), visibility.bestSellers);
+  setVisible(document.querySelector("#about"), visibility.about);
+  setVisible(document.querySelector("#reviews"), visibility.reviews);
+  setVisible(
+    document.querySelector(".community"),
+    visibility.communitySection
+  );
+
+  // Mansion rooms
+  setVisible(
+    document.querySelector(".room-freebies"),
+    visibility.freebies
+  );
+
+  setVisible(
+    document.querySelector(".room-bestsellers"),
+    visibility.bestSellers
+  );
+
+  setVisible(
+    document.querySelector(".room-generators"),
+    visibility.promptGenerators
+  );
+
+  setVisible(
+    document.querySelector(".room-bundles"),
+    visibility.generatorBundles
+  );
+
+  setVisible(
+    document.querySelector(".room-pngs"),
+    visibility.pngs
+  );
+
+  setVisible(
+    document.querySelector(".room-support"),
+    visibility.oneOnOne
+  );
+
+  setVisible(
+    document.querySelector(".room-community"),
+    visibility.skoolCommunity
+  );
+
+  setVisible(
+    document.querySelector(".room-facebook"),
+    visibility.facebookCommunity
+  );
+
+  setVisible(
+    document.querySelector(".room-reviews"),
+    visibility.reviews
+  );
+
+  // Hero
+  if (config.hero) {
+    const eyebrow = document.querySelector(".hero-text small");
+    const headline = document.querySelector(".hero-text h1");
+    const description = document.querySelector(".hero-text p");
+    const button = document.querySelector(".hero-text > a");
+
+    if (eyebrow && config.hero.eyebrow) {
+      eyebrow.textContent = config.hero.eyebrow;
+    }
+
+    if (headline && config.hero.headlineHTML) {
+      headline.innerHTML = config.hero.headlineHTML;
+    }
+
+    if (description && config.hero.description) {
+      description.textContent = config.hero.description;
+    }
+
+    if (button && config.hero.buttonText) {
+      button.innerHTML = `${config.hero.buttonText} <b>→</b>`;
+    }
+
+    if (button && links.shop) {
+      button.href = links.shop;
+    }
+  }
+
+  // Marquee
+  const marquee = document.querySelector(".marquee");
+  const marqueeText = document.querySelector(".marquee > div");
+
+  if (config.marquee) {
+    setVisible(marquee, config.marquee.enabled);
+
+    if (marqueeText && config.marquee.text) {
+      marqueeText.textContent = config.marquee.text;
+    }
+  }
+
+  // About
+  if (config.about) {
+    const eyebrow = document.querySelector(".about-copy small");
+    const headline = document.querySelector(".about-copy h2");
+    const description = document.querySelector(".about-copy p");
+    const button = document.querySelector(".about-copy a");
+    const image = document.querySelector(".about-image img");
+
+    if (eyebrow && config.about.eyebrow) {
+      eyebrow.textContent = config.about.eyebrow;
+    }
+
+    if (headline && config.about.headlineHTML) {
+      headline.innerHTML = config.about.headlineHTML;
+    }
+
+    if (description && config.about.description) {
+      description.textContent = config.about.description;
+    }
+
+    if (button && config.about.buttonText) {
+      button.textContent = config.about.buttonText;
+    }
+
+    if (image && config.about.image) {
+      image.src = config.about.image;
+    }
+  }
+
+  // Community
+  if (config.community) {
+    const eyebrow = document.querySelector(".community small");
+    const headline = document.querySelector(".community h2");
+    const description = document.querySelector(".community p");
+    const button = document.querySelector(".community a");
+    const logo = document.querySelector(".community-logo");
+
+    if (eyebrow && config.community.eyebrow) {
+      eyebrow.textContent = config.community.eyebrow;
+    }
+
+    if (headline && config.community.headlineHTML) {
+      headline.innerHTML = config.community.headlineHTML;
+    }
+
+    if (description && config.community.description) {
+      description.textContent = config.community.description;
+    }
+
+    if (button && config.community.buttonText) {
+      button.textContent = config.community.buttonText;
+    }
+
+    if (button && links.skoolCommunity) {
+      button.href = links.skoolCommunity;
+    }
+
+    if (logo && config.community.logo) {
+      logo.src = config.community.logo;
+    }
+  }
+
+  // Help & Support
+  if (visibility.helpSupport !== false && config.support?.enabled !== false) {
+    const drawer = document.getElementById("drawer");
+
+    if (drawer && !drawer.querySelector(".glam-help-support")) {
+      const supportLink = document.createElement("a");
+
+      supportLink.className = "glam-help-support";
+      supportLink.href =
+        config.support?.url ||
+        links.helpSupport ||
+        "#";
+
+      supportLink.innerHTML = `${
+        config.support?.menuLabel || "Help & Support"
+      }<b>›</b>`;
+
+      drawer.appendChild(supportLink);
+    }
+
+    const footerLinks = document.querySelector("footer div");
+
+    if (
+      footerLinks &&
+      !footerLinks.querySelector(".glam-help-support")
+    ) {
+      const footerSupport = document.createElement("a");
+
+      footerSupport.className = "glam-help-support";
+      footerSupport.href =
+        config.support?.url ||
+        links.helpSupport ||
+        "#";
+
+      footerSupport.textContent =
+        config.support?.menuLabel || "Help & Support";
+
+      footerLinks.appendChild(footerSupport);
+    }
+  }
+
+  // Footer links
+  const footerLinks = Array.from(
+    document.querySelectorAll("footer a")
+  );
+
+  const socialMap = {
+    Pinterest: links.pinterest,
+    TikTok: links.tiktok,
+    Lemon8: links.lemon8,
+    Facebook: links.facebook,
+    YouTube: links.youtube
+  };
+
+  footerLinks.forEach((link) => {
+    const label = link.textContent.trim();
+
+    if (socialMap[label]) {
+      link.href = socialMap[label];
+    }
+
+    if (label === "Contact" && links.contactEmail) {
+      link.href = `mailto:${links.contactEmail}`;
+    }
+  });
+
+  const copyright = document.querySelector("footer p");
+
+  if (copyright && config.site?.copyright) {
+    copyright.textContent = config.site.copyright;
+  }
+})();

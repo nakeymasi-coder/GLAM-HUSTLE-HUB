@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="robots"
+    content="noindex, nofollow"
+  />
+
+  <title>GLAM Website Control Center</title>
+
+  <link rel="stylesheet" href="admin.css" />
+</head>
+
+<body>
+
+  <div class="admin-app">
+
+    <!-- =====================================================
+         MOBILE HEADER
+    ====================================================== -->
+
+    <header class="mobile-header">
+      <button
+        class="icon-button"
+        id="openSidebar"
+        type="button"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+
+      <div class="mobile-brand">
+        <span class="brand-kicker">GLAM HUSTLE HUB</span>
+        <strong>Control Center</strong>
+      </div>
+
+      <div class="publish-status draft">
+        Draft
+      </div>
+    </header>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside
+      class="admin-sidebar"
+      id="adminSidebar"
+    >
+
+      <div class="sidebar-top">
+
+        <button
+          class="sidebar-close"
+          id="closeSidebar"
+          type="button"
+          aria-label="Close menu"
+        >
+          ×
+        </button>
+
+        <div class="admin-brand">
+          <span class="brand-kicker">
+            GLAM HUSTLE HUB
+          </span>
+
+          <h1>
+            Website<br />
+            Control Center
+          </h1>
+
+          <p>
+            Design it. Control it. Publish it.
+          </p>
+        </div>
+
+      </div>
+
+
+      <nav
+        class="admin-nav"
+        aria-label="Website Control Center"
+      >
+
+        <button
+          class="nav-item active"
+          type="button"
+          data-screen="dashboard"
+        >
+          <span class="nav-icon">⌂</span>
+          <span>Dashboard</span>
+        </button>
+
+        <button
+          class="nav-item"
+          type="button"
+          data-screen="navigation"
+        >
+          <span class="nav-icon">☰</span>
+          <span>Navigation</span>
+        </button>
+
+        <button
+          class="nav-item"
+          type="button"
+          data-screen="mansion"
+        >
+          <span class="nav-icon">◆</span>
+          <span>Mansion Studio</span>
+        </button>
+
+        <button
+          class="nav-item"
+          type="button"
+          data-screen="shop"
+        >
+          <span class="nav-icon">◈</span>
+          <span>Shop Manager</span>
+        </button>
+
+        <button
+          class="nav-item"
+          type="button"
+          data-screen="cards"
+        >
+          <span class="nav-icon">▣</span>
+          <span>Card Designer</span>
+        </button>
+
+        <button
+          class="nav-item"
+          type="button"
+          data-screen="sections"
+        >
+          <span class="nav-icon">▤</span>
+          <span>Sections</span>
+        </button>
+
+        <button
+          class="nav-item"
+          type="button"
+          data-screen="themes"
+        >
+          <span class="nav-icon">✦</span>
+          <span>Theme Studio</span>
+        </button>
+
+        <button
+          class="nav-item"
+          type="button"
+          data-screen="effects"
+        >
+          <span class="nav-icon">✧</span>
+          <span>Effects</span>
+        </button>
+
+        <button
+          class="nav-item"
+          type="button"
+          data-screen="media"
+        >
+          <span class="nav-icon">▧</span>
+          <span>Media Library</span>
+        </button>
+
+        <button
+          class="nav-item"
+          type="button"
+          data-screen="vault"
+        >
+          <span class="nav-icon">◇</span>
+          <span>Glam Vault</span>
+        </button>
+
+        <button
+          class="nav-item"
+          type="button"
+          data-screen="reviews"
+        >
+          <span class="nav-icon">★</span>
+          <span>Reviews</span>
+        </button>
+
+        <button
+          class="nav-item"
+          type="button"
+          data-screen="support"
+        >
+          <span class="nav-icon">?</span>
+          <span>Help & Support</span>
+        </button>
+
+        <button
+          class="nav-item"
+          type="button"
+          data-screen="footer"
+        >
+          <span class="nav-icon">▱</span>
+          <span>Footer</span>
+        </button>
+
+        <button
+          class="nav-item"
+          type="button"
+          data-screen="seo"
+        >
+          <span class="nav-icon">⌕</span>
+          <span>SEO</span>
+        </button>
+
+        <button
+          class="nav-item"
+          type="button"
+          data-screen="publish"
+        >
+          <span class="nav-icon">↑</span>
+          <span>Publish</span>
+        </button>
+
+      </nav>
+
+
+      <div class="sidebar-bottom">
+
+        <a
+          class="visit-site-button"
+          href="/"
+          target="_blank"
+          rel="noopener"
+        >
+          View Website ↗
+        </a>
+
+        <div class="admin-user-mini">
+          <div class="admin-avatar">
+            G
+          </div>
+
+          <div>
+            <strong>Glam</strong>
+            <span>Administrator</span>
+          </div>
+        </div>
+
+      </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         SIDEBAR OVERLAY
+    ====================================================== -->
+
+    <button
+      class="sidebar-overlay"
+      id="sidebarOverlay"
+      type="button"
+      aria-label="Close menu"
+    ></button>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="admin-main">
+
+      <!-- ===================================================
+           TOP BAR
+      ==================================================== -->
+
+      <header class="desktop-topbar">
+
+        <div>
+          <span class="topbar-kicker">
+            GLAM HUSTLE HUB
+          </span>
+
+          <h2 id="screenTitle">
+            Dashboard
+          </h2>
+        </div>
+
+        <div class="topbar-actions">
+
+          <span class="save-indicator">
+            No unpublished changes
+          </span>
+
+          <button
+            class="secondary-button"
+            type="button"
+            id="previewWebsite"
+          >
+            Preview Site
+          </button>
+
+          <button
+            class="primary-button"
+            type="button"
+            id="publishWebsite"
+          >
+            Publish
+          </button>
+
+        </div>
+
+      </header>
+
+
+      <!-- ===================================================
+           SCREEN CONTAINER
+      ==================================================== -->
+
+      <div class="screen-container">
+
+
+        <!-- =================================================
+             DASHBOARD
+        ================================================== -->
+
+        <section
+          class="admin-screen active"
+          id="screen-dashboard"
+          data-title="Dashboard"
+        >
+
+          <div class="screen-heading">
+            <div>
+              <span class="section-kicker">
+                WEBSITE OVERVIEW
+              </span>
+
+              <h2>
+                Your website at a glance.
+              </h2>
+
+              <p>
+                Jump into the part of your website you want
+                to change without touching the code.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="status-grid">
+
+            <article class="status-card">
+              <span>Website</span>
+              <strong>Live</strong>
+              <small>
+                glamhustlehub.com
+              </small>
+            </article>
+
+            <article class="status-card">
+              <span>Publish Status</span>
+              <strong>Up to date</strong>
+              <small>
+                No unpublished changes
+              </small>
+            </article>
+
+            <article class="status-card">
+              <span>Active Theme</span>
+              <strong>Caribbean Sapphire</strong>
+              <small>
+                Global website theme
+              </small>
+            </article>
+
+            <article class="status-card">
+              <span>Homepage</span>
+              <strong>Mansion Experience</strong>
+              <small>
+                Interactive hero enabled
+              </small>
+            </article>
+
+          </div>
+
+
+          <div class="panel">
+            <div class="panel-heading">
+              <div>
+                <span class="section-kicker">
+                  QUICK EDIT
+                </span>
+
+                <h3>
+                  What do you want to work on?
+                </h3>
+              </div>
+            </div>
+
+            <div class="quick-grid">
+
+              <button
+                class="quick-card"
+                type="button"
+                data-open-screen="mansion"
+              >
+                <strong>
+                  Mansion Studio
+                </strong>
+
+                <span>
+                  Rooms, hotspots, links and hero design
+                </span>
+              </button>
+
+              <button
+                class="quick-card"
+                type="button"
+                data-open-screen="shop"
+              >
+                <strong>
+                  Shop Manager
+                </strong>
+
+                <span>
+                  Products, categories, pricing and images
+                </span>
+              </button>
+
+              <button
+                class="quick-card"
+                type="button"
+                data-open-screen="themes"
+              >
+                <strong>
+                  Theme Studio
+                </strong>
+
+                <span>
+                  Colors, fonts, backgrounds and saved themes
+                </span>
+              </button>
+
+              <button
+                class="quick-card"
+                type="button"
+                data-open-screen="media"
+              >
+                <strong>
+                  Media Library
+                </strong>
+
+                <span>
+                  Upload and reuse website images and video
+                </span>
+              </button>
+
+            </div>
+          </div>
+
+
+          <div class="panel">
+            <div class="panel-heading">
+              <div>
+                <span class="section-kicker">
+                  HOMEPAGE STRUCTURE
+                </span>
+
+                <h3>
+                  Short. Visual. Easy to explore.
+                </h3>
+              </div>
+            </div>
+
+            <div class="homepage-flow">
+
+              <div class="flow-item">
+                <span>1</span>
+                <strong>Mansion Hero</strong>
+              </div>
+
+              <div class="flow-item">
+                <span>2</span>
+                <strong>Quick Access</strong>
+              </div>
+
+              <div class="flow-item">
+                <span>3</span>
+                <strong>Featured Products</strong>
+              </div>
+
+              <div class="flow-item">
+                <span>4</span>
+                <strong>About</strong>
+              </div>
+
+              <div class="flow-item">
+                <span>5</span>
+                <strong>Reviews</strong>
+              </div>
+
+              <div class="flow-item">
+                <span>6</span>
+                <strong>Footer</strong>
+              </div>
+
+            </div>
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             NAVIGATION
+        ================================================== -->
+
+        <section
+          class="admin-screen"
+          id="screen-navigation"
+          data-title="Navigation"
+        >
+
+          <div class="screen-heading">
+            <div>
+              <span class="section-kicker">
+                MENU MANAGER
+              </span>
+
+              <h2>
+                Control your navigation.
+              </h2>
+
+              <p>
+                Rename, reorder, show, hide, add or remove
+                website navigation items.
+              </p>
+            </div>
+          </div>
+
+          <div class="panel placeholder-panel">
+            <strong>
+              Navigation Manager
+            </strong>
+
+            <p>
+              Menu editing controls will live here.
+            </p>
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MANSION STUDIO
+        ================================================== -->
+
+        <section
+          class="admin-screen"
+          id="screen-mansion"
+          data-title="Mansion Studio"
+        >
+
+          <div class="screen-heading">
+            <div>
+              <span class="section-kicker">
+                INTERACTIVE HOMEPAGE
+              </span>
+
+              <h2>
+                Mansion Studio
+              </h2>
+
+              <p>
+                Control your mansion image, rooms, hotspots,
+                labels, links and effects.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="workspace-grid">
+
+            <div class="panel">
+              <div class="panel-heading">
+                <div>
+                  <span class="section-kicker">
+                    MANSION SETTINGS
+                  </span>
+
+                  <h3>
+                    Hero controls
+                  </h3>
+                </div>
+              </div>
+
+              <div class="placeholder-control">
+                Mansion image upload
+              </div>
+
+              <div class="placeholder-control">
+                Room manager
+              </div>
+
+              <div class="placeholder-control">
+                Hotspot controls
+              </div>
+
+              <div class="placeholder-control">
+                Animation controls
+              </div>
+            </div>
+
+
+            <div class="panel preview-panel">
+              <div class="panel-heading">
+                <div>
+                  <span class="section-kicker">
+                    LIVE EDITOR
+                  </span>
+
+                  <h3>
+                    Drag your hotspots
+                  </h3>
+                </div>
+              </div>
+
+              <div class="mansion-preview-placeholder">
+                <span>
+                  Mansion preview will appear here
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SHOP MANAGER
+        ================================================== -->
+
+        <section
+          class="admin-screen"
+          id="screen-shop"
+          data-title="Shop Manager"
+        >
+
+          <div class="screen-heading">
+            <div>
+              <span class="section-kicker">
+                SHOP
+              </span>
+
+              <h2>
+                Manage your products.
+              </h2>
+
+              <p>
+                Add, remove, reorder and organize everything
+                inside one main shop.
+              </p>
+            </div>
+
+            <button
+              class="primary-button"
+              type="button"
+            >
+              + Add Product
+            </button>
+          </div>
+
+
+          <div class="panel">
+            <div class="shop-toolbar">
+
+              <input
+                type="search"
+                placeholder="Search products..."
+              />
+
+              <select>
+                <option>
+                  All Categories
+                </option>
+
+                <option>
+                  Best Sellers
+                </option>
+
+                <option>
+                  Prompt Generators
+                </option>
+
+                <option>
+                  Generator Bundles
+                </option>
+
+                <option>
+                  PNGs
+                </option>
+
+                <option>
+                  New Releases
+                </option>
+
+                <option>
+                  Retiring Soon
+                </option>
+              </select>
+
+            </div>
+
+            <div class="empty-state">
+              <strong>
+                Product Manager
+              </strong>
+
+              <p>
+                Your editable product list will appear here.
+              </p>
+            </div>
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CARD DESIGNER
+        ================================================== -->
+
+        <section
+          class="admin-screen"
+          id="screen-cards"
+          data-title="Card Designer"
+        >
+
+          <div class="screen-heading">
+            <div>
+              <span class="section-kicker">
+                PRODUCT CARD STUDIO
+              </span>
+
+              <h2>
+                Design your product cards.
+              </h2>
+
+              <p>
+                Build and save card styles without rewriting
+                your website.
+              </p>
+            </div>
+          </div>
+
+          <div class="workspace-grid">
+
+            <div class="panel">
+              <div class="placeholder-control">
+                Card layout
+              </div>
+
+              <div class="placeholder-control">
+                Image placement
+              </div>
+
+              <div class="placeholder-control">
+                Fonts and text
+              </div>
+
+              <div class="placeholder-control">
+                Border and glow
+              </div>
+
+              <div class="placeholder-control">
+                Button design
+              </div>
+            </div>
+
+            <div class="panel preview-panel">
+              <div class="card-preview-placeholder">
+                Product card preview
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SECTIONS
+        ================================================== -->
+
+        <section
+          class="admin-screen"
+          id="screen-sections"
+          data-title="Sections"
+        >
+
+          <div class="screen-heading">
+            <div>
+              <span class="section-kicker">
+                PAGE BUILDER
+              </span>
+
+              <h2>
+                Control your website sections.
+              </h2>
+
+              <p>
+                Show, hide and reorder homepage sections
+                without editing HTML.
+              </p>
+            </div>
+          </div>
+
+          <div class="panel placeholder-panel">
+            <strong>
+              Section Manager
+            </strong>
+
+            <p>
+              Homepage section controls will appear here.
+            </p>
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             THEME STUDIO
+        ================================================== -->
+
+        <section
+          class="admin-screen"
+          id="screen-themes"
+          data-title="Theme Studio"
+        >
+
+          <div class="screen-heading">
+            <div>
+              <span class="section-kicker">
+                SAVED WEBSITE THEMES
+              </span>
+
+              <h2>
+                Theme Studio
+              </h2>
+
+              <p>
+                Build, save and switch complete website looks.
+              </p>
+            </div>
+
+            <button
+              class="primary-button"
+              type="button"
+            >
+              + New Theme
+            </button>
+          </div>
+
+
+          <div class="theme-grid">
+
+            <article class="theme-card active">
+              <div class="theme-preview sapphire-theme">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <strong>
+                Caribbean Sapphire
+              </strong>
+
+              <small>
+                Active Theme
+              </small>
+            </article>
+
+
+            <article class="theme-card">
+              <div class="theme-preview empty-theme">
+                +
+              </div>
+
+              <strong>
+                Create Theme
+              </strong>
+
+              <small>
+                Start from scratch
+              </small>
+            </article>
+
+          </div>
+
+
+          <div class="panel">
+            <div class="panel-heading">
+              <div>
+                <span class="section-kicker">
+                  GLOBAL STYLES
+                </span>
+
+                <h3>
+                  Customize active theme
+                </h3>
+              </div>
+            </div>
+
+            <div class="control-grid">
+
+              <div class="placeholder-control">
+                Primary Color
+              </div>
+
+              <div class="placeholder-control">
+                Accent Color
+              </div>
+
+              <div class="placeholder-control">
+                Background
+              </div>
+
+              <div class="placeholder-control">
+                Heading Font
+              </div>
+
+              <div class="placeholder-control">
+                Body Font
+              </div>
+
+              <div class="placeholder-control">
+                Button Style
+              </div>
+
+            </div>
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             EFFECTS
+        ================================================== -->
+
+        <section
+          class="admin-screen"
+          id="screen-effects"
+          data-title="Effects"
+        >
+
+          <div class="screen-heading">
+            <div>
+              <span class="section-kicker">
+                ANIMATION STUDIO
+              </span>
+
+              <h2>
+                Effects & Animation
+              </h2>
+
+              <p>
+                Add movement and visual effects without
+                writing animation code.
+              </p>
+            </div>
+          </div>
+
+          <div class="panel placeholder-panel">
+            <strong>
+              Animation Controls
+            </strong>
+
+            <p>
+              Fade, float, glow, shimmer, slide, pop,
+              pulse and more.
+            </p>
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MEDIA LIBRARY
+        ================================================== -->
+
+        <section
+          class="admin-screen"
+          id="screen-media"
+          data-title="Media Library"
+        >
+
+          <div class="screen-heading">
+            <div>
+              <span class="section-kicker">
+                WEBSITE ASSETS
+              </span>
+
+              <h2>
+                Media Library
+              </h2>
+
+              <p>
+                Upload once and reuse your images and videos
+                across the website.
+              </p>
+            </div>
+
+            <button
+              class="primary-button"
+              type="button"
+            >
+              Upload Media
+            </button>
+          </div>
+
+
+          <div class="folder-grid">
+
+            <button
+              class="folder-card"
+              type="button"
+            >
+              <strong>
+                Products
+              </strong>
+
+              <span>
+                Product images and graphics
+              </span>
+            </button>
+
+            <button
+              class="folder-card"
+              type="button"
+            >
+              <strong>
+                Mansion
+              </strong>
+
+              <span>
+                Mansion and room assets
+              </span>
+            </button>
+
+            <button
+              class="folder-card"
+              type="button"
+            >
+              <strong>
+                Branding
+              </strong>
+
+              <span>
+                Logos and brand graphics
+              </span>
+            </button>
+
+            <button
+              class="folder-card"
+              type="button"
+            >
+              <strong>
+                Backgrounds
+              </strong>
+
+              <span>
+                Website and section backgrounds
+              </span>
+            </button>
+
+            <button
+              class="folder-card"
+              type="button"
+            >
+              <strong>
+                Seasonal
+              </strong>
+
+              <span>
+                Holiday and campaign assets
+              </span>
+            </button>
+
+            <button
+              class="folder-card"
+              type="button"
+            >
+              <strong>
+                Other
+              </strong>
+
+              <span>
+                Everything else
+              </span>
+            </button>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             GLAM VAULT
+        ================================================== -->
+
+        <section
+          class="admin-screen"
+          id="screen-vault"
+          data-title="Glam Vault"
+        >
+
+          <div class="screen-heading">
+            <div>
+              <span class="section-kicker">
+                COMMUNITY
+              </span>
+
+              <h2>
+                Glam Vault
+              </h2>
+
+              <p>
+                Control your Skool section, messaging,
+                visuals and links.
+              </p>
+            </div>
+          </div>
+
+          <div class="panel placeholder-panel">
+            <strong>
+              Glam Vault Editor
+            </strong>
+
+            <p>
+              Headline, description, image, logo, CTA and
+              Skool link controls will live here.
+            </p>
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             REVIEWS
+        ================================================== -->
+
+        <section
+          class="admin-screen"
+          id="screen-reviews"
+          data-title="Reviews"
+        >
+
+          <div class="screen-heading">
+            <div>
+              <span class="section-kicker">
+                SOCIAL PROOF
+              </span>
+
+              <h2>
+                Reviews
+              </h2>
+
+              <p>
+                Add, remove, reorder and feature customer
+                reviews.
+              </p>
+            </div>
+          </div>
+
+          <div class="panel placeholder-panel">
+            <strong>
+              Review Manager
+            </strong>
+
+            <p>
+              Review controls will appear here.
+            </p>
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HELP & SUPPORT
+        ================================================== -->
+
+        <section
+          class="admin-screen"
+          id="screen-support"
+          data-title="Help & Support"
+        >
+
+          <div class="screen-heading">
+            <div>
+              <span class="section-kicker">
+                CUSTOMER SUPPORT
+              </span>
+
+              <h2>
+                Help & Support
+              </h2>
+
+              <p>
+                Control your Ask Glam Help Desk and Sapphire
+                support destinations.
+              </p>
+            </div>
+          </div>
+
+          <div class="panel placeholder-panel">
+            <strong>
+              Support Settings
+            </strong>
+
+            <p>
+              Help Desk links, support wording and visibility
+              controls will appear here.
+            </p>
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <section
+          class="admin-screen"
+          id="screen-footer"
+          data-title="Footer"
+        >
+
+          <div class="screen-heading">
+            <div>
+              <span class="section-kicker">
+                WEBSITE FOOTER
+              </span>
+
+              <h2>
+                Footer
+              </h2>
+
+              <p>
+                Manage your social links, contact details,
+                logo and footer navigation.
+              </p>
+            </div>
+          </div>
+
+          <div class="panel placeholder-panel">
+            <strong>
+              Footer Editor
+            </strong>
+
+            <p>
+              Footer controls will appear here.
+            </p>
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SEO
+        ================================================== -->
+
+        <section
+          class="admin-screen"
+          id="screen-seo"
+          data-title="SEO"
+        >
+
+          <div class="screen-heading">
+            <div>
+              <span class="section-kicker">
+                SEARCH & SHARING
+              </span>
+
+              <h2>
+                SEO
+              </h2>
+
+              <p>
+                Manage page titles, descriptions and social
+                share images.
+              </p>
+            </div>
+          </div>
+
+          <div class="panel placeholder-panel">
+            <strong>
+              SEO Manager
+            </strong>
+
+            <p>
+              Page SEO controls will appear here.
+            </p>
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PUBLISH
+        ================================================== -->
+
+        <section
+          class="admin-screen"
+          id="screen-publish"
+          data-title="Publish"
+        >
+
+          <div class="screen-heading">
+            <div>
+              <span class="section-kicker">
+                WEBSITE PUBLISHING
+              </span>
+
+              <h2>
+                Publish your website.
+              </h2>
+
+              <p>
+                Your live website stays on the last published
+                version until you choose to publish again.
+              </p>
+            </div>
+          </div>
+
+
+          <div class="publish-layout">
+
+            <div class="panel publish-card">
+
+              <span class="publish-icon">
+                ✓
+              </span>
+
+              <h3>
+                Current website is published.
+              </h3>
+
+              <p>
+                No unpublished changes are waiting.
+              </p>
+
+              <button
+                class="primary-button large-button"
+                type="button"
+                id="publishMainButton"
+              >
+                Publish Entire Website
+              </button>
+
+            </div>
+
+            <div class="panel">
+
+              <div class="panel-heading">
+                <div>
+                  <span class="section-kicker">
+                    VERSION SAFETY
+                  </span>
+
+                  <h3>
+                    Last published version
+                  </h3>
+                </div>
+              </div>
+
+              <p class="muted-copy">
+                The public website will fall back to the last
+                successfully published version if the editing
+                system ever has a temporary problem.
+              </p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <!-- =====================================================
+       TOAST / NOTIFICATION AREA
+  ====================================================== -->
+
+  <div
+    class="admin-toast"
+    id="adminToast"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+
+  <script src="admin.js"></script>
+
+</body>
+</html>

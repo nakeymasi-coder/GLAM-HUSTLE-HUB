@@ -1,8 +1,17 @@
 window.GLAM_SITE_CONFIG = {
+
   // =====================================================
   // GLAM HUSTLE HUB — WEBSITE CONTROL CENTER
-  // Change true/false to show or hide things.
-  // Change text, links, and image paths here.
+  //
+  // TRUE  = SHOW IT
+  // FALSE = HIDE IT
+  //
+  // Change website wording, links, and visibility here.
+  // =====================================================
+
+
+  // =====================================================
+  // WEBSITE INFO
   // =====================================================
 
   site: {
@@ -10,11 +19,17 @@ window.GLAM_SITE_CONFIG = {
     copyright: "© 2026 Glam Hustle Hub. All rights reserved."
   },
 
+
+  // =====================================================
+  // SHOW / HIDE WEBSITE AREAS
+  // =====================================================
+
   visibility: {
     shop: true,
     bestSellers: true,
 
-    // HIDDEN FOR NOW — CODE/PAGE STAYS IN PLACE
+    // Workshops are hidden for now.
+    // Change to true whenever you are ready to bring them back.
     workshops: false,
 
     promptGenerators: true,
@@ -30,14 +45,27 @@ window.GLAM_SITE_CONFIG = {
     helpSupport: true
   },
 
+
+  // =====================================================
+  // TOP NAVIGATION
+  // =====================================================
+
   navigation: {
     showHome: true,
     showShop: true,
+
+    // Hidden for now
     showWorkshops: false,
+
     showSkool: true,
     showOneOnOne: true,
     showAbout: true
   },
+
+
+  // =====================================================
+  // WEBSITE LINKS
+  // =====================================================
 
   links: {
     shop: "https://payhip.com/GlowUpbyGlam/collection/all",
@@ -50,39 +78,57 @@ window.GLAM_SITE_CONFIG = {
     generatorBundles:
       "https://payhip.com/GlowUpbyGlam/collection/bundles",
 
-    pngs: "https://pin.it/NGr63tHjX/",
+    pngs:
+      "https://pin.it/NGr63tHjX/",
 
-    freebies: "https://pin.it/7EFoolKlz",
+    freebies:
+      "https://pin.it/7EFoolKlz",
 
-    oneOnOne: "one-on-one.html",
+    oneOnOne:
+      "one-on-one.html",
 
     facebookCommunity:
       "https://www.facebook.com/share/g/1Sv3VVCSaR/",
 
-    skoolCommunity: "https://payhip.com/b/54LoK",
+    skoolCommunity:
+      "https://payhip.com/b/54LoK",
 
-    reviews: "https://testimonial.to/glam-hustle-hub/all",
+    reviews:
+      "https://testimonial.to/glam-hustle-hub/all",
 
-    leaveReview: "https://testimonial.to/glam-hustle-hub/",
+    leaveReview:
+      "https://testimonial.to/glam-hustle-hub/",
 
-    pinterest: "https://pinterest.com/PromptLikeGlam/",
+    pinterest:
+      "https://pinterest.com/PromptLikeGlam/",
 
-    tiktok: "https://tiktok.com/@promptlikeglam",
+    tiktok:
+      "https://tiktok.com/@promptlikeglam",
 
-    lemon8: "https://v.lemon8-app.com/al/OgmyhphcMY",
+    lemon8:
+      "https://v.lemon8-app.com/al/OgmyhphcMY",
 
-    youtube: "https://youtube.com/@promptlikeglam",
+    youtube:
+      "https://youtube.com/@promptlikeglam",
 
-    facebook: "https://facebook.com/GlamAIForBeginners/",
+    facebook:
+      "https://facebook.com/GlamAIForBeginners/",
 
-    contactEmail: "glamorousgrammyglowup@gmail.com",
+    contactEmail:
+      "glamorousgrammyglowup@gmail.com",
 
-    // We will connect this to Ask Glam Help Desk next.
+    // We will connect the real Ask Glam Help Desk here later.
     helpSupport: "#"
   },
 
+
+  // =====================================================
+  // HERO SECTION
+  // =====================================================
+
   hero: {
-    eyebrow: "FOR WOMEN READY TO CREATE, SELL & SHINE",
+    eyebrow:
+      "FOR WOMEN READY TO CREATE, SELL & SHINE",
 
     headlineHTML:
       'WE TURN<br>BIG IDEAS INTO<br><em>BOLD</em><br>EXPERIENCES.',
@@ -90,8 +136,14 @@ window.GLAM_SITE_CONFIG = {
     description:
       "Creative tools, live workshops, and real support—built to help women 40+ stop overthinking and start creating.",
 
-    buttonText: "EXPLORE THE HUB"
+    buttonText:
+      "EXPLORE THE HUB"
   },
+
+
+  // =====================================================
+  // HERO STATS
+  // =====================================================
 
   heroStats: {
     enabled: true,
@@ -112,23 +164,39 @@ window.GLAM_SITE_CONFIG = {
     ]
   },
 
+
+  // =====================================================
+  // MOVING MARQUEE
+  // Workshops + Templates removed from public wording.
+  // =====================================================
+
   marquee: {
     enabled: true,
 
-    // Templates has already been removed.
     text:
-      "PROMPT GENERATORS ✦ WORKSHOPS ✦ ONE-ON-ONE SUPPORT ✦ CREATOR RESOURCES ✦ PROMPT GENERATORS ✦ WORKSHOPS ✦ ONE-ON-ONE SUPPORT ✦"
+      "PROMPT GENERATORS ✦ ONE-ON-ONE SUPPORT ✦ CREATOR RESOURCES ✦ GENERATOR BUNDLES ✦ FREEBIES ✦ PROMPT GENERATORS ✦ ONE-ON-ONE SUPPORT ✦"
   },
+
+
+  // =====================================================
+  // BEST SELLERS
+  // =====================================================
 
   bestSellers: {
     enabled: true,
     heading: "BEST SELLERS IN MOTION"
   },
 
+
+  // =====================================================
+  // ABOUT SECTION
+  // =====================================================
+
   about: {
     enabled: true,
 
-    eyebrow: "ABOUT GLAM HUSTLE HUB",
+    eyebrow:
+      "ABOUT GLAM HUSTLE HUB",
 
     headlineHTML:
       'TECHNOLOGY DOESN’T GET TO <em>BOSS US AROUND.</em>',
@@ -136,42 +204,67 @@ window.GLAM_SITE_CONFIG = {
     description:
       "Glam Hustle Hub helps beginners—especially women 40 and older—use technology to create products, build businesses, and bring their ideas to life. Clear guidance. Beautiful tools. Real support.",
 
-    buttonText: "DISCOVER THE HUB",
+    buttonText:
+      "DISCOVER THE HUB",
 
-    image: "images/about-image.png"
+    image:
+      "images/about-image.png"
   },
+
+
+  // =====================================================
+  // REVIEWS
+  // =====================================================
 
   reviews: {
     enabled: true,
 
-    eyebrow: "CREATOR REVIEWS",
+    eyebrow:
+      "CREATOR REVIEWS",
 
     headlineHTML:
       'REAL WOMEN.<br><em>REAL RESULTS.</em>'
   },
 
+
+  // =====================================================
+  // GLAM VAULT / SKOOL SECTION
+  //
+  // THIS IS WHERE YOU FIX THE SKOOL WORDING.
+  // =====================================================
+
   community: {
     enabled: true,
 
-    eyebrow: "YOU DON'T HAVE TO BUILD ALONE",
+    eyebrow:
+      "YOU DON'T HAVE TO BUILD ALONE",
 
     headlineHTML:
-      'JOIN THE <em>GLAM VAULT.</em>',
+      'STEP INSIDE <em>THE GLAM VAULT.</em>',
 
     description:
-      "Step inside the Glam Vault on Skool for resources, support, tutorials, business conversations, and a community built to help you keep creating and growing.",
+      "The Glam Vault is my private Skool community for creators who want resources, support, tutorials, business conversations, and a place to keep learning, creating, and moving forward.",
 
-    buttonText: "JOIN THE SKOOL →",
+    buttonText:
+      "ENTER THE GLAM VAULT →",
 
-    logo: "images/skool-logo.png"
+    logo:
+      "images/skool-logo.png"
   },
+
+
+  // =====================================================
+  // HELP & SUPPORT
+  // =====================================================
 
   support: {
     enabled: true,
 
-    menuLabel: "Help & Support",
+    menuLabel:
+      "Help & Support",
 
-    // We will replace this with the Ask Glam Help Desk page.
+    // Ask Glam Help Desk will go here.
     url: "#"
   }
+
 };
