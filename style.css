@@ -2849,3 +2849,265 @@ footer p,
     font-size: clamp(34px, 11vw, 48px);
   }
 }
+
+/* =========================================================
+   GLAM PUBLISHED WEBSITE RUNTIME
+========================================================= */
+
+.glam-published-theme-active {
+  --glam-live-primary:
+    var(--glam-published-primary, #168fea);
+
+  --glam-live-secondary:
+    var(--glam-published-secondary, #103b63);
+
+  --glam-live-accent:
+    var(--glam-published-accent, #ffffff);
+}
+
+
+/* Published button colors */
+
+.glam-published-theme-active
+a[class*="btn"],
+.glam-published-theme-active
+button[class*="btn"],
+.glam-published-theme-active
+.cta,
+.glam-published-theme-active
+[class*="button"] {
+  --glam-runtime-button-bg:
+    var(--glam-published-button-bg, #168fea);
+
+  --glam-runtime-button-text:
+    var(--glam-published-button-text, #ffffff);
+}
+
+
+/* Mansion hotspot runtime */
+
+[data-glam-hover="glow"]:hover {
+  box-shadow:
+    0 0 25px
+    rgba(22, 143, 234, 0.6);
+}
+
+[data-glam-hover="lift"]:hover {
+  transform:
+    translateY(-4px);
+}
+
+[data-glam-hover="zoom"]:hover {
+  transform:
+    scale(1.05);
+}
+
+[data-glam-hover="outline"]:hover {
+  outline:
+    2px solid
+    var(--glam-live-primary);
+}
+
+
+/* =========================================================
+   SECTION ANIMATIONS
+========================================================= */
+
+.glam-live-fade-up {
+  animation:
+    glamLiveFadeUp
+    0.7s ease both;
+}
+
+.glam-live-fade-in {
+  animation:
+    glamLiveFadeIn
+    0.7s ease both;
+}
+
+.glam-live-slide-left {
+  animation:
+    glamLiveSlideLeft
+    0.7s ease both;
+}
+
+.glam-live-slide-right {
+  animation:
+    glamLiveSlideRight
+    0.7s ease both;
+}
+
+.glam-live-pop {
+  animation:
+    glamLivePop
+    0.55s ease both;
+}
+
+.glam-live-float,
+[data-glam-animation="float"] {
+  animation:
+    glamLiveFloat
+    3.4s ease-in-out infinite;
+}
+
+.glam-live-soft-glow,
+[data-glam-animation="soft-glow"] {
+  animation:
+    glamLiveGlow
+    3s ease-in-out infinite;
+}
+
+[data-glam-animation="pulse"] {
+  animation:
+    glamLivePulse
+    2.8s ease-in-out infinite;
+}
+
+
+@keyframes glamLiveFadeUp {
+
+  from {
+    opacity: 0;
+    transform:
+      translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+@keyframes glamLiveFadeIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes glamLiveSlideLeft {
+
+  from {
+    opacity: 0;
+    transform:
+      translateX(-24px);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateX(0);
+  }
+
+}
+
+
+@keyframes glamLiveSlideRight {
+
+  from {
+    opacity: 0;
+    transform:
+      translateX(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateX(0);
+  }
+
+}
+
+
+@keyframes glamLivePop {
+
+  from {
+    opacity: 0;
+    transform:
+      scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      scale(1);
+  }
+
+}
+
+
+@keyframes glamLiveFloat {
+
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-6px);
+  }
+
+}
+
+
+@keyframes glamLiveGlow {
+
+  0%,
+  100% {
+    filter:
+      brightness(1);
+  }
+
+  50% {
+    filter:
+      brightness(1.08);
+  }
+
+}
+
+
+@keyframes glamLivePulse {
+
+  0%,
+  100% {
+    transform:
+      scale(1);
+  }
+
+  50% {
+    transform:
+      scale(1.025);
+  }
+
+}
+
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+
+  .glam-live-fade-up,
+  .glam-live-fade-in,
+  .glam-live-slide-left,
+  .glam-live-slide-right,
+  .glam-live-pop,
+  .glam-live-float,
+  .glam-live-soft-glow,
+  [data-glam-animation] {
+    animation:
+      none !important;
+  }
+
+}
