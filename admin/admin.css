@@ -1342,3 +1342,44 @@ body.dark-mode .empty-theme {
   }
 
 }
+
+/* =========================================================
+   PASSWORD RECOVERY
+========================================================= */
+
+.glam-forgot-password {
+  width: 100%;
+  margin-top: 10px;
+  border: 0;
+  background: transparent;
+  color: #168fea;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.glam-forgot-password:hover {
+  text-decoration: underline;
+}
+
+.glam-login-subheading {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.glam-login-subheading h2 {
+  margin: 0;
+  color: #103b63;
+  font-size: 1.45rem;
+}
+
+.glam-login-subheading p {
+  margin: 8px 0 0;
+  color: #617789;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.glam-login-message.success {
+  color: #167a4b;
+}

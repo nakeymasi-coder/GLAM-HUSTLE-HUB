@@ -3,7 +3,9 @@ import {
   login,
   logout,
   oauthLogin,
-  handleAuthCallback
+  handleAuthCallback,
+  requestPasswordRecovery,
+  updateUser
 } from "https://esm.sh/@netlify/identity@2.0.0";
 
 /* =========================================================
@@ -11,24 +13,30 @@ import {
    AUTHENTICATION
 ========================================================= */
 
-const ADMIN_APP_ID = "glamAdminApp";
-const LOGIN_SCREEN_ID = "glamAdminLoginScreen";
+const LOGIN_SCREEN_ID =
+  "glamAdminLoginScreen";
 
 let currentAdminUser = null;
 
 
 /* =========================================================
-   BUILD LOGIN SCREEN
+   LOGIN SCREEN
 ========================================================= */
 
 function buildLoginScreen() {
-  if (document.getElementById(LOGIN_SCREEN_ID)) {
+  if (
+    document.getElementById(
+      LOGIN_SCREEN_ID
+    )
+  ) {
     return;
   }
 
-  const screen = document.createElement("div");
+  const screen =
+    document.createElement("div");
 
-  screen.id = LOGIN_SCREEN_ID;
+  screen.id =
+    LOGIN_SCREEN_ID;
 
   screen.innerHTML = `
     <div class="glam-login-shell">
@@ -36,6 +44,7 @@ function buildLoginScreen() {
       <div class="glam-login-card">
 
         <div class="glam-login-brand">
+
           <span class="glam-login-kicker">
             GLAM HUSTLE HUB
           </span>
@@ -47,62 +56,207 @@ function buildLoginScreen() {
           <p>
             Private administrator access
           </p>
+
         </div>
 
 
-        <form
-          id="glamEmailLoginForm"
-          class="glam-login-form"
-        >
+        <!-- NORMAL LOGIN -->
 
-          <label>
-            <span>Email</span>
+        <div id="glamNormalLoginView">
 
-            <input
-              id="glamLoginEmail"
-              type="email"
-              autocomplete="email"
-              required
-              placeholder="Your admin email"
-            />
-          </label>
+          <form
+            id="glamEmailLoginForm"
+            class="glam-login-form"
+          >
+
+            <label>
+              <span>Email</span>
+
+              <input
+                id="glamLoginEmail"
+                type="email"
+                autocomplete="email"
+                required
+                placeholder="Your admin email"
+              />
+            </label>
 
 
-          <label>
-            <span>Password</span>
+            <label>
+              <span>Password</span>
 
-            <input
-              id="glamLoginPassword"
-              type="password"
-              autocomplete="current-password"
-              required
-              placeholder="Your password"
-            />
-          </label>
+              <input
+                id="glamLoginPassword"
+                type="password"
+                autocomplete="current-password"
+                required
+                placeholder="Your password"
+              />
+            </label>
+
+
+            <button
+              class="glam-login-primary"
+              type="submit"
+            >
+              Log In
+            </button>
+
+          </form>
 
 
           <button
-            class="glam-login-primary"
-            type="submit"
+            id="glamForgotPasswordButton"
+            class="glam-forgot-password"
+            type="button"
           >
-            Log In
+            Forgot Password?
           </button>
 
-        </form>
+
+          <div class="glam-login-divider">
+            <span>OR</span>
+          </div>
 
 
-        <div class="glam-login-divider">
-          <span>OR</span>
+          <button
+            id="glamGoogleLoginButton"
+            class="glam-google-login"
+            type="button"
+          >
+            Continue with Google
+          </button>
+
         </div>
 
 
-        <button
-          id="glamGoogleLoginButton"
-          class="glam-google-login"
-          type="button"
+        <!-- FORGOT PASSWORD -->
+
+        <div
+          id="glamForgotPasswordView"
+          hidden
         >
-          Continue with Google
-        </button>
+
+          <div class="glam-login-subheading">
+
+            <h2>
+              Reset Password
+            </h2>
+
+            <p>
+              Enter your admin email and we’ll send you a reset link.
+            </p>
+
+          </div>
+
+
+          <form
+            id="glamForgotPasswordForm"
+            class="glam-login-form"
+          >
+
+            <label>
+
+              <span>Email</span>
+
+              <input
+                id="glamForgotEmail"
+                type="email"
+                required
+                placeholder="Your admin email"
+              />
+
+            </label>
+
+
+            <button
+              class="glam-login-primary"
+              type="submit"
+            >
+              Send Reset Email
+            </button>
+
+          </form>
+
+
+          <button
+            id="glamBackToLoginButton"
+            class="glam-forgot-password"
+            type="button"
+          >
+            Back to Login
+          </button>
+
+        </div>
+
+
+        <!-- CREATE NEW PASSWORD -->
+
+        <div
+          id="glamRecoveryView"
+          hidden
+        >
+
+          <div class="glam-login-subheading">
+
+            <h2>
+              Create New Password
+            </h2>
+
+            <p>
+              Enter your new password below.
+            </p>
+
+          </div>
+
+
+          <form
+            id="glamRecoveryForm"
+            class="glam-login-form"
+          >
+
+            <label>
+
+              <span>New Password</span>
+
+              <input
+                id="glamNewPassword"
+                type="password"
+                autocomplete="new-password"
+                required
+                minlength="8"
+                placeholder="Create a new password"
+              />
+
+            </label>
+
+
+            <label>
+
+              <span>Confirm Password</span>
+
+              <input
+                id="glamConfirmPassword"
+                type="password"
+                autocomplete="new-password"
+                required
+                minlength="8"
+                placeholder="Enter it again"
+              />
+
+            </label>
+
+
+            <button
+              class="glam-login-primary"
+              type="submit"
+            >
+              Save New Password
+            </button>
+
+          </form>
+
+        </div>
 
 
         <p
@@ -116,11 +270,15 @@ function buildLoginScreen() {
     </div>
   `;
 
-  document.body.appendChild(screen);
+  document.body.appendChild(
+    screen
+  );
 
 
   document
-    .getElementById("glamEmailLoginForm")
+    .getElementById(
+      "glamEmailLoginForm"
+    )
     .addEventListener(
       "submit",
       handleEmailLogin
@@ -128,11 +286,131 @@ function buildLoginScreen() {
 
 
   document
-    .getElementById("glamGoogleLoginButton")
+    .getElementById(
+      "glamGoogleLoginButton"
+    )
     .addEventListener(
       "click",
       handleGoogleLogin
     );
+
+
+  document
+    .getElementById(
+      "glamForgotPasswordButton"
+    )
+    .addEventListener(
+      "click",
+      showForgotPassword
+    );
+
+
+  document
+    .getElementById(
+      "glamBackToLoginButton"
+    )
+    .addEventListener(
+      "click",
+      showNormalLogin
+    );
+
+
+  document
+    .getElementById(
+      "glamForgotPasswordForm"
+    )
+    .addEventListener(
+      "submit",
+      handleForgotPassword
+    );
+
+
+  document
+    .getElementById(
+      "glamRecoveryForm"
+    )
+    .addEventListener(
+      "submit",
+      handleNewPassword
+    );
+}
+
+
+/* =========================================================
+   VIEW HELPERS
+========================================================= */
+
+function setLoginMessage(
+  message,
+  isError = false
+) {
+  const element =
+    document.getElementById(
+      "glamLoginMessage"
+    );
+
+  if (!element) return;
+
+  element.textContent =
+    message || "";
+
+  element.classList.toggle(
+    "success",
+    !isError && Boolean(message)
+  );
+}
+
+
+function showNormalLogin() {
+  document.getElementById(
+    "glamNormalLoginView"
+  ).hidden = false;
+
+  document.getElementById(
+    "glamForgotPasswordView"
+  ).hidden = true;
+
+  document.getElementById(
+    "glamRecoveryView"
+  ).hidden = true;
+
+  setLoginMessage("");
+}
+
+
+function showForgotPassword() {
+  document.getElementById(
+    "glamNormalLoginView"
+  ).hidden = true;
+
+  document.getElementById(
+    "glamForgotPasswordView"
+  ).hidden = false;
+
+  document.getElementById(
+    "glamRecoveryView"
+  ).hidden = true;
+
+  setLoginMessage("");
+}
+
+
+function showRecoveryForm() {
+  document.getElementById(
+    "glamNormalLoginView"
+  ).hidden = true;
+
+  document.getElementById(
+    "glamForgotPasswordView"
+  ).hidden = true;
+
+  document.getElementById(
+    "glamRecoveryView"
+  ).hidden = false;
+
+  setLoginMessage(
+    "Recovery link accepted. Create your new password."
+  );
 }
 
 
@@ -152,7 +430,9 @@ function showLogin() {
 
   document.documentElement
     .classList
-    .add("glam-admin-locked");
+    .add(
+      "glam-admin-locked"
+    );
 }
 
 
@@ -170,17 +450,23 @@ function showAdmin(user) {
 
   document.documentElement
     .classList
-    .remove("glam-admin-locked");
+    .remove(
+      "glam-admin-locked"
+    );
 
-  updateAdminUserDisplay(user);
+  updateAdminUserDisplay(
+    user
+  );
 }
 
 
 /* =========================================================
-   EMAIL + PASSWORD LOGIN
+   EMAIL LOGIN
 ========================================================= */
 
-async function handleEmailLogin(event) {
+async function handleEmailLogin(
+  event
+) {
   event.preventDefault();
 
   const email =
@@ -198,30 +484,31 @@ async function handleEmailLogin(event) {
       )
       .value;
 
-  const message =
-    document.getElementById(
-      "glamLoginMessage"
-    );
-
-  message.textContent =
-    "Signing you in...";
+  setLoginMessage(
+    "Signing you in..."
+  );
 
   try {
+
     const user =
       await login(
         email,
         password
       );
 
-    message.textContent = "";
+    setLoginMessage("");
 
     showAdmin(user);
 
   } catch (error) {
+
     console.error(error);
 
-    message.textContent =
-      "Login failed. Check your email and password.";
+    setLoginMessage(
+      "Login failed. Check your email and password.",
+      true
+    );
+
   }
 }
 
@@ -231,15 +518,143 @@ async function handleEmailLogin(event) {
 ========================================================= */
 
 function handleGoogleLogin() {
-  const message =
-    document.getElementById(
-      "glamLoginMessage"
-    );
-
-  message.textContent =
-    "Opening Google login...";
+  setLoginMessage(
+    "Opening Google login..."
+  );
 
   oauthLogin("google");
+}
+
+
+/* =========================================================
+   FORGOT PASSWORD
+========================================================= */
+
+async function handleForgotPassword(
+  event
+) {
+  event.preventDefault();
+
+  const email =
+    document
+      .getElementById(
+        "glamForgotEmail"
+      )
+      .value
+      .trim();
+
+  if (!email) return;
+
+  setLoginMessage(
+    "Sending reset email..."
+  );
+
+  try {
+
+    await requestPasswordRecovery(
+      email
+    );
+
+    setLoginMessage(
+      "Reset email sent. Check your inbox."
+    );
+
+  } catch (error) {
+
+    console.error(error);
+
+    setLoginMessage(
+      "Could not send the reset email.",
+      true
+    );
+
+  }
+}
+
+
+/* =========================================================
+   SAVE NEW PASSWORD
+========================================================= */
+
+async function handleNewPassword(
+  event
+) {
+  event.preventDefault();
+
+  const password =
+    document.getElementById(
+      "glamNewPassword"
+    ).value;
+
+  const confirmPassword =
+    document.getElementById(
+      "glamConfirmPassword"
+    ).value;
+
+
+  if (
+    password.length < 8
+  ) {
+
+    setLoginMessage(
+      "Password must be at least 8 characters.",
+      true
+    );
+
+    return;
+  }
+
+
+  if (
+    password !==
+    confirmPassword
+  ) {
+
+    setLoginMessage(
+      "The passwords do not match.",
+      true
+    );
+
+    return;
+  }
+
+
+  setLoginMessage(
+    "Saving your new password..."
+  );
+
+
+  try {
+
+    const user =
+      await updateUser({
+        password
+      });
+
+    setLoginMessage(
+      "Password updated."
+    );
+
+    document.getElementById(
+      "glamNewPassword"
+    ).value = "";
+
+    document.getElementById(
+      "glamConfirmPassword"
+    ).value = "";
+
+    showAdmin(user);
+
+  } catch (error) {
+
+    console.error(error);
+
+    setLoginMessage(
+      "Could not update the password. Request a new reset link and try again.",
+      true
+    );
+
+  }
 }
 
 
@@ -249,17 +664,21 @@ function handleGoogleLogin() {
 
 async function handleAdminLogout() {
   try {
+
     await logout();
 
     currentAdminUser = null;
 
     showLogin();
+    showNormalLogin();
 
   } catch (error) {
+
     console.error(
       "Logout failed:",
       error
     );
+
   }
 }
 
@@ -268,7 +687,9 @@ async function handleAdminLogout() {
    ADMIN USER DISPLAY
 ========================================================= */
 
-function updateAdminUserDisplay(user) {
+function updateAdminUserDisplay(
+  user
+) {
   const existing =
     document.getElementById(
       "glamAdminAccount"
@@ -291,7 +712,9 @@ function updateAdminUserDisplay(user) {
 
 
   const account =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
   account.id =
     "glamAdminAccount";
@@ -324,7 +747,9 @@ function updateAdminUserDisplay(user) {
     </button>
   `;
 
-  sidebar.appendChild(account);
+  sidebar.appendChild(
+    account
+  );
 
 
   document
@@ -353,30 +778,52 @@ function escapeAuthHTML(value) {
 
 
 /* =========================================================
-   INITIALIZE AUTHENTICATION
+   INITIALIZE
 ========================================================= */
 
 async function initializeAdminAuth() {
+
   buildLoginScreen();
 
   showLogin();
 
+
   try {
 
-    /*
-      Processes:
-      - Google OAuth returns
-      - invite links
-      - confirmation links
-      - password recovery callbacks
-    */
-    await handleAuthCallback();
+    const callbackResult =
+      await handleAuthCallback();
+
+
+    if (
+      callbackResult?.type ===
+      "recovery"
+    ) {
+
+      showRecoveryForm();
+      return;
+
+    }
+
+
+    if (
+      callbackResult?.user
+    ) {
+
+      showAdmin(
+        callbackResult.user
+      );
+
+      return;
+
+    }
 
   } catch (error) {
+
     console.warn(
-      "No Identity callback to process.",
+      "Identity callback could not be processed.",
       error
     );
+
   }
 
 
@@ -386,18 +833,23 @@ async function initializeAdminAuth() {
       await getUser();
 
     if (user) {
+
       showAdmin(user);
       return;
+
     }
 
   } catch (error) {
+
     console.error(
       "Could not check login status:",
       error
     );
+
   }
 
 
+  showNormalLogin();
   showLogin();
 }
 
@@ -405,6 +857,5 @@ async function initializeAdminAuth() {
 initializeAdminAuth();
 
 
-/* Make logout available if needed elsewhere */
 window.glamAdminLogout =
   handleAdminLogout;
