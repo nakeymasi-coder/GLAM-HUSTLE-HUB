@@ -1096,3 +1096,249 @@ body.dark-mode .empty-theme {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   GLAM ADMIN LOGIN
+========================================================= */
+
+.glam-admin-locked body > *:not(#glamAdminLoginScreen) {
+  visibility: hidden;
+}
+
+#glamAdminLoginScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  overflow-y: auto;
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(22, 143, 234, 0.28),
+      transparent 34%
+    ),
+    linear-gradient(
+      145deg,
+      #f7fbff,
+      #eaf5ff
+    );
+}
+
+#glamAdminLoginScreen[hidden] {
+  display: none;
+}
+
+.glam-login-shell {
+  min-height: 100vh;
+  padding: 30px 18px;
+  display: grid;
+  place-items: center;
+}
+
+.glam-login-card {
+  width: min(100%, 470px);
+  padding: 34px;
+  border: 1px solid
+    rgba(22, 143, 234, 0.18);
+  border-radius: 26px;
+  background:
+    rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 28px 70px
+    rgba(16, 59, 99, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+.glam-login-brand {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.glam-login-kicker {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #168fea;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.glam-login-brand h1 {
+  margin: 0;
+  color: #103b63;
+  font-size:
+    clamp(1.8rem, 5vw, 2.45rem);
+  line-height: 1;
+}
+
+.glam-login-brand p {
+  margin: 10px 0 0;
+  color: #617789;
+  font-size: 0.9rem;
+}
+
+.glam-login-form {
+  display: grid;
+  gap: 14px;
+}
+
+.glam-login-form label {
+  display: grid;
+  gap: 7px;
+}
+
+.glam-login-form label span {
+  color: #103b63;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.glam-login-form input {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 14px;
+  border: 1px solid #d8e6f1;
+  border-radius: 13px;
+  background: #fff;
+  color: #171a1e;
+  font: inherit;
+  outline: none;
+}
+
+.glam-login-form input:focus {
+  border-color: #168fea;
+  box-shadow:
+    0 0 0 3px
+    rgba(22, 143, 234, 0.12);
+}
+
+.glam-login-primary,
+.glam-google-login {
+  width: 100%;
+  min-height: 50px;
+  border-radius: 13px;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.glam-login-primary {
+  border: 0;
+  background:
+    linear-gradient(
+      135deg,
+      #168fea,
+      #0b6fbe
+    );
+  color: #fff;
+  box-shadow:
+    0 12px 24px
+    rgba(22, 143, 234, 0.22);
+}
+
+.glam-google-login {
+  border: 1px solid #d8e6f1;
+  background: #fff;
+  color: #171a1e;
+}
+
+.glam-google-login:hover {
+  border-color: #168fea;
+  background: #f8fcff;
+}
+
+.glam-login-divider {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #8294a2;
+  font-size: 0.68rem;
+  font-weight: 900;
+}
+
+.glam-login-divider::before,
+.glam-login-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #dce8f2;
+}
+
+.glam-login-message {
+  min-height: 20px;
+  margin: 14px 0 0;
+  color: #a82929;
+  text-align: center;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   ADMIN ACCOUNT / LOGOUT
+========================================================= */
+
+.glam-admin-account {
+  margin-top: auto;
+  padding: 14px;
+  border-top: 1px solid
+    var(--line);
+}
+
+.glam-admin-account-copy {
+  margin-bottom: 10px;
+}
+
+.glam-admin-account-copy span,
+.glam-admin-account-copy strong {
+  display: block;
+}
+
+.glam-admin-account-copy span {
+  color: var(--text-soft);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.glam-admin-account-copy strong {
+  margin-top: 4px;
+  overflow: hidden;
+  color: var(--text);
+  font-size: 0.72rem;
+  text-overflow: ellipsis;
+}
+
+#glamAdminLogoutButton {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel-solid);
+  color: var(--text);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+#glamAdminLogoutButton:hover {
+  border-color: #168fea;
+  color: #168fea;
+}
+
+
+/* =========================================================
+   MOBILE LOGIN
+========================================================= */
+
+@media (max-width: 520px) {
+
+  .glam-login-card {
+    padding: 25px 19px;
+    border-radius: 20px;
+  }
+
+  .glam-login-shell {
+    padding: 18px 12px;
+  }
+
+}
