@@ -1,0 +1,26 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/site-state"
+  to = "/.netlify/functions/site-state"
+  status = 200
+
+[[redirects]]
+  from = "/api/publish-site"
+  to = "/.netlify/functions/publish-site"
+  status = 200
+
+[[redirects]]
+  from = "/api/publish-history"
+  to = "/.netlify/functions/publish-history"
+  status = 200
+
+[[redirects]]
+  from = "/api/restore-version"
+  to = "/.netlify/functions/restore-version"
+  status = 200

@@ -1,0 +1,11 @@
+{
+  "name": "glam-hustle-hub",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@netlify/blobs": "^10.0.0",
+    "@netlify/functions": "^4.2.5",
+    "@netlify/identity": "^2.0.0"
+  }
+}
