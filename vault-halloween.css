@@ -1,0 +1,73 @@
+/* Seasonal color layer for the Glam Vault only; existing layout and assets stay intact. */
+.halloween-vault {
+  background: linear-gradient(180deg, #fffaf3, #fff5e8 70%, #ffeed8) !important;
+  color: #291b14 !important;
+}
+.halloween-vault .hub-header {
+  background: rgba(255, 250, 243, .96) !important;
+  color: #291b14 !important;
+  border-bottom-color: #efd4b5 !important;
+  box-shadow: 0 12px 40px rgba(73, 36, 12, .08);
+}
+.halloween-vault #topNav a { color: #291b14 !important; }
+.halloween-vault #topNav a:hover {
+  color: #a74109 !important;
+  border-color: #e96e17 !important;
+}
+.halloween-vault .explore,
+.halloween-vault .community > div > a {
+  background: #ff8520 !important;
+  color: #291304 !important;
+  border-color: #ffbd72 !important;
+  box-shadow: 0 8px 24px rgba(137, 61, 8, .18);
+  text-shadow: none;
+}
+.halloween-vault .explore:hover,
+.halloween-vault .community > div > a:hover {
+  background: #ffa244 !important;
+}
+.halloween-vault .explore span { color: #291304; }
+.halloween-vault .destination-return a { color: #69300e; }
+.halloween-vault .destination-return a:hover { color: #a74109; }
+.halloween-vault .community {
+  background:
+    linear-gradient(115deg, rgba(235, 105, 22, .88), rgba(255, 181, 99, .84)),
+    url("images/sapphire-mansion-city.png") center/cover !important;
+  color: #291b14 !important;
+}
+.halloween-vault .community > div {
+  background: linear-gradient(145deg, rgba(255, 252, 246, .96), rgba(255, 242, 222, .95)) !important;
+  border-color: #fff5e6 !important;
+  box-shadow: 0 24px 60px rgba(81, 36, 10, .16);
+}
+.halloween-vault .community small { color: #704324; }
+.halloween-vault .community h1 { color: #291b14; }
+.halloween-vault .community h1 em { color: #af460a; }
+.halloween-vault .community p { color: #49392e; }
+.halloween-vault #drawer {
+  background: linear-gradient(155deg, #ff982e, #f06b0f) !important;
+  color: #291304 !important;
+  border-color: #ffbd72;
+  box-shadow: -25px 0 80px rgba(73, 36, 12, .2);
+}
+.halloween-vault #drawer > div { border-color: rgba(41, 19, 4, .25); }
+.halloween-vault #drawer > a {
+  color: #291304;
+  border-color: rgba(41, 19, 4, .18);
+}
+.halloween-vault #drawer > a:hover { background: rgba(255, 245, 232, .28); }
+.halloween-vault #drawer button { color: #291304; }
+.halloween-vault .hub-footer {
+  background: linear-gradient(110deg, #ff9427, #f57c12) !important;
+  color: #291304 !important;
+  border-color: rgba(41, 19, 4, .2);
+}
+.halloween-vault .hub-footer a,
+.halloween-vault .hub-footer p { color: #291304 !important; }
+.halloween-vault .hub-footer div { border-color: rgba(41, 19, 4, .18); }
+.halloween-vault .skip-link { background: #fff5e8; color: #291304; }
+.halloween-vault a:focus-visible,
+.halloween-vault button:focus-visible { outline-color: #69300e; }
+.halloween-vault #drawer a:focus-visible,
+.halloween-vault #drawer button:focus-visible,
+.halloween-vault .hub-footer a:focus-visible { outline-color: #291304; }
