@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "css-tree": "^3.2.1",
+    "linkedom": "^0.18.13"
+  }
+}

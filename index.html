@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./mansion-pages.css" />
   <link rel="stylesheet" href="./mansion-home.css?v=20260922-scene" />
   <link rel="stylesheet" href="./mansion-halloween.css?v=20260922" />
+  <link rel="stylesheet" href="./mansion-video.css?v=20260922" />
   <link rel="icon" href="./images/favicon-32.png" />
   <link rel="apple-touch-icon" href="./images/apple-touch-icon.png" />
 </head>
@@ -43,6 +44,7 @@
     <p class="mansion-entry-note"><span class="room-hint-desktop">Hover over a room, or explore the Hub</span><span class="room-hint-mobile">Your next destination is inside</span></p>
     <div class="mansion-artwork">
     <img src="./images/mansion-halloween-2026.webp" width="1672" height="941" alt="The Glam Hustle Hub mansion dressed for Halloween, with purple and orange lighting, glowing pumpkins, and the same welcoming characters" fetchpriority="high" />
+    <video id="mansionVideo" class="mansion-video" data-src="./videos/mansion-halloween-v1.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" hidden></video>
     <a class="mansion-hotspot room-freebies" href="https://pin.it/7EFoolKlz" data-config-link="freebies"><b>Freebie Lounge</b><span>Claim your gifts</span></a>
     <a class="mansion-hotspot room-bestsellers" href="./best-sellers.html"><b>Best-Seller Gallery</b><span>Customer favorites</span></a>
     <a class="mansion-hotspot room-shop" href="https://payhip.com/GlowUpbyGlam/collection/all" data-config-link="shop"><b>The Grand Shop</b><span>Explore every collection</span></a>
@@ -54,6 +56,7 @@
     <a class="mansion-hotspot room-pngs" href="https://pin.it/NGr63tHjX/" data-config-link="pngs"><b>$2 PNG Gallery</b><span>Quick creative finds</span></a>
     <a class="mansion-hotspot room-reviews" href="./reviews.html"><b>Reviews</b><span>Real women, real results</span></a>
     </div>
+    <button id="mansionMotion" class="mansion-motion" type="button" aria-controls="mansionVideo" hidden>Play animation</button>
   </div>
 </section>
 </main>
@@ -66,5 +69,6 @@
 <a href="https://sapphire-assist-suite.lovable.app/support/b04f8f25905e4cefaf7577728f217338" data-config-link="support">Help &amp; Support</a></div><p>© 2026 Glam Hustle Hub. All rights reserved.</p></footer>
 <script src="./site-config.js"></script>
 <script src="./mansion-navigation.js"></script>
+<script src="./mansion-video.js"></script>
 </body>
 </html>
