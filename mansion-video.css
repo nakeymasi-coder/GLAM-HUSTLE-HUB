@@ -18,16 +18,16 @@
   z-index: 10;
   min-height: 44px;
   padding: 9px 14px;
-  border: 1px solid rgba(255, 214, 162, .7);
+  border: 1px solid #ffbd72;
   border-radius: 8px;
-  background: rgba(49, 23, 68, .9);
-  color: #fff5e8;
+  background: #ff8520;
+  color: #291304;
   font: 500 12px/1.4 Montserrat, Arial, sans-serif;
   letter-spacing: .02em;
   cursor: pointer;
   backdrop-filter: blur(8px);
 }
-.mansion-home .mansion-motion:hover { background: #482762; }
+.mansion-home .mansion-motion:hover { background: #ffa244; }
 .mansion-home .mansion-motion:focus-visible {
   outline: 3px solid #ffd6a2;
   outline-offset: 3px;

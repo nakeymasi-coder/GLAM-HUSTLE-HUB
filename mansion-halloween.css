@@ -1,38 +1,45 @@
 /* Seasonal color layer only. Geometry, room links and menu behavior stay intact.
    To restore sapphire: remove this stylesheet and halloween-home body class,
    then restore images/sapphire-mansion-city.png in index.html. */
-.mansion-home.halloween-home { background: #2c163f !important; }
+.mansion-home.halloween-home { background: #2b1408 !important; }
 .halloween-home .mansion-interface,
-.halloween-home .mansion-stage { background: #482762; }
+.halloween-home .mansion-stage { background: #2b1408; }
 .halloween-home .mansion-artwork > img { filter: none; }
 .halloween-home .mansion-stage::before {
-  background: linear-gradient(0deg, rgba(30, 13, 46, .52), transparent 22%);
+  background: linear-gradient(0deg, rgba(26, 15, 8, .52), transparent 22%);
 }
 .halloween-home .explore {
-  background: rgba(49, 23, 68, .93) !important;
-  border-color: #ffd6a2;
-  box-shadow: 0 4px 18px rgba(30, 13, 46, .2);
+  background: #ff8520 !important;
+  color: #291304 !important;
+  border-color: #ffbd72;
+  box-shadow: 0 4px 18px rgba(41, 19, 4, .2);
 }
-.halloween-home .explore:hover { background: #482762 !important; }
-.halloween-home .explore span { color: #ffd6a2; }
-.halloween-home .mansion-entry-note { text-shadow: 0 1px 5px #24102e; }
+.halloween-home .explore:hover { background: #ffa244 !important; }
+.halloween-home .explore span { color: #291304; }
+.halloween-home .mansion-entry-note { text-shadow: 0 1px 5px #291304; }
 .halloween-home .mansion-hotspot b {
-  background: rgba(49, 23, 68, .96);
-  border-color: #ffd6a2;
+  background: #ff8520;
+  color: #291304;
+  border-color: #ffbd72;
 }
 .halloween-home #drawer {
-  background: linear-gradient(155deg, #482762, #24102e) !important;
-  border-left-color: #d8c3e7;
+  background: linear-gradient(155deg, #ff982e, #f06b0f) !important;
+  color: #291304 !important;
+  border-left-color: #ffbd72;
 }
-.halloween-home #drawer > div { border-color: rgba(255, 214, 162, .35); }
-.halloween-home #drawer > a { border-color: rgba(216, 195, 231, .22); }
-.halloween-home #drawer > a:hover { background: rgba(255, 174, 80, .12); }
+.halloween-home #drawer > div { border-color: rgba(41, 19, 4, .25); }
+.halloween-home #drawer > a { color: #291304; border-color: rgba(41, 19, 4, .18); }
+.halloween-home #drawer > a:hover { background: rgba(255, 245, 232, .28); }
+.halloween-home #drawer button { color: #291304; }
+.halloween-home #drawer a:focus-visible,
+.halloween-home #drawer button:focus-visible { outline-color: #291304; }
 .halloween-home .hub-footer {
-  background: linear-gradient(110deg, #482762, #24102e) !important;
-  border-color: rgba(255, 214, 162, .25);
+  background: linear-gradient(110deg, #ff9427, #f57c12) !important;
+  border-color: rgba(41, 19, 4, .2);
 }
 .halloween-home .hub-footer a,
-.halloween-home .hub-footer p { color: #fff5e8; }
-.halloween-home .skip-link { background: #fff5e8; color: #482762; }
+.halloween-home .hub-footer p { color: #291304; }
+.halloween-home .hub-footer a:focus-visible { outline-color: #291304; }
+.halloween-home .skip-link { background: #fff5e8; color: #291304; }
 .halloween-home a:focus-visible,
 .halloween-home button:focus-visible { outline-color: #ffd6a2; }
