@@ -1,0 +1,215 @@
+/* Homepage only. Keep the artwork clear; the sidebar contains every destination. */
+.mansion-home {
+  position: relative;
+  background: #103b63 !important;
+}
+
+.mansion-home main { min-height: 0; }
+.mansion-home .mansion-interface { overflow: hidden; }
+.mansion-home .mansion-stage {
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  container-type: size;
+}
+
+/* Scale the image and links together so the rooms stay aligned when cropped. */
+.mansion-home .mansion-artwork {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100cqw, 177.68331562cqh);
+  height: max(100cqh, 56.27990431cqw);
+  transform: translate(-50%, -50%);
+}
+.mansion-home .mansion-artwork > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  filter: saturate(1.1) contrast(1.02) brightness(1.04);
+}
+.mansion-home .mansion-stage::before {
+  display: block;
+  background: linear-gradient(0deg, rgba(7, 32, 57, .55), transparent 22%);
+  z-index: 2;
+}
+
+/* A single centered menu control replaces the separate white logo/nav strip. */
+.mansion-home .hub-header {
+  position: absolute !important;
+  inset: auto !important;
+  left: 50% !important;
+  bottom: 72px !important;
+  transform: translateX(-50%);
+  width: max-content;
+  height: auto !important;
+  min-height: 0;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.mansion-home .explore {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  min-width: 208px;
+  min-height: 50px;
+  padding: 12px 24px;
+  border: 1px solid rgba(234, 245, 255, .7);
+  border-radius: 8px !important;
+  background: rgba(10, 53, 86, .9) !important;
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .035em;
+  text-shadow: none;
+  box-shadow: 0 4px 18px rgba(7, 32, 57, .18);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+.mansion-home .explore span { display: inline; margin: 0; font-size: 17px; }
+.mansion-home .explore::before { display: none; }
+.mansion-home .explore:hover { background: #103b63 !important; }
+.mansion-home .explore:focus-visible { outline-color: white; }
+.mansion-home .mansion-entry-note {
+  inset: auto;
+  top: auto;
+  bottom: 98px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100% - 24px);
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: .04em;
+  text-transform: none;
+  text-align: center;
+  text-shadow: 0 1px 5px #072039;
+}
+.mansion-home .room-hint-mobile { display: none; }
+
+/* Transparent room hit areas: no persistent cards, dots, or text on the scene. */
+.mansion-home .mansion-hotspot,
+.mansion-home .mansion-hotspot:nth-of-type(odd) {
+  position: absolute;
+  inset: auto;
+  left: var(--room-x);
+  top: var(--room-y);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--room-width, 11%);
+  height: var(--room-height, 13%);
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  gap: 0;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  transform: none;
+  cursor: pointer;
+}
+.mansion-home .mansion-hotspot::before { display: none; }
+.mansion-home .mansion-hotspot b {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 170px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, .6);
+  border-radius: 6px;
+  background: rgba(10, 48, 80, .94);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: .01em;
+  text-transform: none;
+  text-align: center;
+  opacity: 0;
+  transition: opacity .15s ease;
+  pointer-events: none;
+}
+.mansion-home .mansion-hotspot > span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.mansion-home .mansion-hotspot:focus-visible {
+  background: rgba(255, 255, 255, .06);
+  border-color: rgba(255, 255, 255, .8);
+  outline: 2px solid white;
+  outline-offset: 3px;
+  transform: none;
+  box-shadow: none;
+}
+.mansion-home .mansion-hotspot:focus-visible b { opacity: 1; }
+@media (hover: hover) and (pointer: fine) {
+  .mansion-home .mansion-hotspot:hover {
+    background: rgba(255, 255, 255, .05);
+    border-color: rgba(255, 255, 255, .55);
+    transform: none;
+    box-shadow: none;
+  }
+  .mansion-home .mansion-hotspot:hover b { opacity: 1; }
+}
+
+/* Coordinates refer to the original artwork, not the viewport. */
+.mansion-home .room-generators { --room-x: 22%; --room-y: 16%; --room-width: 14%; --room-height: 19%; }
+.mansion-home .room-community { --room-x: 43%; --room-y: 16%; --room-width: 14%; --room-height: 18%; }
+.mansion-home .room-bestsellers { --room-x: 37%; --room-y: 37%; --room-width: 14%; --room-height: 14%; }
+.mansion-home .room-facebook { --room-x: 64%; --room-y: 32%; --room-width: 13%; --room-height: 15%; }
+.mansion-home .room-shop { --room-x: 52%; --room-y: 45%; --room-width: 12%; --room-height: 14%; }
+.mansion-home .room-freebies { --room-x: 23%; --room-y: 53%; --room-width: 11%; --room-height: 19%; }
+.mansion-home .room-support { --room-x: 68%; --room-y: 58%; --room-width: 10%; --room-height: 17%; }
+.mansion-home .room-bundles { --room-x: 47%; --room-y: 63%; --room-width: 12%; --room-height: 13%; }
+.mansion-home .room-pngs { --room-x: 28%; --room-y: 77%; --room-width: 13%; --room-height: 14%; }
+.mansion-home .room-reviews { --room-x: 64%; --room-y: 78%; --room-width: 13%; --room-height: 13%; }
+
+/* The existing drawer retains its links, focus trap, dismissal and support path. */
+.mansion-home #drawer {
+  background: linear-gradient(155deg, #123f68, #082d50) !important;
+  color: #f3f8ff !important;
+  border-left: 1px solid rgba(220, 231, 237, .35);
+}
+.mansion-home #drawer > div { border-color: rgba(220, 231, 237, .3); font-size: 13px; letter-spacing: .12em; }
+.mansion-home #drawer > a { color: #f3f8ff; border-color: rgba(220, 231, 237, .18); font-weight: 500; }
+.mansion-home #drawer > a:hover { background: rgba(255, 255, 255, .08); }
+.mansion-home #drawer button { color: white; cursor: pointer; }
+.mansion-home #drawer a:focus-visible, .mansion-home #drawer button:focus-visible { outline-color: white; }
+
+@media (max-width: 900px), (hover: none), (pointer: coarse) {
+  /* The panorama is cropped on narrow screens; use named menu links instead. */
+  .mansion-home .mansion-hotspot { display: none; }
+  .mansion-home .room-hint-desktop { display: none; }
+  .mansion-home .room-hint-mobile { display: inline; }
+}
+@media (max-width: 900px) {
+  .mansion-home .hub-header { bottom: 104px !important; }
+  .mansion-home .mansion-entry-note { bottom: 116px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mansion-home .mansion-hotspot b { transition: none; }
+}
