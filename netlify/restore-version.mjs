@@ -4,9 +4,6 @@ import { getUser } from "@netlify/identity";
 const STORE_NAME =
   "glam-website-control-center";
 
-const PUBLISHED_KEY =
-  "published/current";
-
 const DRAFT_KEY =
   "draft/site-state";
 
@@ -38,8 +35,7 @@ export default async function handler(
 
   const {
     versionId
-  } =
-    await request.json();
+  } = await request.json();
 
   if (!versionId) {
     return Response.json(
@@ -80,35 +76,42 @@ export default async function handler(
   const restoredAt =
     new Date().toISOString();
 
-  const restoredState = {
+  const restoredDraft = {
     ...version.state,
+
+    updatedAt:
+      restoredAt,
+
     restoredAt,
+
     restoredFrom:
       versionId,
+
     restoredBy:
       user.email
   };
 
+  /*
+    IMPORTANT:
+    This restores ONLY the draft.
+
+    It does NOT overwrite
+    published/current.
+  */
   await store.setJSON(
     DRAFT_KEY,
-    restoredState
-  );
-
-  await store.setJSON(
-    PUBLISHED_KEY,
-    {
-      ...restoredState,
-      publishedAt:
-        restoredAt,
-      publishedBy:
-        user.email
-    }
+    restoredDraft
   );
 
   return Response.json({
     ok: true,
+
     restoredFrom:
       versionId,
-    restoredAt
+
+    restoredAt,
+
+    message:
+      "Version restored to draft."
   });
 }

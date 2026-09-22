@@ -12621,3 +12621,1516 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeMediaLibrary();
 
 });
+
+/* =========================================================
+   GLAM WEBSITE CONTROL CENTER
+   BACKEND DRAFT + PUBLISH SYSTEM
+   ========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+
+  const DRAFT_ENDPOINT =
+    "/api/site-state";
+
+  const PUBLISH_ENDPOINT =
+    "/api/publish-site";
+
+  const HISTORY_ENDPOINT =
+    "/api/publish-history";
+
+  const RESTORE_ENDPOINT =
+    "/api/restore-version";
+
+
+  const DRAFT_STAMP_KEY =
+    "glamBackendDraftStamp";
+
+
+  let glamBackendReady =
+    false;
+
+  let glamHydrating =
+    false;
+
+  let glamAutoSaveTimer =
+    null;
+
+  let glamAutoSaveBusy =
+    false;
+
+  let glamPendingSave =
+    false;
+
+
+  /* =======================================================
+     TOAST
+  ======================================================== */
+
+  function backendToast(
+    message
+  ) {
+
+    const toast =
+      document.getElementById(
+        "adminToast"
+      );
+
+    if (!toast) {
+      return;
+    }
+
+    toast.textContent =
+      message;
+
+    toast.classList.add(
+      "show"
+    );
+
+    clearTimeout(
+      window.glamBackendToastTimer
+    );
+
+    window.glamBackendToastTimer =
+      setTimeout(() => {
+
+        toast.classList.remove(
+          "show"
+        );
+
+      }, 2600);
+
+  }
+
+
+  /* =======================================================
+     API
+  ======================================================== */
+
+  async function backendRequest(
+    url,
+    options = {}
+  ) {
+
+    const response =
+      await fetch(
+        url,
+        {
+          credentials:
+            "include",
+
+          ...options,
+
+          headers: {
+            ...(options.body
+              ? {
+                  "Content-Type":
+                    "application/json"
+                }
+              : {}),
+
+            ...(options.headers || {})
+          }
+        }
+      );
+
+
+    let data = null;
+
+
+    try {
+
+      data =
+        await response.json();
+
+    } catch (error) {
+
+      data = null;
+
+    }
+
+
+    if (!response.ok) {
+
+      const backendError =
+        new Error(
+          data?.error ||
+          `Request failed (${response.status})`
+        );
+
+      backendError.status =
+        response.status;
+
+      throw backendError;
+
+    }
+
+
+    return data;
+
+  }
+
+
+  /* =======================================================
+     COLLECT CONTROL CENTER STATE
+  ======================================================== */
+
+  function collectWebsiteState() {
+
+    const localStorageData =
+      {};
+
+
+    /*
+      Everything belonging to the
+      actual website editors uses the
+      glamWebsite prefix.
+
+      This automatically includes:
+      - Themes
+      - Mansion scenes
+      - Products
+      - Categories
+      - Card styles
+      - Sections
+      - Future website editors using
+        the same naming system
+    */
+
+    for (
+      let index = 0;
+      index < localStorage.length;
+      index++
+    ) {
+
+      const key =
+        localStorage.key(
+          index
+        );
+
+
+      if (
+        !key ||
+        !key.startsWith(
+          "glamWebsite"
+        )
+      ) {
+        continue;
+      }
+
+
+      localStorageData[key] =
+        localStorage.getItem(
+          key
+        );
+
+    }
+
+
+    return {
+
+      schemaVersion: 1,
+
+      localStorageData
+
+    };
+
+  }
+
+
+  /* =======================================================
+     RESTORE BACKEND DRAFT INTO EDITORS
+  ======================================================== */
+
+  function hydrateLocalEditors(
+    draft
+  ) {
+
+    if (
+      !draft?.localStorageData
+    ) {
+      return false;
+    }
+
+
+    glamHydrating =
+      true;
+
+
+    Object.entries(
+      draft.localStorageData
+    ).forEach(
+      ([key, value]) => {
+
+        originalLocalSetItem(
+          key,
+          value
+        );
+
+      }
+    );
+
+
+    if (draft.updatedAt) {
+
+      sessionStorage.setItem(
+        DRAFT_STAMP_KEY,
+        draft.updatedAt
+      );
+
+    }
+
+
+    glamHydrating =
+      false;
+
+    return true;
+
+  }
+
+
+  /* =======================================================
+     WATCH LOCALSTORAGE
+  ======================================================== */
+
+  const originalLocalSetItem =
+    localStorage.setItem.bind(
+      localStorage
+    );
+
+
+  const originalLocalRemoveItem =
+    localStorage.removeItem.bind(
+      localStorage
+    );
+
+
+  localStorage.setItem =
+    function (
+      key,
+      value
+    ) {
+
+      originalLocalSetItem(
+        key,
+        value
+      );
+
+
+      if (
+        glamBackendReady &&
+        !glamHydrating &&
+        String(key).startsWith(
+          "glamWebsite"
+        )
+      ) {
+
+        scheduleDraftSave();
+
+      }
+
+    };
+
+
+  localStorage.removeItem =
+    function (
+      key
+    ) {
+
+      originalLocalRemoveItem(
+        key
+      );
+
+
+      if (
+        glamBackendReady &&
+        !glamHydrating &&
+        String(key).startsWith(
+          "glamWebsite"
+        )
+      ) {
+
+        scheduleDraftSave();
+
+      }
+
+    };
+
+
+  /* =======================================================
+     AUTOSAVE
+  ======================================================== */
+
+  function scheduleDraftSave() {
+
+    clearTimeout(
+      glamAutoSaveTimer
+    );
+
+
+    setDraftIndicator(
+      "Saving changes..."
+    );
+
+
+    glamAutoSaveTimer =
+      setTimeout(
+        () => {
+
+          saveDraft(
+            true
+          );
+
+        },
+        900
+      );
+
+  }
+
+
+  async function saveDraft(
+    silent = false
+  ) {
+
+    if (
+      !glamBackendReady
+    ) {
+      return null;
+    }
+
+
+    if (
+      glamAutoSaveBusy
+    ) {
+
+      glamPendingSave =
+        true;
+
+      return null;
+
+    }
+
+
+    glamAutoSaveBusy =
+      true;
+
+
+    try {
+
+      const state =
+        collectWebsiteState();
+
+
+      const result =
+        await backendRequest(
+          DRAFT_ENDPOINT,
+          {
+            method: "POST",
+
+            body:
+              JSON.stringify(
+                state
+              )
+          }
+        );
+
+
+      if (
+        result?.updatedAt
+      ) {
+
+        sessionStorage.setItem(
+          DRAFT_STAMP_KEY,
+          result.updatedAt
+        );
+
+      }
+
+
+      setDraftIndicator(
+        "Draft saved"
+      );
+
+
+      if (!silent) {
+
+        backendToast(
+          "Draft saved."
+        );
+
+      }
+
+
+      return result;
+
+    } catch (error) {
+
+      console.error(
+        "Draft save failed:",
+        error
+      );
+
+
+      setDraftIndicator(
+        "Draft could not save"
+      );
+
+
+      if (!silent) {
+
+        backendToast(
+          "Draft could not be saved."
+        );
+
+      }
+
+
+      return null;
+
+    } finally {
+
+      glamAutoSaveBusy =
+        false;
+
+
+      if (glamPendingSave) {
+
+        glamPendingSave =
+          false;
+
+        scheduleDraftSave();
+
+      }
+
+    }
+
+  }
+
+
+  /* =======================================================
+     PUBLISH SCREEN
+  ======================================================== */
+
+  function buildRealPublishScreen() {
+
+    const screen =
+      document.getElementById(
+        "screen-publish"
+      );
+
+    if (!screen) {
+      return;
+    }
+
+
+    screen.innerHTML = `
+      <div class="screen-heading">
+
+        <div>
+
+          <span class="section-kicker">
+            WEBSITE PUBLISHING
+          </span>
+
+          <h2>
+            Publish
+          </h2>
+
+          <p>
+            Your edits save automatically as a private
+            draft. Nothing becomes public until you
+            choose Publish Entire Website.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="glam-publish-grid">
+
+
+        <div class="panel glam-publish-main">
+
+          <span class="section-kicker">
+            CURRENT DRAFT
+          </span>
+
+          <h2>
+            Publish your website.
+          </h2>
+
+          <p>
+            Your live website stays on the last
+            successfully published version while you
+            continue editing your draft.
+          </p>
+
+
+          <div
+            class="glam-draft-status"
+            id="glamDraftStatus"
+          >
+
+            <span
+              class="glam-draft-status-dot"
+            ></span>
+
+            <div>
+
+              <strong
+                id="glamDraftStatusTitle"
+              >
+                Connecting...
+              </strong>
+
+              <small
+                id="glamDraftStatusText"
+              >
+                Checking your saved draft.
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="glam-publish-actions">
+
+            <button
+              class="primary-button"
+              id="glamPublishEntireWebsite"
+              type="button"
+            >
+              Publish Entire Website
+            </button>
+
+
+            <button
+              class="secondary-button"
+              id="glamSaveDraftNow"
+              type="button"
+            >
+              Save Draft Now
+            </button>
+
+
+            <button
+              class="secondary-button"
+              id="glamPreviewPublicSite"
+              type="button"
+            >
+              Preview Site
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="panel glam-publish-safety">
+
+          <span class="section-kicker">
+            VERSION SAFETY
+          </span>
+
+          <h3>
+            Last published version
+          </h3>
+
+          <div
+            id="glamLastPublished"
+            class="glam-last-published"
+          >
+            Checking...
+          </div>
+
+
+          <p>
+            Restoring an older version sends it back
+            to Draft first. It will not replace the
+            live website until you publish it.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="panel glam-history-panel">
+
+        <div class="panel-heading">
+
+          <div>
+
+            <span class="section-kicker">
+              PUBLISH HISTORY
+            </span>
+
+            <h3>
+              Last 10 published versions
+            </h3>
+
+          </div>
+
+        </div>
+
+
+        <div
+          id="glamPublishHistory"
+          class="glam-publish-history"
+        >
+
+          <div class="glam-history-empty">
+            Loading publish history...
+          </div>
+
+        </div>
+
+      </div>
+    `;
+
+
+    document.getElementById(
+      "glamPublishEntireWebsite"
+    )?.addEventListener(
+      "click",
+      publishEntireWebsite
+    );
+
+
+    document.getElementById(
+      "glamSaveDraftNow"
+    )?.addEventListener(
+      "click",
+      () => {
+
+        saveDraft(
+          false
+        );
+
+      }
+    );
+
+
+    document.getElementById(
+      "glamPreviewPublicSite"
+    )?.addEventListener(
+      "click",
+      () => {
+
+        window.open(
+          "/",
+          "_blank",
+          "noopener"
+        );
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     STATUS
+  ======================================================== */
+
+  function setDraftIndicator(
+    text
+  ) {
+
+    const title =
+      document.getElementById(
+        "glamDraftStatusTitle"
+      );
+
+    const description =
+      document.getElementById(
+        "glamDraftStatusText"
+      );
+
+
+    if (title) {
+
+      title.textContent =
+        text;
+
+    }
+
+
+    if (
+      description &&
+      text === "Draft saved"
+    ) {
+
+      description.textContent =
+        "Your private draft is safely saved.";
+
+    }
+
+  }
+
+
+  function formatPublishDate(
+    value
+  ) {
+
+    if (!value) {
+      return "Not published yet";
+    }
+
+
+    const date =
+      new Date(value);
+
+
+    return date.toLocaleString(
+      "en-US",
+      {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+        hour: "numeric",
+        minute: "2-digit"
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     LOAD PUBLISH INFORMATION
+  ======================================================== */
+
+  async function refreshPublishData() {
+
+    try {
+
+      const [
+        draft,
+        published,
+        history
+      ] =
+        await Promise.all([
+
+          backendRequest(
+            DRAFT_ENDPOINT
+          ),
+
+          backendRequest(
+            DRAFT_ENDPOINT +
+            "?mode=published"
+          ),
+
+          backendRequest(
+            HISTORY_ENDPOINT
+          )
+
+        ]);
+
+
+      renderDraftStatus(
+        draft,
+        published
+      );
+
+
+      renderLastPublished(
+        published
+      );
+
+
+      renderPublishHistory(
+        history
+      );
+
+    } catch (error) {
+
+      console.error(
+        "Could not load publishing data:",
+        error
+      );
+
+
+      setDraftIndicator(
+        "Could not load publishing status"
+      );
+
+    }
+
+  }
+
+
+  function renderDraftStatus(
+    draft,
+    published
+  ) {
+
+    const title =
+      document.getElementById(
+        "glamDraftStatusTitle"
+      );
+
+    const text =
+      document.getElementById(
+        "glamDraftStatusText"
+      );
+
+
+    if (
+      !title ||
+      !text
+    ) {
+      return;
+    }
+
+
+    if (!draft) {
+
+      title.textContent =
+        "No draft saved yet.";
+
+      text.textContent =
+        "Your first edit will create one.";
+
+      return;
+
+    }
+
+
+    if (!published) {
+
+      title.textContent =
+        "Ready for first publish.";
+
+      text.textContent =
+        "Your draft is saved but has not been published.";
+
+      return;
+
+    }
+
+
+    const draftTime =
+      new Date(
+        draft.updatedAt || 0
+      ).getTime();
+
+
+    const publishedTime =
+      new Date(
+        published.publishedAt || 0
+      ).getTime();
+
+
+    if (
+      draftTime >
+      publishedTime
+    ) {
+
+      title.textContent =
+        "You have unpublished changes.";
+
+      text.textContent =
+        "Your draft is newer than the live version.";
+
+    } else {
+
+      title.textContent =
+        "Current website is published.";
+
+      text.textContent =
+        "No unpublished changes are waiting.";
+
+    }
+
+  }
+
+
+  function renderLastPublished(
+    published
+  ) {
+
+    const container =
+      document.getElementById(
+        "glamLastPublished"
+      );
+
+    if (!container) {
+      return;
+    }
+
+
+    if (!published) {
+
+      container.innerHTML = `
+        <strong>
+          Nothing published yet
+        </strong>
+
+        <span>
+          Your first published version will
+          appear here.
+        </span>
+      `;
+
+      return;
+
+    }
+
+
+    container.innerHTML = `
+      <strong>
+        ${formatPublishDate(
+          published.publishedAt
+        )}
+      </strong>
+
+      <span>
+        Published by
+        ${escapePublishHTML(
+          published.publishedBy ||
+          "Administrator"
+        )}
+      </span>
+    `;
+
+  }
+
+
+  /* =======================================================
+     HISTORY
+  ======================================================== */
+
+  function renderPublishHistory(
+    history
+  ) {
+
+    const container =
+      document.getElementById(
+        "glamPublishHistory"
+      );
+
+    if (!container) {
+      return;
+    }
+
+
+    if (
+      !Array.isArray(history) ||
+      !history.length
+    ) {
+
+      container.innerHTML = `
+        <div class="glam-history-empty">
+
+          <strong>
+            No publish history yet.
+          </strong>
+
+          <span>
+            Your first published version will
+            appear here.
+          </span>
+
+        </div>
+      `;
+
+      return;
+
+    }
+
+
+    container.innerHTML =
+      history
+        .slice(
+          0,
+          10
+        )
+        .map(
+          (
+            version,
+            index
+          ) => `
+            <div class="glam-history-row">
+
+              <div class="glam-history-number">
+                ${index + 1}
+              </div>
+
+
+              <div class="glam-history-copy">
+
+                <strong>
+                  ${formatPublishDate(
+                    version.publishedAt
+                  )}
+                </strong>
+
+                <span>
+                  Published by
+                  ${escapePublishHTML(
+                    version.publishedBy ||
+                    "Administrator"
+                  )}
+                </span>
+
+              </div>
+
+
+              <button
+                class="secondary-button glam-restore-button"
+                type="button"
+                data-version-id="${escapePublishHTML(
+                  version.id
+                )}"
+              >
+                Restore to Draft
+              </button>
+
+            </div>
+          `
+        )
+        .join("");
+
+
+    container
+      .querySelectorAll(
+        ".glam-restore-button"
+      )
+      .forEach(
+        (button) => {
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              restoreVersionToDraft(
+                button.dataset.versionId
+              );
+
+            }
+          );
+
+        }
+      );
+
+  }
+
+
+  /* =======================================================
+     PUBLISH
+  ======================================================== */
+
+  async function publishEntireWebsite() {
+
+    const button =
+      document.getElementById(
+        "glamPublishEntireWebsite"
+      );
+
+
+    if (
+      button?.disabled
+    ) {
+      return;
+    }
+
+
+    if (button) {
+
+      button.disabled =
+        true;
+
+      button.textContent =
+        "Publishing...";
+
+    }
+
+
+    try {
+
+      /*
+        Make sure the newest local edits
+        reach the backend before publishing.
+      */
+
+      const saved =
+        await saveDraft(
+          true
+        );
+
+
+      if (!saved) {
+
+        throw new Error(
+          "Draft could not be saved."
+        );
+
+      }
+
+
+      const result =
+        await backendRequest(
+          PUBLISH_ENDPOINT,
+          {
+            method:
+              "POST",
+
+            body:
+              JSON.stringify({})
+          }
+        );
+
+
+      backendToast(
+        "Website published successfully."
+      );
+
+
+      await refreshPublishData();
+
+
+      if (
+        result?.publishedAt
+      ) {
+
+        sessionStorage.setItem(
+          DRAFT_STAMP_KEY,
+          saved.updatedAt ||
+          ""
+        );
+
+      }
+
+    } catch (error) {
+
+      console.error(
+        "Publishing failed:",
+        error
+      );
+
+
+      backendToast(
+        error.message ||
+        "Publishing failed."
+      );
+
+    } finally {
+
+      if (button) {
+
+        button.disabled =
+          false;
+
+        button.textContent =
+          "Publish Entire Website";
+
+      }
+
+    }
+
+  }
+
+
+  /* =======================================================
+     RESTORE VERSION
+  ======================================================== */
+
+  async function restoreVersionToDraft(
+    versionId
+  ) {
+
+    if (!versionId) {
+      return;
+    }
+
+
+    const confirmed =
+      window.confirm(
+        "Restore this published version to your Draft? Your live website will NOT change until you publish again."
+      );
+
+
+    if (!confirmed) {
+      return;
+    }
+
+
+    try {
+
+      await backendRequest(
+        RESTORE_ENDPOINT,
+        {
+          method:
+            "POST",
+
+          body:
+            JSON.stringify({
+              versionId
+            })
+        }
+      );
+
+
+      backendToast(
+        "Version restored to Draft."
+      );
+
+
+      /*
+        Pull the restored draft down
+        and reload all editors with it.
+      */
+
+      const restoredDraft =
+        await backendRequest(
+          DRAFT_ENDPOINT
+        );
+
+
+      sessionStorage.removeItem(
+        DRAFT_STAMP_KEY
+      );
+
+
+      if (
+        hydrateLocalEditors(
+          restoredDraft
+        )
+      ) {
+
+        window.location.reload();
+
+      }
+
+    } catch (error) {
+
+      console.error(
+        "Restore failed:",
+        error
+      );
+
+
+      backendToast(
+        error.message ||
+        "Could not restore that version."
+      );
+
+    }
+
+  }
+
+
+  /* =======================================================
+     HTML SAFETY
+  ======================================================== */
+
+  function escapePublishHTML(
+    value
+  ) {
+
+    return String(value ?? "")
+      .replaceAll(
+        "&",
+        "&amp;"
+      )
+      .replaceAll(
+        "<",
+        "&lt;"
+      )
+      .replaceAll(
+        ">",
+        "&gt;"
+      )
+      .replaceAll(
+        '"',
+        "&quot;"
+      )
+      .replaceAll(
+        "'",
+        "&#039;"
+      );
+
+  }
+
+
+  /* =======================================================
+     TOP PUBLISH BUTTON
+  ======================================================== */
+
+  document.addEventListener(
+    "click",
+    (event) => {
+
+      const button =
+        event.target.closest(
+          "button"
+        );
+
+
+      if (!button) {
+        return;
+      }
+
+
+      /*
+        Catch the existing top-right
+        Publish button and replace its
+        old placeholder behavior.
+      */
+
+      if (
+        button.textContent
+          .trim()
+          .toLowerCase() ===
+        "publish"
+      ) {
+
+        event.preventDefault();
+
+        event.stopImmediatePropagation();
+
+        publishEntireWebsite();
+
+      }
+
+    },
+    true
+  );
+
+
+  /* =======================================================
+     CONNECT AFTER LOGIN
+  ======================================================== */
+
+  async function connectBackend() {
+
+    /*
+      The page itself loads before the user
+      necessarily finishes logging in.
+
+      Retry quietly until Netlify Identity
+      says this browser is authenticated.
+    */
+
+    try {
+
+      const draft =
+        await backendRequest(
+          DRAFT_ENDPOINT
+        );
+
+
+      glamBackendReady =
+        true;
+
+
+      /*
+        FIRST TIME:
+        There is no backend draft yet.
+        Save the Control Center state that
+        already exists in this browser.
+      */
+
+      if (!draft) {
+
+        await saveDraft(
+          true
+        );
+
+        buildRealPublishScreen();
+
+        await refreshPublishData();
+
+        return;
+
+      }
+
+
+      const backendStamp =
+        draft.updatedAt || "";
+
+      const localStamp =
+        sessionStorage.getItem(
+          DRAFT_STAMP_KEY
+        );
+
+
+      /*
+        If backend has a draft that this
+        browser has not loaded yet,
+        restore it into all local editors
+        and reload once.
+      */
+
+      if (
+        backendStamp &&
+        backendStamp !==
+          localStamp
+      ) {
+
+        hydrateLocalEditors(
+          draft
+        );
+
+        sessionStorage.setItem(
+          DRAFT_STAMP_KEY,
+          backendStamp
+        );
+
+        window.location.reload();
+
+        return;
+
+      }
+
+
+      buildRealPublishScreen();
+
+      await refreshPublishData();
+
+    } catch (error) {
+
+      if (
+        error.status ===
+        401
+      ) {
+
+        /*
+          User is still on login screen.
+          Try again after login.
+        */
+
+        setTimeout(
+          connectBackend,
+          1200
+        );
+
+        return;
+
+      }
+
+
+      console.error(
+        "Backend connection failed:",
+        error
+      );
+
+
+      setTimeout(
+        connectBackend,
+        3000
+      );
+
+    }
+
+  }
+
+
+  buildRealPublishScreen();
+
+  connectBackend();
+
+});
