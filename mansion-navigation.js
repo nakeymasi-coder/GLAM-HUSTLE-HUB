@@ -12,7 +12,7 @@
 
   // Keep old bookmarks working after homepage sections move to their own pages.
   if (document.body.classList.contains('mansion-home')) {
-    const legacyRoutes = { '#best': '/best-sellers.html', '#about': '/about.html', '#reviews': '/reviews.html' };
+    const legacyRoutes = { '#best': './best-sellers.html', '#about': './about.html', '#reviews': './reviews.html' };
     const route = legacyRoutes[window.location.hash];
     if (route) window.location.replace(route);
   }
