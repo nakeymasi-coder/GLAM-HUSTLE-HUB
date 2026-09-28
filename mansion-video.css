@@ -124,3 +124,34 @@
 .mansion-home .bundles-panel-link:hover span,
 .mansion-home .bundles-panel-link:focus-visible span { opacity: 1; }
 .mansion-home .bundles-panel-link[hidden] { display: none; }
+
+/* Opening holographic cards beside Mila. */
+.mansion-home .opening-panel-link {
+  position: absolute;
+  z-index: 4;
+  left: 67%;
+  width: 12%;
+  height: 11%;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  font: 600 14px/1.3 Montserrat, Arial, sans-serif;
+  text-align: center;
+}
+.mansion-home .opening-vault { top: 40%; }
+.mansion-home .opening-pia { top: 52.5%; }
+.mansion-home .opening-panel-link span { opacity: 0; }
+.mansion-home .opening-panel-link:hover,
+.mansion-home .opening-panel-link:focus-visible {
+  background: #075584;
+  outline: 2px solid #c2ebff;
+  box-shadow: 0 0 18px #38b6ff;
+}
+.mansion-home .opening-panel-link:hover span,
+.mansion-home .opening-panel-link:focus-visible span { opacity: 1; }
+.mansion-home .opening-panel-link[hidden] { display: none; }

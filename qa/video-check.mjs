@@ -127,4 +127,12 @@ assert.equal(panel.getAttribute('href'), 'https://payhip.com/GlowUpbyGlam/collec
 mapped.video.currentTime = 5;
 mapped.video.dispatchEvent(mapped.event('timeupdate'));
 assert(panel.hidden, 'Opening panel link disappears with the panel');
+mapped.video.currentTime = 1;
+mapped.video.dispatchEvent(mapped.event('timeupdate'));
+assert([...mapped.document.querySelectorAll('.opening-panel-link')].every(a => !a.hidden));
+assert.equal(mapped.document.querySelector('.opening-pia').getAttribute('href'), 'https://payhip.com/b/QosP6');
+assert.equal(mapped.document.querySelector('.opening-vault').getAttribute('href'), './glam-vault.html');
+mapped.video.currentTime = 3;
+mapped.video.dispatchEvent(mapped.event('timeupdate'));
+assert([...mapped.document.querySelectorAll('.opening-panel-link')].every(a => a.hidden));
 console.log('PASS: playback, sound, portal timing and destinations, loop reset, preferences, and fallback navigation.');

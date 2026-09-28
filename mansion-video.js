@@ -27,10 +27,12 @@
 
   const rooms = [...document.querySelectorAll('.mansion-hotspot')];
   const portals = [...document.querySelectorAll('.portal-hotspot')];
+  const openingPanels = [...document.querySelectorAll('.opening-panel-link')];
   const bundlesPanel = document.querySelector('.bundles-panel-link');
   const hint = document.querySelector('.room-hint-desktop');
   function updateDestinations() {
     const showingVideo = !video.hidden;
+    openingPanels.forEach(panel => { panel.hidden = !showingVideo || video.currentTime >= 2.5; });
     if (bundlesPanel) bundlesPanel.hidden = !showingVideo || video.currentTime < 3.2 || video.currentTime >= 4.9;
     rooms.forEach(room => { room.hidden = showingVideo; });
     // The named portals settle into these positions only after the reveal.
