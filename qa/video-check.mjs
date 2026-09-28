@@ -75,6 +75,28 @@ for (const options of [{reduced:true},{saveData:true},{preference:'paused'}]) {
   await flush();
   assert.equal(f.video.hidden, false, 'Manual play remains available');
 }
+const spoken = fixture();
+await flush();
+const sound = spoken.document.getElementById('mansionSound');
+assert.equal(sound.textContent, 'Hear the welcome');
+sound.click();
+await flush();
+assert.equal(spoken.video.muted, false);
+assert.equal(spoken.video.loop, false, 'Spoken welcome does not repeat endlessly');
+assert.equal(spoken.video.currentTime, 0, 'Hear the welcome starts at the beginning');
+assert.equal(sound.textContent, 'Mute welcome');
+spoken.video.ended = true;
+spoken.video.paused = true;
+spoken.video.dispatchEvent(spoken.event('ended'));
+assert.equal(spoken.control.textContent, 'Replay welcome');
+const playsBeforeReplay = spoken.plays();
+spoken.control.click();
+await flush();
+assert.equal(spoken.plays(), playsBeforeReplay + 1);
+sound.click();
+assert.equal(spoken.video.muted, true);
+assert.equal(spoken.video.loop, true);
+
 const denied = fixture({blocked:true});
 await flush();
 assert(denied.video.hidden && !denied.control.hidden);

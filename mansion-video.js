@@ -2,6 +2,7 @@
    Leave data-src empty to disable video without changing the scene or links. */
 (() => {
   const video = document.getElementById('mansionVideo');
+  const sound = document.getElementById('mansionSound');
   const control = document.getElementById('mansionMotion');
   if (!video || !control || !document.body.classList.contains('mansion-home')) return;
   const source = video.dataset.src?.trim();
@@ -22,9 +23,11 @@
   video.loop = true;
   video.playsInline = true;
   control.hidden = false;
+  if (sound) sound.hidden = false;
 
   function updateControl() {
-    control.textContent = video.paused ? 'Play animation' : 'Pause animation';
+    control.textContent = video.ended ? 'Replay welcome' : video.paused ? 'Play animation' : 'Pause animation';
+    if (sound) sound.textContent = video.muted ? 'Hear the welcome' : 'Mute welcome';
   }
   function canRun() { return wantsMotion && !failed && !document.hidden; }
   function remember() {
@@ -36,6 +39,7 @@
     video.pause();
     video.hidden = true;
     control.hidden = true;
+    if (sound) sound.hidden = true;
   }
   async function start() {
     if (!canRun()) return;
@@ -66,6 +70,18 @@
   });
   video.addEventListener('pause', updateControl);
   video.addEventListener('error', showStill);
+  video.addEventListener('ended', () => { wantsMotion = false; updateControl(); });
+  if (sound) sound.addEventListener('click', () => {
+    video.muted = !video.muted;
+    video.loop = video.muted;
+    if (!video.muted) {
+      video.currentTime = 0;
+      wantsMotion = true;
+      remember();
+      reconcile();
+    }
+    updateControl();
+  });
   control.addEventListener('click', () => {
     wantsMotion = !wantsMotion;
     remember();

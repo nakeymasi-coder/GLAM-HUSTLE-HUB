@@ -32,3 +32,31 @@
   outline: 3px solid #ffd6a2;
   outline-offset: 3px;
 }
+
+/* Keep playback and speech controls together on narrow screens. */
+.mansion-home .mansion-video-controls {
+  position: absolute;
+  top: max(14px, env(safe-area-inset-top));
+  right: max(14px, env(safe-area-inset-right));
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  max-width: calc(100% - 28px);
+}
+.mansion-home .mansion-video-controls .mansion-motion { position: static; }
+.mansion-home .mansion-sound {
+  min-height: 44px;
+  padding: 9px 14px;
+  border: 1px solid #90cfff;
+  border-radius: 8px;
+  background: #074f85;
+  color: #fff;
+  font: 500 12px/1.4 Montserrat, Arial, sans-serif;
+  cursor: pointer;
+}
+.mansion-home .mansion-sound:hover { background: #09659f; }
+.mansion-home .mansion-sound:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.mansion-home .mansion-video[hidden],
+.mansion-home .mansion-video-controls [hidden] { display: none; }
