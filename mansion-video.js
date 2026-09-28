@@ -19,12 +19,13 @@
   // Set before assigning a source: mobile browsers require muted inline video.
   video.muted = true;
   video.defaultMuted = true;
-  video.loop = true;
+  video.loop = false;
   video.playsInline = true;
   control.hidden = false;
 
   function updateControl() {
-    control.textContent = video.paused ? 'Play animation' : 'Pause animation';
+    if (video.ended) control.textContent = 'Replay intro';
+    else control.textContent = video.paused ? 'Play intro' : 'Pause intro';
   }
   function canRun() { return wantsMotion && !failed && !document.hidden; }
   function remember() {
@@ -65,12 +66,25 @@
     updateControl();
   });
   video.addEventListener('pause', updateControl);
+  video.addEventListener('ended', () => {
+    // The approved 10-second clip is the intro, not an endless background loop.
+    wantsMotion = false;
+    updateControl();
+  });
   video.addEventListener('error', showStill);
+
   control.addEventListener('click', () => {
+    if (video.ended) {
+      wantsMotion = true;
+      video.currentTime = 0;
+      void start();
+      return;
+    }
     wantsMotion = !wantsMotion;
     remember();
     reconcile();
   });
+
   document.addEventListener('visibilitychange', reconcile);
   window.addEventListener('pagehide', () => video.pause());
   window.addEventListener('pageshow', reconcile);
