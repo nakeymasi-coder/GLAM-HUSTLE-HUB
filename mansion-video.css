@@ -60,3 +60,38 @@
 .mansion-home .mansion-sound:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 .mansion-home .mansion-video[hidden],
 .mansion-home .mansion-video-controls [hidden] { display: none; }
+
+/* Video destinations belong to the final portal tableau, not the mansion map. */
+.mansion-home .mansion-hotspot[hidden],
+.mansion-home .portal-hotspot[hidden] { display: none; }
+.mansion-home .portal-hotspot {
+  position: absolute;
+  z-index: 3;
+  top: 49%;
+  width: 12%;
+  height: 30%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 2%;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  color: transparent;
+  font: 600 14px/1.3 Montserrat, Arial, sans-serif;
+  text-decoration: none;
+}
+.mansion-home .portal-vault { left: 31%; }
+.mansion-home .portal-pia { left: 46%; top: 31%; width: 16%; height: 43%; }
+.mansion-home .portal-bundles { left: 64%; }
+.mansion-home .portal-hotspot:hover,
+.mansion-home .portal-hotspot:focus-visible {
+  color: white;
+  background: rgba(0, 40, 80, .25);
+  border-color: #a5dfff;
+  text-shadow: 0 1px 4px #00172b;
+  outline: 2px solid white;
+  outline-offset: 3px;
+}
+@media (max-width: 900px), (hover: none), (pointer: coarse) {
+  .mansion-home .portal-hotspot { display: none; }
+}

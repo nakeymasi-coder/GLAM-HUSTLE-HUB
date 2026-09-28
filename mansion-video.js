@@ -25,7 +25,22 @@
   control.hidden = false;
   if (sound) sound.hidden = false;
 
+  const rooms = [...document.querySelectorAll('.mansion-hotspot')];
+  const portals = [...document.querySelectorAll('.portal-hotspot')];
+  const hint = document.querySelector('.room-hint-desktop');
+  function updateDestinations() {
+    const showingVideo = !video.hidden;
+    rooms.forEach(room => { room.hidden = showingVideo; });
+    // The named portals settle into these positions only after the reveal.
+    portals.forEach(portal => { portal.hidden = !showingVideo || video.currentTime < 7; });
+    if (hint) hint.textContent = showingVideo
+      ? 'Explore the Hub to choose your destination'
+      : 'Hover over a room, or explore the Hub';
+  }
+  video.addEventListener('timeupdate', updateDestinations);
+  video.addEventListener('seeking', updateDestinations);
   function updateControl() {
+    updateDestinations();
     control.textContent = video.ended ? 'Replay welcome' : video.paused ? 'Play animation' : 'Pause animation';
     if (sound) sound.textContent = video.muted ? 'Hear the welcome' : 'Mute welcome';
   }
@@ -38,6 +53,7 @@
     wantsMotion = false;
     video.pause();
     video.hidden = true;
+    updateDestinations();
     control.hidden = true;
     if (sound) sound.hidden = true;
   }
