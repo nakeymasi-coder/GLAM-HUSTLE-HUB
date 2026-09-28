@@ -34,10 +34,10 @@
     if (bundlesPanel) bundlesPanel.hidden = !showingVideo || video.currentTime < 3.2 || video.currentTime >= 4.9;
     rooms.forEach(room => { room.hidden = showingVideo; });
     // The named portals settle into these positions only after the reveal.
-    portals.forEach(portal => { portal.hidden = !showingVideo || video.currentTime < 7; });
+    portals.forEach(portal => { portal.hidden = showingVideo && video.currentTime < 7; });
     if (hint) hint.textContent = showingVideo
       ? 'Explore the Hub to choose your destination'
-      : 'Hover over a room, or explore the Hub';
+      : 'Choose a portal, or explore the Hub';
   }
   video.addEventListener('timeupdate', updateDestinations);
   video.addEventListener('seeking', updateDestinations);
