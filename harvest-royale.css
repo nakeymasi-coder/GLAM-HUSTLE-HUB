@@ -315,3 +315,98 @@
 /* Semantic success/error cues retain their meaning with accessible dark-mode contrast. */
 .harvest-royale.harvest-admin.dark-mode .glam-login-message { color: #FFB4A9; }
 .harvest-royale.harvest-admin.dark-mode .glam-login-message.success { color: #9AE0B1; }
+
+
+/* Requested logo cleanup: a plain, readable site name replaces legacy brand images. */
+.harvest-royale .site-wordmark {
+  display: inline-block;
+  color: var(--hr-ink);
+  font-family: Montserrat, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -.025em;
+  text-transform: none;
+  white-space: nowrap;
+}
+.harvest-royale .site-home-brand { flex: 0 0 auto; }
+.harvest-royale.workshops-page footer > .site-wordmark { margin-bottom: 12px; }
+
+/* Homepage top navigation sits in normal flow, above rather than over the scene. */
+.harvest-royale.mansion-home .hub-header {
+  position: relative !important;
+  inset: auto !important;
+  left: auto !important;
+  bottom: auto !important;
+  transform: none;
+  flex: 0 0 auto;
+  width: 100%;
+  height: 72px !important;
+  min-height: 72px;
+  padding: 0 24px !important;
+  gap: 20px;
+  background: #FFF4E2F2 !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--hr-gold) !important;
+  box-shadow: 0 6px 24px #56382D0B;
+}
+.harvest-royale.mansion-home #topNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(13px,1.6vw,24px);
+  font-size: 10px;
+  letter-spacing: .045em;
+}
+.harvest-royale.mansion-home #topNav [aria-current="page"] { border-bottom-color: var(--hr-sapphire); }
+.harvest-royale.mansion-home .explore {
+  flex: 0 0 auto;
+  min-width: 106px;
+  min-height: 44px;
+  padding: 9px 14px;
+  gap: 10px;
+  font-size: 12px;
+  letter-spacing: 0;
+}
+.harvest-royale.mansion-home .explore span { margin: 0; }
+.harvest-royale.mansion-home .explore .home-menu-label { font-size: inherit; }
+.harvest-royale.mansion-home .explore .home-menu-mobile { display: none; }
+.harvest-royale.mansion-home main { min-height: 0; }
+.harvest-royale.mansion-home .mansion-entry-note { bottom: 22px; }
+@media (max-width: 1050px) {
+  .harvest-royale.mansion-home #topNav { display: none; }
+  .harvest-royale.mansion-home .hub-header { height: 64px !important; min-height: 64px; padding: 0 16px !important; }
+  .harvest-royale.mansion-home .explore { min-width: 88px; }
+  .harvest-royale.mansion-home .explore .home-menu-label { display: none; }
+  .harvest-royale.mansion-home .explore .home-menu-mobile { display: inline; font-size: inherit; }
+}
+@media (max-width: 380px) {
+  .harvest-royale .site-wordmark { font-size: 13px; }
+  .harvest-royale.mansion-home .hub-header { padding-inline: 12px !important; gap: 12px; }
+}
+
+/* Review refinement: more visible sapphire ombre along the page's top and bottom. */
+.harvest-royale {
+  --hr-chrome-ombre: linear-gradient(108deg, #168FEA 0%, #79C2F7 37%, #D7EDFC 70%, #FFF4E2 100%);
+}
+.harvest-royale .session-nav,
+.harvest-royale .vault-header,
+.harvest-royale:not(.mansion-home):not(.harvest-admin) .hub-header,
+.harvest-royale.mansion-home .hub-header,
+.harvest-royale.workshops-page header {
+  background: var(--hr-chrome-ombre) !important;
+  color: var(--hr-ink) !important;
+  border-bottom-color: var(--hr-gold) !important;
+}
+.harvest-royale .session-footer,
+.harvest-royale .vault-footer,
+.harvest-royale .hub-footer,
+.harvest-royale.mansion-home .hub-footer,
+.harvest-royale.workshops-page footer {
+  background: var(--hr-chrome-ombre) !important;
+  color: var(--hr-ink) !important;
+  border-top-color: var(--hr-gold);
+}
+.harvest-royale :is(.session-footer,.vault-footer,.hub-footer) :is(p,a),
+.harvest-royale.workshops-page footer :is(p,a) { color: var(--hr-ink) !important; }
+.harvest-royale .hub-footer a:focus-visible { outline-color: var(--hr-ink); }
