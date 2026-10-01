@@ -4,6 +4,7 @@
   const video = document.getElementById('mansionVideo');
   const sound = document.getElementById('mansionSound');
   const control = document.getElementById('mansionMotion');
+  const controls = document.getElementById('mansionMediaControls');
   if (!video || !control || !document.body.classList.contains('mansion-home')) return;
   const source = video.dataset.src?.trim();
   if (!source || !video.canPlayType('video/mp4')) return;
@@ -24,6 +25,7 @@
   video.playsInline = true;
   control.hidden = false;
   if (sound) sound.hidden = false;
+  if (controls) controls.hidden = false;
 
   const rooms = [...document.querySelectorAll('.mansion-hotspot')];
   const portals = [...document.querySelectorAll('.portal-hotspot')];
@@ -60,6 +62,7 @@
     updateDestinations();
     control.hidden = true;
     if (sound) sound.hidden = true;
+    if (controls) controls.hidden = true;
   }
   async function start() {
     if (!canRun()) return;
@@ -72,7 +75,7 @@
       if (!canRun()) video.pause();
     } catch {
       // An interrupted background-tab play is harmless; an autoplay block
-      // leaves a usable Play button over the still image.
+      // leaves a usable Play button in the Explore menu.
       if (canRun()) wantsMotion = false;
       updateControl();
     }
