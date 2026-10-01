@@ -1,0 +1,117 @@
+/* This stylesheet is loaded only by one-on-one.html. Shared and home styles stay untouched. */
+.session-page {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(ellipse at 86% 20%, #c6eaff 0, transparent 45%), linear-gradient(135deg, #fff, #eef9ff 65%, #dce7ed) !important;
+  color: #103b63 !important;
+}
+.session-page .session-nav { height: 76px; flex-shrink: 0; padding: 0 max(24px, calc((100vw - 1200px)/2)); }
+.session-page .session-nav ul { gap: 24px; }
+.session-page .session-brand { font-size: 15px; font-weight: 800; text-transform: none; letter-spacing: -.02em; color: #103b63; flex-shrink: 0; }
+.session-page .session-nav a { letter-spacing: .06em; }
+.session-page .menu-toggle[hidden] { display: none; }
+.session-page .menu-toggle { color: #103b63; background: transparent; border: 1px solid #b8d9ed; border-radius: 12px; min-width: 44px; min-height: 44px; }
+.session-page .session-main { width: min(1200px, calc(100% - 48px)); max-width: 1200px; margin: auto; padding: 30px 0 24px; overflow: visible; }
+.session-page .session-overview { display: grid; grid-template-columns: .85fr 1.8fr; align-items: center; gap: 32px; }
+.session-page .session-eyebrow { display: block; font-size: 12px; line-height: 1.5; letter-spacing: .1em; font-weight: 800; color: #205a83; }
+.session-page .session-intro h1 { margin: 18px 0; font-size: clamp(36px, 4vw, 54px); line-height: 1.04; letter-spacing: -.055em; color: #103b63; }
+.session-page .session-intro h1 span { display: block; color: #076db3; text-shadow: 0 2px 0 #fff, 0 7px 20px #168fea20; }
+.session-page .session-intro p { font-size: 16px; line-height: 1.6; margin: 0; max-width: 34ch; color: #36566c; }
+.session-page .session-intro .session-your-goals { margin-top: 22px; color: #103b63; font-weight: 800; }
+.session-page .session-detail-links { display: grid; margin-top: 6px; gap: 2px; justify-items: start; }
+.session-page .session-detail-links a { display: flex; align-items: center; gap: 16px; min-height: 44px; font-size: 14px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.session-page .session-options { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; align-items: stretch; }
+.session-page .session-card { display: flex; flex-direction: column; padding: 25px 22px 22px; border: 1px solid #fff; border-radius: 24px; background: linear-gradient(145deg, #fff, #f8fdff); box-shadow: 0 18px 35px #103b6314, 0 3px 0 #c6dceb, inset 0 1px 0 #fff; position: relative; min-width: 0; }
+.session-page .session-card-featured { background: linear-gradient(145deg, #e4f5ff, #fff 75%); border-color: #91c9eb; box-shadow: 0 20px 40px #168fea26, 0 3px 0 #168fea, inset 0 1px 0 #fff; }
+.session-page .session-card h2 { font-size: 19px; line-height: 1.25; letter-spacing: -.03em; margin: 9px 0 14px; min-height: 48px; color: #103b63; }
+.session-page .session-price { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.session-page .session-price strong { font-size: 40px; line-height: 1; font-weight: 900; letter-spacing: -.05em; }
+.session-page .session-price span { font-size: 12px; line-height: 1.5; font-weight: 600; color: #36566c; }
+.session-page .session-description { font-size: 14px; line-height: 1.6; color: #36566c; margin: 15px 0 11px; }
+.session-page .session-extra { font-size: 13px; line-height: 1.5; margin: 0 0 16px; color: #36566c; }
+.session-page .session-inclusions { grid-column: 1/-1; display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 18px; margin: 2px 0 0; padding: 0; list-style: none; }
+.session-page .session-inclusions li { position: relative; padding-left: 17px; font-size: 12px; line-height: 1.5; color: #36566c; }
+.session-page .session-inclusions li::before { content: '✓'; position: absolute; left: 0; color: #076db3; font-weight: 900; }
+.session-page .session-book { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; min-height: 46px; padding: 12px 17px; border: 1px solid #103b63; border-radius: 12px; color: #fff; background: #103b63; font-size: 14px; font-weight: 800; box-shadow: 0 6px 12px #103b6320; }
+.session-page .session-card-featured .session-book { background: #076db3; border-color: #076db3; }
+.session-page .session-book:hover { background: #164e7e; }
+.session-page .session-price-note { grid-column: 1/-1; font-size: 12px; text-align: center; line-height: 1.4; color: #36566c; margin: 2px 0 0; }
+.session-page .session-booking-note { display: grid; grid-template-columns: 290px 1fr; gap: 28px; padding: 18px 22px; margin-top: 24px; border: 1px solid #bfddeb; border-radius: 16px; background: #ffffffb8; }
+.session-page .session-booking-note h2 { font-size: 14px; line-height: 1.4; margin: 0 0 5px; letter-spacing: -.02em; }
+.session-page .session-booking-note a { display: inline-block; padding: 4px 0; font-size: 14px; text-decoration: underline; text-underline-offset: 3px; font-weight: 700; color: #07649e; }
+.session-page .session-booking-note p { margin: 0; font-size: 13px; line-height: 1.75; color: #36566c; align-self: center; }
+.session-page .session-footer { display: flex; justify-content: center; align-items: center; padding: 16px max(24px, calc((100vw - 1200px)/2)); background: #ffffffb8 !important; color: #36566c !important; border-top: 1px solid #bfddeb; font-size: 12px; line-height: 1.5; text-align: left; }
+.session-page a:focus-visible, .session-page button:focus-visible { outline: 3px solid #076db3; outline-offset: 4px; }
+.session-page .session-skip { position: absolute; left: 16px; top: -100px; z-index: 50; background: #fff; color: #103b63; padding: 14px; border-radius: 8px; }
+.session-page .session-skip:focus { top: 12px; }
+.session-page .session-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+/* Detail sections remain readable and linkable when JavaScript is unavailable. */
+.session-page .session-detail { margin-top: 30px; padding: 24px; border: 1px solid #b8d9ed; border-radius: 22px; background: #fff; color: #103b63; }
+.session-page dialog.session-detail { width: min(720px, calc(100vw - 32px)); max-width: 720px; max-height: calc(100dvh - 40px); padding: 0; margin: auto; overflow: hidden; box-shadow: 0 30px 100px #061b3c55; }
+.session-page dialog.session-detail[open] { display: flex; flex-direction: column; }
+.session-page .session-detail::backdrop { background: #061b3ca6; backdrop-filter: blur(6px); }
+.session-page .session-detail-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding: 26px 28px 22px; border-bottom: 1px solid #dce7ed; flex-shrink: 0; }
+.session-page .session-detail-heading h2 { font-size: 25px; line-height: 1.2; margin: 7px 0 0; letter-spacing: -.03em; }
+.session-page .session-detail-heading h2:focus { outline: none; }
+.session-page .session-detail-body:focus-visible { outline: 3px solid #076db3; outline-offset: -4px; }
+.session-page .session-close { display: grid; place-items: center; padding: 0; width: 44px; height: 44px; flex-shrink: 0; border: 1px solid #b8d9ed; border-radius: 50%; background: #eef9ff; color: #103b63; font-size: 27px; line-height: 1; }
+.session-page .session-close[hidden] { display: none; }
+.session-page .session-detail-body { padding: 4px 28px 24px; overflow-y: auto; overscroll-behavior: contain; min-height: 0; scrollbar-gutter: stable; }
+.session-page .session-detail-body p { font-size: 14px; line-height: 1.75; color: #36566c; margin: 16px 0; }
+.session-page .session-detail-body h3 { font-size: 14px; line-height: 1.5; margin: 0; color: #103b63; }
+.session-page .session-topic-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+.session-page .session-topic-grid article { padding: 16px; border: 1px solid #dce7ed; border-radius: 12px; background: #f8fdff; }
+.session-page .session-topic-grid p { font-size: 13px; line-height: 1.65; margin: 8px 0 0; }
+.session-page .session-steps { padding-left: 24px; }
+.session-page .session-steps li { padding: 10px 0 10px 10px; }
+.session-page .session-steps li::marker { font-weight: 800; color: #076db3; }
+.session-page .session-steps p { margin: 4px 0 0; }
+.session-page.session-dialog-open { overflow: hidden; }
+@media (max-width: 1050px) {
+  .session-page .session-nav ul { gap: 14px; }
+  .session-page .session-overview { grid-template-columns: .75fr 1.8fr; gap: 22px; }
+  .session-page .session-card { padding: 22px 18px 18px; }
+  .session-page .session-intro h1 { font-size: 39px; }
+  .session-page .session-booking-note { grid-template-columns: 235px 1fr; }
+}
+@media (max-width: 900px) {
+  .session-page .session-nav { height: 68px; padding: 0 20px; flex-wrap: wrap; }
+  .session-page .session-nav .menu-toggle:not([hidden]) { display: grid; place-items: center; }
+  .session-page .session-nav ul { display: flex; position: static; width: auto; background: #fff; box-shadow: none; gap: 16px; }
+  .session-page.session-enhanced .session-nav ul { display: none; }
+  .session-page.session-enhanced .session-nav ul.mobile-menu-open { display: flex; position: absolute; top: 68px; left: 0; right: 0; width: 100%; align-items: stretch; flex-direction: column; gap: 0; padding: 12px 22px; border-bottom: 1px solid #b8d9ed; box-shadow: 0 15px 30px #103b6320; }
+  .session-page .session-nav ul.mobile-menu-open a { display: block; padding: 14px 0; }
+  .session-page:not(.session-enhanced) .session-nav { height: auto; padding-block: 10px; gap: 10px; }
+  .session-page:not(.session-enhanced) .session-nav ul { flex-wrap: wrap; }
+  .session-page .session-main { width: calc(100% - 36px); padding: 26px 0 22px; margin: 0 auto; }
+  .session-page .session-overview { grid-template-columns: 1fr; gap: 22px; }
+  .session-page .session-intro h1 { font-size: 38px; margin: 10px 0 12px; }
+  .session-page .session-intro h1 span { display: inline; }
+  .session-page .session-intro p { max-width: 65ch; font-size: 16px; }
+  .session-page .session-intro .session-your-goals { margin-top: 12px; }
+  .session-page .session-detail-links { display: flex; gap: 22px; flex-wrap: wrap; margin: 0; }
+  .session-page .session-card h2 { min-height: 48px; }
+  .session-page .session-booking-note { grid-template-columns: 1fr; gap: 8px; padding: 17px 18px; margin-top: 20px; }
+  .session-page .session-footer { padding: 16px 20px; }
+}
+@media (max-width: 540px) {
+  .session-page .session-options { grid-template-columns: 1fr; gap: 16px; }
+  .session-page .session-card { padding: 22px; }
+  .session-page .session-card h2 { min-height: 0; font-size: 20px; margin-bottom: 12px; }
+  .session-page .session-description { font-size: 14px; margin-top: 14px; }
+  .session-page .session-inclusions { justify-content: flex-start; padding: 0 10px; gap: 8px; }
+  .session-page .session-inclusions li { flex-basis: 100%; font-size: 13px; }
+  .session-page .session-book { font-size: 14px; min-height: 48px; }
+  .session-page .session-intro h1 { font-size: 36px; max-width: 13ch; }
+  .session-page .session-detail-links { gap: 0 18px; }
+  .session-page .session-detail-links a { font-size: 14px; gap: 8px; }
+  .session-page .session-price-note { font-size: 12px; padding: 0 10px; }
+  .session-page .session-detail-heading { padding: 20px 18px 17px; gap: 12px; }
+  .session-page .session-detail-heading h2 { font-size: 21px; }
+  .session-page .session-detail-body { padding: 2px 18px 20px; }
+  .session-page .session-topic-grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .session-page *, .session-page *::before, .session-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
