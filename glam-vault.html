@@ -4,82 +4,115 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>The Glam Vault | Glam Hustle Hub</title>
-  <meta name="description" content="Explore the Glam Vault on Skool for resources, tutorials, support, and community." />
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="stylesheet" href="./mansion.css" />
-  <link rel="stylesheet" href="./mansion-pages.css" />
-  <link rel="stylesheet" href="./vault-halloween.css?v=20260922" />
+  <meta name="description" content="Get practical tutorials, product guidance, and creator support inside the Glam Vault, a beginner-friendly Skool community." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./glam-vault.css" />
   <link rel="icon" href="./images/favicon-32.png" />
   <link rel="apple-touch-icon" href="./images/apple-touch-icon.png" />
 </head>
-<body class="hub-site destination-page halloween-vault">
-<a class="skip-link" href="#page-content">Skip to content</a>
-<header class="hub-header">
-  <a class="logo" href="./" aria-label="Glam Hustle Hub home"><img src="./images/logo-horizontal.png" alt="Glam Hustle Hub" width="185" height="54" /></a>
-  <nav id="topNav" aria-label="Main navigation">
-    <a href="./">Home</a>
-    <a href="https://payhip.com/GlowUpbyGlam/collection/all" data-config-link="shop">Shop</a>
-    <a href="./glam-vault.html">The Glam Vault</a>
-    <a href="./about.html">About</a>
-    <a href="https://sapphire-assist-suite.lovable.app/support/b04f8f25905e4cefaf7577728f217338" data-config-link="support">Help &amp; Support</a>
-  </nav>
-  <button class="explore" id="openDrawer" type="button" aria-controls="drawer" aria-expanded="false">Explore <span aria-hidden="true">☰</span></button>
-</header>
-<div class="shade" id="shade" hidden></div>
-<aside id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" hidden inert>
-  <div><span id="drawer-title">EXPLORE THE HUB</span><button id="closeDrawer" type="button" aria-label="Close menu">×</button></div>
-  <a href="./">Home</a>
-  <a href="https://payhip.com/GlowUpbyGlam/collection/all" data-config-link="shop">Shop</a>
-  <a href="./best-sellers.html">Best Sellers</a>
-  <a href="https://payhip.com/GlowUpbyGlam/collection/luxury-prompt-generators" data-config-link="promptGenerators">Prompt Generators</a>
-  <a href="https://payhip.com/GlowUpbyGlam/collection/bundles" data-config-link="generatorBundles">Generator Bundles</a>
-  <a href="https://pin.it/NGr63tHjX/" data-config-link="pngs">$2 PNGs</a>
-  <a href="https://pin.it/7EFoolKlz" data-config-link="freebies">Freebies</a>
-  <a href="./reviews.html">Reviews</a>
-  <a href="./one-on-one.html" data-config-link="oneOnOne">Book a 1-on-1</a>
-  <a href="https://www.facebook.com/share/g/1Sv3VVCSaR/" data-config-link="facebookCommunity">Facebook Community</a>
-  <a href="./glam-vault.html">The Glam Vault</a>
-  <a href="./about.html">About</a>
-  <a href="https://sapphire-assist-suite.lovable.app/support/b04f8f25905e4cefaf7577728f217338" data-config-link="support">Help &amp; Support</a>
-</aside>
-<main id="page-content" tabindex="-1">
-<div class="destination-return"><a href="./">← Back to the mansion</a></div>
-<section class="community">
-        <div class="visible">
-          <small>YOU DON'T HAVE TO BUILD ALONE</small>
-
-          <img
-            class="community-logo"
-            src="./images/skool-logo.png"
-            alt="Glam Hustle Hub"
-          />
-
-          <h1>STEP INSIDE <em>GLAM VAULT.</em></h1>
-
-          <p>
-            Step inside the Glam Vault on Skool for resources, support,
-            tutorials, business conversations, and a community built to help you
-            keep creating and growing.
-          </p>
-
-          <a
-            href="https://payhip.com/b/54LoK"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            ENTER THE GLAM VAULT →
-          </a>
+<body class="vault-page">
+  <a class="vault-skip" href="#vault-main">Skip to Glam Vault</a>
+  <header class="vault-header">
+    <span class="vault-brand">Glam Hustle Hub</span>
+    <nav class="vault-navigation" aria-label="Main navigation">
+      <a href="./">Home</a>
+      <a class="vault-explore" href="#vault-explore" data-open-dialog>Explore the Hub <span aria-hidden="true">☰</span></a>
+    </nav>
+  </header>
+  <main class="vault-main" id="vault-main" tabindex="-1">
+    <div class="vault-overview">
+      <section class="vault-intro" aria-labelledby="vault-title">
+        <span class="vault-eyebrow">THE GLAM VAULT · SKOOL COMMUNITY</span>
+        <h1 id="vault-title">Get unstuck. <span>Start creating.</span></h1>
+        <p>Have an idea for a product but feel stuck on the tools? Get beginner-friendly tutorials, practical guidance, and a creator community where you can ask questions and keep moving.</p>
+        <div class="vault-detail-links">
+          <a href="#vault-inside" data-open-dialog>What's inside <span aria-hidden="true">↗</span></a>
+          <a href="#vault-joining" data-open-dialog>Before you join <span aria-hidden="true">↗</span></a>
         </div>
       </section>
-</main>
-<footer class="hub-footer"><div aria-label="Connect with Glam"><a href="https://pinterest.com/PromptLikeGlam/" data-config-link="pinterest">Pinterest</a>
-<a href="https://tiktok.com/@promptlikeglam" data-config-link="tiktok">TikTok</a>
-<a href="https://v.lemon8-app.com/al/OgmyhphcMY" data-config-link="lemon8">Lemon8</a>
-<a href="https://facebook.com/GlamAIForBeginners/" data-config-link="facebook">Facebook</a>
-<a href="https://youtube.com/@promptlikeglam" data-config-link="youtube">YouTube</a>
-<a href="mailto:glamorousgrammyglowup@gmail.com" data-config-link="contact">Contact</a>
-<a href="https://sapphire-assist-suite.lovable.app/support/b04f8f25905e4cefaf7577728f217338" data-config-link="support">Help &amp; Support</a></div><p>© 2026 Glam Hustle Hub. All rights reserved.</p></footer>
-<script src="./site-config.js"></script>
-<script src="./mansion-navigation.js"></script>
+      <section class="vault-offer" aria-labelledby="vault-offer-title">
+        <span class="vault-eyebrow">FOUNDERS LAUNCH</span>
+        <h2 id="vault-offer-title">Build alongside other creators</h2>
+        <div class="vault-price"><strong>$160</strong><span>founding member price</span></div>
+        <p class="vault-price-terms">For the first 100 members. Regular price: $300 after those spots fill.</p>
+        <ul class="vault-highlights" aria-label="Community highlights">
+          <li>Practical tutorials for prompt generators &amp; creator tools</li>
+          <li>Guidance &amp; resources for your product ideas</li>
+          <li>A place to ask questions, share wins &amp; collaborate</li>
+        </ul>
+        <a class="vault-join" href="https://payhip.com/b/54LoK" target="_blank" rel="noopener noreferrer">Join the Glam Vault <span aria-hidden="true">↗</span><span class="vault-sr-only"> (opens Payhip in a new tab)</span></a>
+        <p class="vault-checkout-note">Review current price and availability on Payhip. After checkout, follow your invite to join us on Skool.</p>
+      </section>
+    </div>
+    <section class="vault-detail" id="vault-inside" aria-labelledby="vault-inside-title">
+      <div class="vault-detail-heading">
+        <h2 id="vault-inside-title" tabindex="-1">What's inside the Glam Vault</h2>
+        <button class="vault-close" type="button" data-close-dialog hidden aria-label="Close What's inside the Glam Vault">×</button>
+      </div>
+      <div class="vault-detail-body" tabindex="0" role="region" aria-labelledby="vault-inside-title">
+        <p>Bring the idea you're working on and the questions holding you back. Inside the Glam Vault, use the tutorials, resources, and community to take your next step.</p>
+        <dl class="vault-features">
+          <div><dt>A place to ask your questions</dt><dd>Talk through your questions, share your wins, and connect with creators who are learning and building too. Find people to collaborate with as you go.</dd></div>
+          <div><dt>Tutorials you can put into practice</dt><dd>Follow beginner-friendly tutorials and practical workflows for prompt generators and creator tools. Apply what you learn to the work you want to create.</dd></div>
+          <div><dt>Guidance for your next product</dt><dd>Use practical insights and resources to work through your product ideas and decide what to do next.</dd></div>
+          <div><dt>Business conversations with other creators</dt><dd>Explore creator resources and community discussions about building an online business. Keep learning as your projects move forward.</dd></div>
+        </dl>
+      </div>
+    </section>
+    <section class="vault-detail" id="vault-joining" aria-labelledby="vault-joining-title">
+      <div class="vault-detail-heading">
+        <h2 id="vault-joining-title" tabindex="-1">Before you join</h2>
+        <button class="vault-close" type="button" data-close-dialog hidden aria-label="Close Before you join">×</button>
+      </div>
+      <div class="vault-detail-body" tabindex="0" role="region" aria-labelledby="vault-joining-title">
+        <dl class="vault-features">
+          <div><dt>Is this a good fit for me?</dt><dd>If you're a content creator or online business owner who wants help learning creator tools, developing product ideas, and connecting with other creators, that's what this community is built for.</dd></div>
+          <div><dt>What if I'm new to the tools?</dt><dd>You don't need coding skills or advanced tech experience. The tutorials and practical workflows are designed to be beginner-friendly.</dd></div>
+          <div><dt>How does the founders price work?</dt><dd>The founders price is $160 for the first 100 members. After those spots fill, the regular price is $300. Check the current price and availability on Payhip before purchasing.</dd></div>
+          <div><dt>How do I get inside after checkout?</dt><dd>Your purchase confirmation page and email include immediate access instructions and an invite link to the Skool group. Follow that invite to join the community and start exploring.</dd></div>
+        </dl>
+      </div>
+    </section>
+    <section class="vault-detail" id="vault-explore" aria-labelledby="vault-explore-title">
+      <div class="vault-detail-heading">
+        <h2 id="vault-explore-title" tabindex="-1">Explore the Hub</h2>
+        <button class="vault-close" type="button" data-close-dialog hidden aria-label="Close Explore the Hub">×</button>
+      </div>
+      <div class="vault-detail-body" tabindex="0" role="region" aria-labelledby="vault-explore-title">
+        <div class="vault-link-groups">
+          <section aria-labelledby="vault-hub-links"><h3 id="vault-hub-links">Around the Hub</h3><ul>
+            <li><a href="./glam-vault.html" aria-current="page">The Glam Vault</a></li>
+            <li><a href="./best-sellers.html">Best Sellers</a></li>
+            <li><a href="./reviews.html">Reviews</a></li>
+            <li><a href="./one-on-one.html" data-config-link="oneOnOne">Book a 1-on-1</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="https://sapphire-assist-suite.lovable.app/support/b04f8f25905e4cefaf7577728f217338" data-config-link="support">Help &amp; Support</a></li>
+          </ul></section>
+          <section aria-labelledby="vault-shop-links"><h3 id="vault-shop-links">Shop &amp; create</h3><ul>
+            <li><a href="https://payhip.com/GlowUpbyGlam/collection/all" data-config-link="shop">Shop</a></li>
+            <li><a href="https://payhip.com/GlowUpbyGlam/collection/luxury-prompt-generators" data-config-link="promptGenerators">Prompt Generators</a></li>
+            <li><a href="https://payhip.com/GlowUpbyGlam/collection/bundles" data-config-link="generatorBundles">Generator Bundles</a></li>
+            <li><a href="https://pin.it/NGr63tHjX/" data-config-link="pngs">$2 PNGs</a></li>
+            <li><a href="https://pin.it/7EFoolKlz" data-config-link="freebies">Freebies</a></li>
+          </ul></section>
+          <section aria-labelledby="vault-connect-links"><h3 id="vault-connect-links">Connect with Glam</h3><ul>
+            <li><a href="https://www.facebook.com/share/g/1Sv3VVCSaR/" data-config-link="facebookCommunity">Facebook Community</a></li>
+            <li><a href="https://pinterest.com/PromptLikeGlam/" data-config-link="pinterest">Pinterest</a></li>
+            <li><a href="https://tiktok.com/@promptlikeglam" data-config-link="tiktok">TikTok</a></li>
+            <li><a href="https://v.lemon8-app.com/al/OgmyhphcMY" data-config-link="lemon8">Lemon8</a></li>
+            <li><a href="https://facebook.com/GlamAIForBeginners/" data-config-link="facebook">Facebook</a></li>
+            <li><a href="https://youtube.com/@promptlikeglam" data-config-link="youtube">YouTube</a></li>
+            <li><a href="mailto:glamorousgrammyglowup@gmail.com" data-config-link="contact">Contact</a></li>
+          </ul></section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="vault-footer">© 2026 Glam Hustle Hub. All rights reserved.</footer>
+  <script src="./site-config.js"></script>
+  <script src="./mansion-navigation.js"></script>
+  <script src="./glam-vault.js" defer></script>
 </body>
 </html>
