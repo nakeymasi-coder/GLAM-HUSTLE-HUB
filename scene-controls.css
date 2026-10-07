@@ -1,0 +1,34 @@
+/* Homepage controls live in the existing Explore menu, away from the artwork. */
+.harvest-royale.mansion-home #drawer .mansion-menu-controls {
+  margin: 18px 0;
+  padding: 16px;
+  border: 1px solid #D4AF3775;
+  border-radius: 12px;
+  background: #FFF4E2B3;
+}
+.harvest-royale.mansion-home #drawer .mansion-menu-controls h2 {
+  margin: 0 0 12px;
+  color: var(--hr-ink);
+  font: 700 12px/1.4 Montserrat, Arial, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.harvest-royale.mansion-home #drawer .mansion-video-controls {
+  position: static;
+  inset: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 8px;
+  max-width: none;
+}
+.harvest-royale.mansion-home #drawer .mansion-menu-controls button {
+  position: static;
+  min-height: 44px;
+  color: var(--hr-ink);
+  white-space: normal;
+}
+.harvest-royale.mansion-home #drawer .mansion-menu-controls button:focus-visible {
+  outline: 3px solid var(--hr-cocoa);
+  outline-offset: 4px;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Glam Camera Action Privacy Policy</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 1rem/1.65 Arial, Helvetica, sans-serif; color: #103b63; background: linear-gradient(180deg, #f7fcff 0%, #edf8ff 45%, #fff 100%); }
+    main { max-width: 900px; margin: 0 auto; padding: 48px 22px 72px; }
+    article { background: #fff; border: 1px solid #d7dee8; border-radius: 24px; padding: 34px; box-shadow: 0 18px 50px rgba(7,24,46,.08); overflow-wrap: anywhere; }
+    h1 { margin: 0 0 8px; color: #07182e; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.2; }
+    h2 { color: #07182e; margin-top: 30px; font-size: 1.3125rem; line-height: 1.35; }
+    a { color: #075d9c; text-underline-offset: .18em; }
+    a:focus-visible { outline: 3px solid #075d9c; outline-offset: 4px; border-radius: 2px; }
+    li + li { margin-top: .5rem; }
+    ul { padding-left: 1.5rem; }
+    @media (max-width: 640px) {
+      main { padding: 24px 14px 48px; }
+      article { padding: 24px 18px; border-radius: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <article>
+      <h1>Glam Camera Action Privacy Policy</h1>
+      <p>Last updated: October 4, 2026</p>
+      <h2>Who this notice covers</h2>
+      <p>Glam Camera Action is operated by Glam Hustle Hub. This notice explains how the app handles information used for its workspace, account-based cloud features, and optional Google Docs saving. Google sign-in may display the name Glam Skill Studio. This notice applies to Glam Camera Action only.</p>
+      <p>For privacy questions, contact <a href="mailto:glamorousgrammyglowup@gmail.com">glamorousgrammyglowup@gmail.com</a>.</p>
+      <h2>Information used by the app</h2>
+      <p>Your workspace can include scene prompts, project details, characters, Story Bible information, planning material, reusable briefs, templates, and your manual edits. The app uses account and document identifiers to associate saved work with the correct account and project.</p>
+      <p>When you sign in with Google, the app stores your Firebase user ID, email address, display name, profile photo URL, and last-login timestamp in its user record. The current app does not have a chat feature.</p>
+      <h2>Browser storage</h2>
+      <p>The app stores drafts, generated output, manual edits, saved prompts, templates, cached cloud stories, project backup identifiers, and preferences in your browser. Guest work and signed-in accounts use separate workspaces. Browser storage has no automatic expiry in the current app and is not protected from someone who controls the same browser profile.</p>
+      <p>Older mixed-workspace data is kept separate and can be viewed through an explicit recovery/export option. Recovery mode does not upload or back up that older data.</p>
+      <p>Clearing site data can remove browser-only work, so export important work first. Signing out preserves saved work.</p>
+      <h2>Google sign in and cloud saving</h2>
+      <p>Google and Firebase provide account sign-in. When you select Save to Cloud, the app stores a story's title, master prompt, target duration, structured project state, manual text overrides, record identifiers, and creation/update timestamps in Firestore under your user ID.</p>
+      <p>Cloud stories are separate from browser-only workspace data and copies saved in Google Drive. The app's user access rules restrict a signed-in user's access to their own cloud records.</p>
+      <h2>Optional Google Docs and Drive access</h2>
+      <p>Connecting Google Docs is optional. The app requests the limited drive.file permission alongside Google sign-in identity permissions. It uses Google account identifiers to check that the Drive connection matches the signed-in account. The permission covers files the app creates and files you explicitly open or share with it; it does not grant access to every file in your Drive.</p>
+      <p>When you save a prompt while connected, the structured project snapshot goes directly from your browser to Google Drive and Docs. The app creates or updates two documents: a Project Brief with your story idea and selected details, and a Continuity Bible with characters, setting, visual direction, continuity notes, and scene beats. These are not a complete backup of the browser library or standalone manual master-prompt edits.</p>
+      <p>Later saves replace those documents' contents. Make a separate copy if you want to preserve edits made directly in Google Docs.</p>
+      <p>The Drive access token is kept in memory for the current connection, with no Drive refresh token stored by this app. Reconnection is needed after a page refresh, sign-out or account change, disconnection, an authorization failure, or connection expiry. Firebase sign-in persistence is managed separately by Firebase.</p>
+      <p>Disconnect stops the app's current Drive connection but keeps existing documents and does not revoke the Google account grant. You can revoke that grant through your Google Account's third-party connections.</p>
+      <h2>How project content is used</h2>
+      <p>The current scene and prompt assembly runs in the browser without calling an external model service. Copying a prompt does not send it to another creative tool. If you paste it into another service, that service handles it under its own terms.</p>
+      <p>Template imports are processed locally. If you apply imported content to a story and then choose cloud saving or connected Google Docs saving, that story content is sent to the selected Google service.</p>
+      <h2>Service providers</h2>
+      <p>Base44 hosts the app. Google services provide Firebase sign-in and cloud data storage, plus Google Drive and Docs features when you choose to use them. These providers process information needed to deliver those features under their applicable terms and privacy policies.</p>
+      <h2>Your choices and deleting information</h2>
+      <p>You can decide whether to connect Google Docs, revoke that connection from your Google Account, and manage or delete exported documents directly in Google Drive.</p>
+      <p>The app's Delete prompt and Clear entire library controls remove entries from the current browser workspace. They do not delete Firestore originals; if only a local copy is removed, the cloud original can return on a later sign-in. Clear or Reset affects the current draft and output, not every saved copy.</p>
+      <p>To remove eligible cloud projects, sign in and choose Delete cloud-saved projects. Review the account and exact project list, then type DELETE to confirm. This feature deletes only cloud snapshots explicitly marked as new saves made by Glam Camera Action, together with their derived cloud cache in the current browser. Older records without that app marker are excluded because their origin within the shared project cannot be established.</p>
+      <p>Cloud deletion leaves separate local saves, drafts, templates, backups, Google Drive documents, and your profile and authentication account in place. Other devices or tabs may retain browser copies. Deleted cloud snapshots are not automatically re-uploaded; choosing Save to Cloud afterward creates a new save with a new record identifier.</p>
+      <p>This control does not delete your account or erase every historical record. The app currently has no in-app account-deletion control.</p>
+      <p>Browser site-data controls can remove browser-stored information. For privacy questions or deletion help with older cloud records or your app account, email <a href="mailto:glamorousgrammyglowup@gmail.com">glamorousgrammyglowup@gmail.com</a>.</p>
+      <h2>Retention and separate copies</h2>
+      <p>Signing out, disconnecting Google Docs, or removing browser data does not delete all saved copies. Browser work has no automatic expiry in the current app. Cloud records, Google Drive documents, and browser copies must be managed separately using the controls and support contact described above.</p>
+      <p>Service-provider logs and backups are governed by the applicable provider's retention and deletion practices. Deleting an eligible cloud snapshot through the app does not establish that every separate copy or provider backup has been erased. Contact us with questions about retained account information, older records, or deletion assistance.</p>
+      <p><a href="https://glamhustlehub.com/glam-camera-action/">About Glam Camera Action</a></p>
+      <p><a href="https://glam-camera-action-8826aa34.base44.app/">Open Glam Camera Action</a></p>
+    </article>
+  </main>
+</body>
+</html>

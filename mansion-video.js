@@ -2,7 +2,9 @@
    Leave data-src empty to disable video without changing the scene or links. */
 (() => {
   const video = document.getElementById('mansionVideo');
+  const sound = document.getElementById('mansionSound');
   const control = document.getElementById('mansionMotion');
+  const controls = document.getElementById('mansionMediaControls');
   if (!video || !control || !document.body.classList.contains('mansion-home')) return;
   const source = video.dataset.src?.trim();
   if (!source || !video.canPlayType('video/mp4')) return;
@@ -22,10 +24,31 @@
   video.loop = false;
   video.playsInline = true;
   control.hidden = false;
+  if (sound) sound.hidden = false;
+  if (controls) controls.hidden = false;
 
+  const rooms = [...document.querySelectorAll('.mansion-hotspot')];
+  const portals = [...document.querySelectorAll('.portal-hotspot')];
+  const openingPanels = [...document.querySelectorAll('.opening-panel-link')];
+  const bundlesPanel = document.querySelector('.bundles-panel-link');
+  const hint = document.querySelector('.room-hint-desktop');
+  function updateDestinations() {
+    const showingVideo = !video.hidden;
+    openingPanels.forEach(panel => { panel.hidden = !showingVideo || video.currentTime >= 2.5; });
+    if (bundlesPanel) bundlesPanel.hidden = !showingVideo || video.currentTime < 3.2 || video.currentTime >= 4.9;
+    rooms.forEach(room => { room.hidden = showingVideo; });
+    // The named portals settle into these positions only after the reveal.
+    portals.forEach(portal => { portal.hidden = showingVideo && video.currentTime < 7; });
+    if (hint) hint.textContent = showingVideo
+      ? 'Glam: Welcome in — Explore the Hub to choose your destination'
+      : 'Glam: Welcome in — choose a portal or Explore the Hub';
+  }
+  video.addEventListener('timeupdate', updateDestinations);
+  video.addEventListener('seeking', updateDestinations);
   function updateControl() {
-    if (video.ended) control.textContent = 'Replay intro';
-    else control.textContent = video.paused ? 'Play intro' : 'Pause intro';
+    updateDestinations();
+    control.textContent = video.ended ? 'Replay intro' : video.paused ? 'Play intro' : 'Pause intro';
+    if (sound) sound.textContent = video.muted ? 'Hear the welcome' : 'Mute welcome';
   }
   function canRun() { return wantsMotion && !failed && !document.hidden; }
   function remember() {
@@ -36,7 +59,10 @@
     wantsMotion = false;
     video.pause();
     video.hidden = true;
+    updateDestinations();
     control.hidden = true;
+    if (sound) sound.hidden = true;
+    if (controls) controls.hidden = true;
   }
   async function start() {
     if (!canRun()) return;
@@ -49,7 +75,7 @@
       if (!canRun()) video.pause();
     } catch {
       // An interrupted background-tab play is harmless; an autoplay block
-      // leaves a usable Play button over the still image.
+      // leaves a usable Play button in the Explore menu.
       if (canRun()) wantsMotion = false;
       updateControl();
     }
@@ -66,13 +92,18 @@
     updateControl();
   });
   video.addEventListener('pause', updateControl);
-  video.addEventListener('ended', () => {
-    // The approved 10-second clip is the intro, not an endless background loop.
-    wantsMotion = false;
+  video.addEventListener('error', showStill);
+  video.addEventListener('ended', () => { wantsMotion = false; updateControl(); });
+  if (sound) sound.addEventListener('click', () => {
+    video.muted = !video.muted;
+    if (!video.muted) {
+      video.currentTime = 0;
+      wantsMotion = true;
+      remember();
+      reconcile();
+    }
     updateControl();
   });
-  video.addEventListener('error', showStill);
-
   control.addEventListener('click', () => {
     if (video.ended) {
       wantsMotion = true;
@@ -84,7 +115,6 @@
     remember();
     reconcile();
   });
-
   document.addEventListener('visibilitychange', reconcile);
   window.addEventListener('pagehide', () => video.pause());
   window.addEventListener('pageshow', reconcile);

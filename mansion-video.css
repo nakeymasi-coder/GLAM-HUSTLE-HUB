@@ -32,3 +32,126 @@
   outline: 3px solid #ffd6a2;
   outline-offset: 3px;
 }
+
+/* Keep playback and speech controls together on narrow screens. */
+.mansion-home .mansion-video-controls {
+  position: absolute;
+  top: max(14px, env(safe-area-inset-top));
+  right: max(14px, env(safe-area-inset-right));
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  max-width: calc(100% - 28px);
+}
+.mansion-home .mansion-video-controls .mansion-motion { position: static; }
+.mansion-home .mansion-sound {
+  min-height: 44px;
+  padding: 9px 14px;
+  border: 1px solid #90cfff;
+  border-radius: 8px;
+  background: #074f85;
+  color: #fff;
+  font: 500 12px/1.4 Montserrat, Arial, sans-serif;
+  cursor: pointer;
+}
+.mansion-home .mansion-sound:hover { background: #09659f; }
+.mansion-home .mansion-sound:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.mansion-home .mansion-video[hidden],
+.mansion-home .mansion-video-controls [hidden] { display: none; }
+
+/* Video destinations belong to the final portal tableau, not the mansion map. */
+.mansion-home .mansion-hotspot[hidden],
+.mansion-home .portal-hotspot[hidden] { display: none; }
+.mansion-home .portal-hotspot {
+  position: absolute;
+  z-index: 3;
+  top: 49%;
+  width: 12%;
+  height: 30%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 2%;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  color: transparent;
+  font: 600 14px/1.3 Montserrat, Arial, sans-serif;
+  text-decoration: none;
+}
+.mansion-home .portal-vault { left: 31%; }
+.mansion-home .portal-pia { left: 46%; top: 31%; width: 16%; height: 43%; }
+.mansion-home .portal-bundles { left: 64%; }
+.mansion-home .portal-hotspot:hover,
+.mansion-home .portal-hotspot:focus-visible {
+  color: white;
+  background: rgba(0, 40, 80, .25);
+  border-color: #a5dfff;
+  text-shadow: 0 1px 4px #00172b;
+  outline: 2px solid white;
+  outline-offset: 3px;
+}
+@media (max-width: 900px), (hover: none), (pointer: coarse) {
+  .mansion-home .portal-hotspot { display: none; }
+}
+
+/* The Bundles control that Mila taps, before the final three-portal reveal. */
+.mansion-home .bundles-panel-link {
+  position: absolute;
+  z-index: 4;
+  left: 55.2%;
+  top: 41.5%;
+  width: 11%;
+  height: 10%;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  font: 600 14px/1.3 Montserrat, Arial, sans-serif;
+}
+.mansion-home .bundles-panel-link span { opacity: 0; }
+.mansion-home .bundles-panel-link:hover,
+.mansion-home .bundles-panel-link:focus-visible {
+  background: #075584;
+  outline: 2px solid #c2ebff;
+  box-shadow: 0 0 18px #38b6ff;
+}
+.mansion-home .bundles-panel-link:hover span,
+.mansion-home .bundles-panel-link:focus-visible span { opacity: 1; }
+.mansion-home .bundles-panel-link[hidden] { display: none; }
+
+/* Opening holographic cards beside Mila. */
+.mansion-home .opening-panel-link {
+  position: absolute;
+  z-index: 4;
+  left: 67%;
+  width: 12%;
+  height: 11%;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  font: 600 14px/1.3 Montserrat, Arial, sans-serif;
+  text-align: center;
+}
+.mansion-home .opening-vault { top: 40%; }
+.mansion-home .opening-pia { top: 52.5%; }
+.mansion-home .opening-panel-link span { opacity: 0; }
+.mansion-home .opening-panel-link:hover,
+.mansion-home .opening-panel-link:focus-visible {
+  background: #075584;
+  outline: 2px solid #c2ebff;
+  box-shadow: 0 0 18px #38b6ff;
+}
+.mansion-home .opening-panel-link:hover span,
+.mansion-home .opening-panel-link:focus-visible span { opacity: 1; }
+.mansion-home .opening-panel-link[hidden] { display: none; }
