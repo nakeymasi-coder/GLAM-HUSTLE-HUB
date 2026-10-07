@@ -21,7 +21,7 @@
   // Set before assigning a source: mobile browsers require muted inline video.
   video.muted = true;
   video.defaultMuted = true;
-  video.loop = true;
+  video.loop = false;
   video.playsInline = true;
   control.hidden = false;
   if (sound) sound.hidden = false;
@@ -40,14 +40,14 @@
     // The named portals settle into these positions only after the reveal.
     portals.forEach(portal => { portal.hidden = showingVideo && video.currentTime < 7; });
     if (hint) hint.textContent = showingVideo
-      ? 'Explore the Hub to choose your destination'
-      : 'Choose a portal, or explore the Hub';
+      ? 'Glam: Welcome in — Explore the Hub to choose your destination'
+      : 'Glam: Welcome in — choose a portal or Explore the Hub';
   }
   video.addEventListener('timeupdate', updateDestinations);
   video.addEventListener('seeking', updateDestinations);
   function updateControl() {
     updateDestinations();
-    control.textContent = video.ended ? 'Replay welcome' : video.paused ? 'Play animation' : 'Pause animation';
+    control.textContent = video.ended ? 'Replay intro' : video.paused ? 'Play intro' : 'Pause intro';
     if (sound) sound.textContent = video.muted ? 'Hear the welcome' : 'Mute welcome';
   }
   function canRun() { return wantsMotion && !failed && !document.hidden; }
@@ -96,7 +96,6 @@
   video.addEventListener('ended', () => { wantsMotion = false; updateControl(); });
   if (sound) sound.addEventListener('click', () => {
     video.muted = !video.muted;
-    video.loop = video.muted;
     if (!video.muted) {
       video.currentTime = 0;
       wantsMotion = true;
@@ -106,6 +105,12 @@
     updateControl();
   });
   control.addEventListener('click', () => {
+    if (video.ended) {
+      wantsMotion = true;
+      video.currentTime = 0;
+      void start();
+      return;
+    }
     wantsMotion = !wantsMotion;
     remember();
     reconcile();
