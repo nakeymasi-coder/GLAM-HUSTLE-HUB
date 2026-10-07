@@ -93,7 +93,13 @@
   });
   video.addEventListener('pause', updateControl);
   video.addEventListener('error', showStill);
-  video.addEventListener('ended', () => { wantsMotion = false; updateControl(); });
+  video.addEventListener('ended', () => {
+    // After the requested spoken welcome, continue the scene silently.
+    video.muted = true;
+    video.loop = true;
+    video.currentTime = 0;
+    reconcile();
+  });
   if (sound) sound.addEventListener('click', () => {
     video.muted = !video.muted;
     video.loop = video.muted;
@@ -106,6 +112,7 @@
     updateControl();
   });
   control.addEventListener('click', () => {
+    if (video.ended) video.currentTime = 0;
     wantsMotion = !wantsMotion;
     remember();
     reconcile();
