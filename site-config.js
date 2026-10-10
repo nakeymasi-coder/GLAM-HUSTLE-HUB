@@ -28,9 +28,8 @@ window.GLAM_SITE_CONFIG = {
     shop: true,
     bestSellers: true,
 
-    // Workshops are hidden for now.
-    // Change to true whenever you are ready to bring them back.
-    workshops: false,
+    // Workshops are back — Build Your Brand World, Oct 30–Nov 1, 2026.
+    workshops: true,
 
     promptGenerators: true,
     generatorBundles: true,
@@ -54,8 +53,8 @@ window.GLAM_SITE_CONFIG = {
     showHome: true,
     showShop: true,
 
-    // Hidden for now
-    showWorkshops: false,
+    // Workshops are back — Build Your Brand World, Oct 30–Nov 1, 2026.
+    showWorkshops: true,
 
     showSkool: true,
     showOneOnOne: true,
