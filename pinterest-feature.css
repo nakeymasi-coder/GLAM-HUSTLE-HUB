@@ -3,7 +3,7 @@
   background:
     radial-gradient(
       circle at 18% 20%,
-      rgba(212, 175, 55, 0.1),
+      rgba(164, 164, 164, 0.1),
       transparent 30%
     ),
     linear-gradient(145deg, #02050d, #07162e 55%, #030711);
@@ -13,7 +13,7 @@
   background: linear-gradient(
     to right,
     transparent,
-    rgba(212, 175, 55, 0.45),
+    rgba(164, 164, 164, 0.45),
     transparent
   );
 }
@@ -25,7 +25,7 @@
   gap: 58px;
   align-items: center;
   padding: 38px;
-  border: 1px solid rgba(212, 175, 55, 0.28);
+  border: 1px solid rgba(164, 164, 164, 0.28);
   border-radius: 34px;
   background: linear-gradient(
     135deg,
@@ -34,7 +34,7 @@
   );
   box-shadow:
     0 30px 90px rgba(0, 0, 0, 0.46),
-    0 0 55px rgba(212, 175, 55, 0.08);
+    0 0 55px rgba(164, 164, 164, 0.08);
   box-sizing: border-box;
 }
 .pinterest-feature-art {
@@ -59,7 +59,7 @@
 }
 .pinterest-feature-label {
   display: inline-block;
-  color: #d4af37;
+  color: #D2D2D2;
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 3px;
@@ -89,7 +89,7 @@
 .pinterest-feature-points span {
   padding: 9px 13px;
   border-radius: 999px;
-  border: 1px solid rgba(212, 175, 55, 0.25);
+  border: 1px solid rgba(164, 164, 164, 0.25);
   background: rgba(255, 255, 255, 0.035);
   color: rgba(255, 255, 255, 0.88);
   font-size: 0.76rem;
@@ -100,13 +100,13 @@
   display: inline-block;
   padding: 16px 35px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #f9dd69, #d4af37, #ffcc00);
+  background: linear-gradient(135deg, #8F8F8F 0%, #CECECE 12%, #FFFFFF 25%, #A9A9A9 39%, #FAFAFA 50%, #BCBCBC 63%, #FEFEFE 79%, #969696 100%);
   color: #000;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 900;
   letter-spacing: 1px;
-  box-shadow: 0 14px 32px rgba(212, 175, 55, 0.28);
+  box-shadow: 0 14px 32px rgba(164, 164, 164, 0.28);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
@@ -115,7 +115,7 @@
 .pinterest-feature-btn:hover {
   transform: translateY(-4px) scale(1.04);
   filter: brightness(1.06);
-  box-shadow: 0 20px 42px rgba(212, 175, 55, 0.42);
+  box-shadow: 0 20px 42px rgba(164, 164, 164, 0.42);
 }
 @media (max-width: 900px) {
   .pinterest-feature-shell {

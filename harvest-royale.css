@@ -1,17 +1,17 @@
-/* Harvest Royale site-wide theme, approved palette option 3.
+/* Existing site-wide theme with the requested reflective chrome-silver accents.
    Visual-only layer. Content, layout, artwork, routes and event logic are unchanged.
    Homepage scene is explicitly excluded from page surface and content rules. */
 .harvest-royale {
   --hr-sapphire: #168FEA;
   --hr-terracotta: #C96F49;
   --hr-cocoa: #56382D;
-  --hr-gold: #D4AF37;
+  --hr-silver: #A4A4A4;
   --hr-ink: #0C0D14;
   --hr-white: #FFFFFF;
   --hr-cream: #FFF4E2;
-  --hr-gold-foil: linear-gradient(110deg, #8A6A16 0%, #D4AF37 29%, #FFF0A6 51%, #B88B20 100%);
+  --hr-chrome-silver: linear-gradient(135deg, #8F8F8F 0%, #CECECE 12%, #FFFFFF 25%, #A9A9A9 39%, #FAFAFA 50%, #BCBCBC 63%, #FEFEFE 79%, #969696 100%);
   --hr-paper: linear-gradient(145deg, #FFFFFF 0%, #FFF4E2 100%);
-  --hr-button: linear-gradient(#FFFFFF2E, #FFFFFF2E), var(--hr-gold-foil);
+  --hr-button: var(--hr-chrome-silver);
 }
 .harvest-royale:not(.mansion-home):not(.harvest-admin) {
   color: var(--hr-ink) !important;
@@ -20,7 +20,7 @@
 .harvest-royale .session-nav,
 .harvest-royale .vault-header {
   background: #FFF4E2ED !important;
-  border-bottom: 1px solid var(--hr-gold) !important;
+  border-bottom: 1px solid var(--hr-silver) !important;
   box-shadow: 0 6px 24px #56382D0B;
 }
 .harvest-royale .session-brand,
@@ -33,7 +33,7 @@
 .harvest-royale .vault-explore,
 .harvest-royale .menu-toggle {
   color: var(--hr-ink);
-  border-color: #8A6A16;
+  border-color: #656565;
   background: #FFFFFFB3;
 }
 .harvest-royale .session-eyebrow,
@@ -68,19 +68,19 @@
   box-shadow: 0 18px 38px #56382D14, 0 3px 0 var(--hr-sapphire), inset 0 1px 0 #FFFFFF;
 }
 .harvest-royale .session-card-featured,
-.harvest-royale .vault-offer { border-top-color: var(--hr-gold); }
+.harvest-royale .vault-offer { border-top-color: var(--hr-silver); }
 .harvest-royale .session-book,
 .harvest-royale .session-card-featured .session-book,
 .harvest-royale .vault-join {
   color: var(--hr-ink);
-  border-color: #8A6A16;
-  /* The light glaze lifts the darkest foil stop above 4.5:1 for the ink label. */
-  background: linear-gradient(#FFFFFF2E, #FFFFFF2E), var(--hr-gold-foil);
-  box-shadow: 0 6px 14px #56382D24, inset 0 1px 0 #FFF0A6;
+  border-color: #656565;
+  /* Light and mid-gray reflection bands retain strong contrast for the ink label. */
+  background: var(--hr-chrome-silver);
+  box-shadow: 0 6px 14px #0C0D1424, inset 0 1px 0 #FFFFFF;
 }
 .harvest-royale .session-book:hover,
 .harvest-royale .session-card-featured .session-book:hover,
-.harvest-royale .vault-join:hover { background: linear-gradient(#FFFFFF45, #FFFFFF45), var(--hr-gold-foil); color: var(--hr-ink); border-color: var(--hr-cocoa); }
+.harvest-royale .vault-join:hover { background: linear-gradient(#FFFFFF20, #FFFFFF20), var(--hr-chrome-silver); color: var(--hr-ink); border-color: var(--hr-cocoa); }
 .harvest-royale .session-detail-links a,
 .harvest-royale .vault-detail-links a,
 .harvest-royale .session-booking-note a { color: var(--hr-cocoa); text-decoration-color: var(--hr-terracotta); }
@@ -91,13 +91,13 @@
 .harvest-royale .vault-highlights li::before { color: var(--hr-cocoa); }
 .harvest-royale .session-booking-note { background: #FFFFFFC9; border-color: #C96F4970; }
 .harvest-royale .session-footer,
-.harvest-royale .vault-footer { color: var(--hr-cocoa) !important; background: #FFF4E2D9 !important; border-top-color: #D4AF3775; }
+.harvest-royale .vault-footer { color: var(--hr-cocoa) !important; background: #FFF4E2D9 !important; border-top-color: #A4A4A475; }
 .harvest-royale .session-detail,
-.harvest-royale .vault-detail { color: var(--hr-ink); background: var(--hr-paper); border-color: var(--hr-gold); }
+.harvest-royale .vault-detail { color: var(--hr-ink); background: var(--hr-paper); border-color: var(--hr-silver); }
 .harvest-royale .session-detail::backdrop,
 .harvest-royale .vault-detail::backdrop { background: #0C0D14A6; }
 .harvest-royale .session-detail-heading,
-.harvest-royale .vault-detail-heading { border-bottom-color: #D4AF3775; }
+.harvest-royale .vault-detail-heading { border-bottom-color: #A4A4A475; }
 .harvest-royale .session-detail-body p,
 .harvest-royale .vault-detail-body p,
 .harvest-royale .vault-features dd { color: var(--hr-cocoa); }
@@ -106,7 +106,7 @@
 .harvest-royale .session-topic-grid article { background: #FFFFFF; border-color: #C96F4966; }
 .harvest-royale .vault-features > div { border-top-color: #C96F494D; }
 .harvest-royale .session-close,
-.harvest-royale .vault-close { color: var(--hr-ink); background: var(--hr-cream); border-color: #8A6A16; }
+.harvest-royale .vault-close { color: var(--hr-ink); background: var(--hr-cream); border-color: #656565; }
 .harvest-royale .session-steps li::marker,
 .harvest-royale .vault-steps li::marker { color: var(--hr-cocoa); }
 .harvest-royale .vault-link-groups a:hover { color: var(--hr-cocoa); }
@@ -118,7 +118,7 @@
 .harvest-royale .vault-detail-body:focus-visible { outline: 3px solid var(--hr-cocoa); outline-offset: -4px; }
 @media (max-width: 900px) {
   .harvest-royale .session-nav ul,
-  .harvest-royale.session-enhanced .session-nav ul.mobile-menu-open { background: var(--hr-cream); border-bottom-color: var(--hr-gold); }
+  .harvest-royale.session-enhanced .session-nav ul.mobile-menu-open { background: var(--hr-cream); border-bottom-color: var(--hr-silver); }
 }
 
 
@@ -127,7 +127,7 @@
   --glam-deep: var(--hr-ink);
   --glam-ink: var(--hr-ink);
   --glam-cloud: var(--hr-cream);
-  --glam-silver: #D4AF3775;
+  --glam-silver: #A4A4A475;
   --deep: var(--hr-ink);
   --black: var(--hr-ink);
   --blue: var(--hr-sapphire);
@@ -139,7 +139,7 @@
 .harvest-royale.workshops-page header {
   background: #FFF4E2ED !important;
   color: var(--hr-ink) !important;
-  border-bottom-color: var(--hr-gold) !important;
+  border-bottom-color: var(--hr-silver) !important;
   box-shadow: 0 6px 24px #56382D0B;
 }
 .harvest-royale #topNav a { color: var(--hr-ink) !important; }
@@ -148,19 +148,19 @@
 .harvest-royale .hamb,
 .harvest-royale.mansion-home .explore {
   color: var(--hr-ink) !important;
-  border-color: #8A6A16 !important;
+  border-color: #656565 !important;
   background: var(--hr-button) !important;
-  box-shadow: 0 6px 14px #56382D24, inset 0 1px 0 #FFF0A6;
+  box-shadow: 0 6px 14px #0C0D1424, inset 0 1px 0 #FFFFFF;
 }
 .harvest-royale .explore span { color: inherit; }
 .harvest-royale .explore:hover,
 .harvest-royale .hamb:hover,
-.harvest-royale.mansion-home .explore:hover { background: linear-gradient(#FFFFFF45,#FFFFFF45),var(--hr-gold-foil) !important; }
+.harvest-royale.mansion-home .explore:hover { background: linear-gradient(#FFFFFF20,#FFFFFF20),var(--hr-chrome-silver) !important; }
 .harvest-royale #drawer,
 .harvest-royale.mansion-home #drawer {
   color: var(--hr-ink) !important;
-  background: linear-gradient(145deg,#FFFFFF 0%,#FFF4E2 62%,#C96F4933 100%) !important;
-  border-left-color: var(--hr-gold);
+  background: linear-gradient(145deg,#FFFFFF 0%,#FFF4E2 62%,#C96F4933 100%), var(--hr-cream) !important;
+  border-left-color: var(--hr-silver);
   box-shadow: -20px 0 65px #0C0D1429;
 }
 .harvest-royale #drawer > div,
@@ -176,7 +176,7 @@
 .harvest-royale.workshops-page footer {
   background: #FFF4E2F2 !important;
   color: var(--hr-cocoa) !important;
-  border-top-color: #D4AF3775;
+  border-top-color: #A4A4A475;
 }
 .harvest-royale .hub-footer a,
 .harvest-royale .hub-footer p,
@@ -206,16 +206,16 @@
   box-shadow: 0 18px 38px #56382D14, 0 3px 0 var(--hr-sapphire), inset 0 1px 0 #FFFFFF !important;
 }
 .harvest-royale.destination-page :is(.product h3,.product > b,.review-grid article b) { color: var(--hr-ink) !important; }
-.harvest-royale.destination-page .about-image img { border-color: var(--hr-gold); box-shadow: 0 16px 42px #56382D1A; }
+.harvest-royale.destination-page .about-image img { border-color: var(--hr-silver); box-shadow: 0 16px 42px #56382D1A; }
 .harvest-royale.destination-page :is(.destination-cta,.about-copy > a,.review-buttons a),
 .harvest-royale.workshops-page :is(.workshops-hero-copy > a,.workshop-primary-button,.portal-button,.workshop-support a) {
   color: var(--hr-ink) !important;
   background: var(--hr-button) !important;
-  border-color: #8A6A16 !important;
-  box-shadow: 0 6px 14px #56382D24, inset 0 1px 0 #FFF0A6 !important;
+  border-color: #656565 !important;
+  box-shadow: 0 6px 14px #0C0D1424, inset 0 1px 0 #FFFFFF !important;
 }
 .harvest-royale.destination-page :is(.destination-cta,.about-copy > a,.review-buttons a):hover,
-.harvest-royale.workshops-page :is(.workshop-primary-button,.portal-button,.workshop-support a):hover { background: linear-gradient(#FFFFFF45,#FFFFFF45),var(--hr-gold-foil) !important; }
+.harvest-royale.workshops-page :is(.workshop-primary-button,.portal-button,.workshop-support a):hover { background: linear-gradient(#FFFFFF20,#FFFFFF20),var(--hr-chrome-silver) !important; }
 
 /* Workshops keeps its current hidden navigation setting and all workshop content. */
 .harvest-royale.workshops-page .page-shell { background: transparent !important; }
@@ -234,13 +234,13 @@
   box-shadow: 0 18px 38px #56382D14,0 3px 0 var(--hr-sapphire);
 }
 .harvest-royale.workshops-page .workshop-feature-media { background: linear-gradient(140deg,#168FEA,#FFF4E2 60%,#C96F49); }
-.harvest-royale.workshops-page .workshop-art { background: #0C0D14CC; border-color: var(--hr-gold); box-shadow: 0 0 30px #D4AF3740; }
+.harvest-royale.workshops-page .workshop-art { background: #0C0D14CC; border-color: var(--hr-silver); box-shadow: 0 0 30px #A4A4A440; }
 .harvest-royale.workshops-page .workshop-art :is(small,strong,span) { color: var(--hr-cream) !important; }
 .harvest-royale.workshops-page .workshop-status { color: var(--hr-ink); background: var(--hr-button); }
 .harvest-royale.workshops-page .workshop-detail-grid { border-color: #C96F494D; }
 
 /* Policy wording and date remain unchanged. */
-.harvest-royale.harvest-policy .card { background: var(--hr-paper); border-color: var(--hr-gold); box-shadow: 0 18px 50px #56382D14; }
+.harvest-royale.harvest-policy .card { background: var(--hr-paper); border-color: var(--hr-silver); box-shadow: 0 18px 50px #56382D14; }
 .harvest-royale.harvest-policy :is(h1,h2) { color: var(--hr-ink); }
 .harvest-royale.harvest-policy :is(p,li,.updated,.eyebrow) { color: var(--hr-cocoa); }
 .harvest-royale.harvest-policy a { color: var(--hr-cocoa); text-decoration-color: var(--hr-sapphire); }
@@ -253,7 +253,7 @@
   --deep-sapphire: var(--hr-cocoa);
   --ink: var(--hr-ink);
   --soft-white: var(--hr-cream);
-  --silver: #D4AF3775;
+  --silver: #A4A4A475;
   --line: #C96F4940;
   --muted: var(--hr-cocoa);
   --bg: var(--hr-cream);
@@ -270,15 +270,15 @@
   --panel-solid: #241D1A;
   --text: #FFF4E2;
   --text-soft: #E3CBB8;
-  --line: #D4AF3740;
+  --line: #A4A4A440;
   --muted: #E3CBB8;
   --shadow: 0 18px 55px #0000004D;
 }
 .harvest-royale.harvest-admin { background: radial-gradient(circle at top left,#168FEA17,transparent 35%),var(--bg); color: var(--text); }
-.harvest-royale.harvest-admin .primary-button { background: var(--hr-button); color: var(--hr-ink); border-color: #8A6A16; }
-.harvest-royale.harvest-admin .nav-item.active { background: var(--hr-button); color: var(--hr-ink); border-color: var(--hr-gold); }
+.harvest-royale.harvest-admin .primary-button { background: var(--hr-button); color: var(--hr-ink); border-color: #656565; }
+.harvest-royale.harvest-admin .nav-item.active { background: var(--hr-button); color: var(--hr-ink); border-color: var(--hr-silver); }
 .harvest-royale.harvest-admin :is(.nav-item.active .nav-icon,.nav-item.active span) { color: var(--hr-ink); }
-.harvest-royale.harvest-admin .brand-kicker { color: var(--hr-gold); }
+.harvest-royale.harvest-admin .brand-kicker { color: var(--hr-silver); }
 .harvest-royale.harvest-admin .section-kicker { color: var(--text-soft); }
 .harvest-royale.harvest-admin :is(input,select,textarea):focus-visible { outline: 3px solid var(--hr-sapphire); outline-offset: 3px; }
 
@@ -287,12 +287,12 @@
 .harvest-royale.workshops-page .workshop-detail-grid b { color: var(--hr-cocoa); }
 .harvest-royale.destination-page .product img { background: var(--hr-cream); }
 .harvest-royale.mansion-home :is(.mansion-motion,.mansion-sound) {
-  background: var(--hr-button); color: var(--hr-ink); border-color: #8A6A16;
+  background: var(--hr-button); color: var(--hr-ink); border-color: #656565;
 }
-.harvest-royale.mansion-home :is(.mansion-motion,.mansion-sound):hover { background: linear-gradient(#FFFFFF45,#FFFFFF45),var(--hr-gold-foil); }
+.harvest-royale.mansion-home :is(.mansion-motion,.mansion-sound):hover { background: linear-gradient(#FFFFFF20,#FFFFFF20),var(--hr-chrome-silver); }
 .harvest-royale.mansion-home :is(.mansion-motion,.mansion-sound):focus-visible { outline-color: var(--hr-cream); }
 .harvest-royale.harvest-admin #glamAdminLoginScreen { background: radial-gradient(ellipse at 0% 45%,#168FEA29,transparent 57%),linear-gradient(110deg,#FFFFFF,#FFF4E2 62%,#C96F4940); }
-.harvest-royale.harvest-admin .glam-login-card { background: var(--panel-solid); border-color: var(--hr-gold); box-shadow: var(--shadow); }
+.harvest-royale.harvest-admin .glam-login-card { background: var(--panel-solid); border-color: var(--hr-silver); box-shadow: var(--shadow); }
 .harvest-royale.harvest-admin :is(.glam-login-brand h1,.glam-login-form label span) { color: var(--text); }
 .harvest-royale.harvest-admin :is(.glam-login-kicker,.glam-login-brand p,.glam-login-divider,.topbar-kicker) { color: var(--text-soft); }
 .harvest-royale.harvest-admin :is(.glam-login-form input,.glam-google-login) { color: var(--text); background: var(--panel-solid); border-color: var(--line); }
@@ -347,7 +347,7 @@
   gap: 20px;
   background: #FFF4E2F2 !important;
   border: 0 !important;
-  border-bottom: 1px solid var(--hr-gold) !important;
+  border-bottom: 1px solid var(--hr-silver) !important;
   box-shadow: 0 6px 24px #56382D0B;
 }
 .harvest-royale.mansion-home #topNav {
@@ -396,7 +396,7 @@
 .harvest-royale.workshops-page header {
   background: var(--hr-chrome-ombre) !important;
   color: var(--hr-ink) !important;
-  border-bottom-color: var(--hr-gold) !important;
+  border-bottom-color: var(--hr-silver) !important;
 }
 .harvest-royale .session-footer,
 .harvest-royale .vault-footer,
@@ -405,7 +405,7 @@
 .harvest-royale.workshops-page footer {
   background: var(--hr-chrome-ombre) !important;
   color: var(--hr-ink) !important;
-  border-top-color: var(--hr-gold);
+  border-top-color: var(--hr-silver);
 }
 .harvest-royale :is(.session-footer,.vault-footer,.hub-footer) :is(p,a),
 .harvest-royale.workshops-page footer :is(p,a) { color: var(--hr-ink) !important; }
