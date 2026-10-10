@@ -71,7 +71,10 @@ body.clearance {
 }
 
 /* ---------- Ticket cards ---------- */
-.cl-grid-wrap { padding: 0 7% 70px; }
+.cl-grid-wrap {
+  padding: 0 7% 70px;
+  background: #f7f9fd;
+}
 .cl-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

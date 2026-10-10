@@ -63,7 +63,9 @@ body.playground {
   margin: 0 0 22px;
 }
 
-.pg-title {
+/* Specificity beats .harvest-royale.destination-page h1 so the holographic
+   gradient wins over the theme ink color. */
+.playground .pg-hero .pg-title {
   margin: 0 0 18px;
   font-size: clamp(2.7rem, 6.4vw, 5.2rem);
   font-weight: 900;
@@ -73,6 +75,7 @@ body.playground {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  -webkit-text-fill-color: transparent;
   animation: pg-shine 7s linear infinite;
 }
 @keyframes pg-shine { to { background-position: 220% center; } }
@@ -114,7 +117,10 @@ body.playground {
 }
 
 /* ---------- Featured app ---------- */
-.pg-featured-wrap { padding: 10px 7% 60px; }
+.pg-featured-wrap {
+  padding: 10px 7% 60px;
+  background: linear-gradient(180deg, #f4f7fd 0%, #eef3fb 100%);
+}
 
 .pg-featured {
   display: grid;
@@ -198,6 +204,9 @@ body.playground {
   display: block;
   width: 100%;
   height: auto;
+  max-height: 640px;
+  object-fit: cover;
+  object-position: top center;
   border-radius: 22px;
   transform: rotateY(-9deg) rotateX(4deg);
   box-shadow: 34px 34px 70px rgba(74, 125, 214, 0.3);
@@ -206,7 +215,11 @@ body.playground {
 .pg-featured-art:hover img { transform: rotateY(0) rotateX(0) scale(1.02); }
 
 /* ---------- Game grid ---------- */
-.pg-grid-wrap { padding: 0 7% 70px; text-align: center; }
+.pg-grid-wrap {
+  padding: 0 7% 70px;
+  text-align: center;
+  background: #f6f8fd;
+}
 .pg-grid-wrap > h2 {
   font-size: clamp(1.7rem, 3vw, 2.4rem);
   margin: 0 0 10px;
