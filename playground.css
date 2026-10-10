@@ -290,6 +290,20 @@ body.playground {
 }
 .game-card .pg-play { padding: 13px 30px; font-size: 0.82rem; }
 
+.pg-login-note {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--pg-sapphire-deep);
+  background: rgba(143, 184, 255, 0.14);
+  border: 1px solid rgba(143, 184, 255, 0.45);
+  padding: 7px 15px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
 .game-card--soon {
   border-style: dashed;
   text-align: center;
