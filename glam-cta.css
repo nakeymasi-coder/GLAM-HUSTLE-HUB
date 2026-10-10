@@ -1,0 +1,66 @@
+/* ============================================================
+   Glam Hustle Hub — standing twin-button CTA footer.
+   Two EQUAL side-by-side pill buttons (same size, same
+   weight) + "made with love by Celestia" line.
+   Goes on everything. Never let one button overpower.
+   ============================================================ */
+
+.glam-cta {
+  padding: 60px 7% 64px;
+  text-align: center;
+  background: linear-gradient(180deg, #f6f8fd 0%, #ffffff 100%);
+  border-top: 1px solid rgba(143, 184, 255, 0.3);
+}
+
+.glam-cta h2 {
+  font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+  color: #1b2a4a;
+  margin: 0 0 10px;
+  font-weight: 900;
+}
+.glam-cta > p {
+  color: #4c5f85;
+  margin: 0 0 30px;
+  font-size: 1rem;
+}
+
+.glam-cta-btns {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+.glam-cta-btns a {
+  flex: 1 1 240px;
+  max-width: 340px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 26px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 0.95rem;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+/* Equal weight: both buttons share the same chrome treatment. */
+.glam-cta-btns a.glam-cta-vault,
+.glam-cta-btns a.glam-cta-shop {
+  color: #1b2a4a;
+  background: linear-gradient(135deg, #c9d6f2 0%, #ffffff 28%, #dfe7f7 52%, #ffffff 78%, #b9cdf3 100%);
+  border: 1px solid rgba(143, 184, 255, 0.55);
+  box-shadow: 0 14px 30px rgba(143, 184, 255, 0.35), inset 0 1px 0 #ffffff;
+}
+.glam-cta-btns a:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 22px 44px rgba(143, 184, 255, 0.5), inset 0 1px 0 #ffffff;
+}
+
+.glam-cta .glam-made {
+  font-size: 0.82rem;
+  color: #8a97b3;
+  margin: 0;
+}
