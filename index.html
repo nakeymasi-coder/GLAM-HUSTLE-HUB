@@ -20,89 +20,6 @@
     .hub-footer .hub-contact summary:focus-visible { outline: 3px solid var(--hr-ink, #0C0D14); outline-offset: 4px; }
     .hub-footer .hub-contact-options { position: absolute; bottom: calc(100% + 12px); right: 0; z-index: 100; display: grid; gap: 12px; width: 220px; max-width: calc(100vw - 32px); padding: 18px; border: 1px solid #656565; border-radius: 12px; background: #FFF4E2; box-shadow: 0 6px 24px #0C0D1429; text-align: left; }
     .hub-footer .hub-contact-options a { display: block; font: 600 14px/1.5 Arial, sans-serif; }
-    /* Glow Up Society Kit form band */
-    .glow-up-society {
-      --gus-sap: #168FEA;
-      --gus-sap-l: #E6F3FD;
-      --gus-sap-m: #9FD0F7;
-      --gus-pearl: #FBFCFE;
-      --gus-chrome1: #F2F4F7;
-      --gus-chrome2: #C9CFD8;
-      --gus-ink: #171A1E;
-      --gus-muted: #5B6470;
-      position: relative;
-      overflow: hidden;
-      margin: 0;
-      padding: 56px 20px 64px;
-      background:
-        radial-gradient(900px 420px at 12% 0%, var(--gus-sap-l), transparent 62%),
-        radial-gradient(700px 380px at 100% 20%, #EEF1F6, transparent 58%),
-        linear-gradient(180deg, var(--gus-pearl), var(--gus-chrome1));
-      border-top: 1px solid var(--gus-chrome2);
-      color: var(--gus-ink);
-      text-align: center;
-    }
-    .glow-up-society__butterflies { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-    .glow-up-society__butterflies svg {
-      position: absolute; opacity: .18; color: var(--gus-sap);
-    }
-    .glow-up-society__butterflies .bf1 { top: 18px; left: 6%; width: 72px; transform: rotate(-16deg); }
-    .glow-up-society__butterflies .bf2 { top: 40px; right: 8%; width: 54px; transform: rotate(22deg); opacity: .14; }
-    .glow-up-society__butterflies .bf3 { bottom: 28px; left: 14%; width: 44px; transform: rotate(8deg); opacity: .12; }
-    .glow-up-society__inner {
-      position: relative;
-      z-index: 1;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 28px 22px 8px;
-      border-radius: 22px;
-      background: linear-gradient(180deg, #fff, var(--gus-chrome1));
-      border: 1px solid #fff;
-      box-shadow: 0 0 0 1px var(--gus-chrome2) inset, 0 20px 45px -25px rgba(22,143,234,.45);
-    }
-    .glow-up-society__eyebrow {
-      display: inline-block;
-      margin: 0 0 14px;
-      font: 600 12px/1 Inter, system-ui, sans-serif;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gus-sap);
-      padding: 7px 16px;
-      border: 1px solid var(--gus-sap-m);
-      border-radius: 99px;
-      background: #ffffffcc;
-    }
-    .glow-up-society__title {
-      margin: 0 0 10px;
-      font: 600 32px/1.15 "Cormorant Garamond", Georgia, serif;
-      color: var(--gus-ink);
-      letter-spacing: .2px;
-    }
-    .glow-up-society__title em {
-      font-style: normal;
-      background: linear-gradient(90deg, var(--gus-sap), #6FB9F3 50%, #8E99A8);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .glow-up-society__sub {
-      margin: 0 auto 22px;
-      max-width: 38em;
-      font: 400 16px/1.55 Inter, system-ui, sans-serif;
-      color: var(--gus-muted);
-    }
-    .glow-up-society__form {
-      margin: 0 auto;
-      max-width: 560px;
-      text-align: left;
-    }
-    .glow-up-society__form .formkit-form { margin-left: auto; margin-right: auto; }
-    @media (max-width: 640px) {
-      .glow-up-society { padding: 40px 14px 48px; }
-      .glow-up-society__title { font-size: 26px; }
-      .glow-up-society__inner { padding: 22px 14px 4px; }
-    }
-
   </style>
 </head>
 <body class="hub-site mansion-home halloween-home harvest-royale">
@@ -167,22 +84,6 @@
   </div>
 </section>
 </main>
-<section class="glow-up-society" id="glow-up-society" aria-labelledby="glow-up-society-title">
-  <div class="glow-up-society__butterflies" aria-hidden="true">
-    <svg width="0" height="0" style="position:absolute"><defs><symbol id="gus-butterfly" viewBox="0 0 100 80"><path fill="currentColor" d="M50 40C40 10 10 0 5 15s15 30 45 25C20 45 10 70 25 75s25-15 25-35c0 20 10 40 25 35s5-30-25-35c30 5 50-10 45-25S60 10 50 40z"/></symbol></defs></svg>
-    <svg class="bf1" viewBox="0 0 100 80"><use href="#gus-butterfly"/></svg>
-    <svg class="bf2" viewBox="0 0 100 80"><use href="#gus-butterfly"/></svg>
-    <svg class="bf3" viewBox="0 0 100 80"><use href="#gus-butterfly"/></svg>
-  </div>
-  <div class="glow-up-society__inner">
-    <p class="glow-up-society__eyebrow">Free Holiday Activity Book</p>
-    <h2 class="glow-up-society__title" id="glow-up-society-title">Join the <em>Glow Up Society</em></h2>
-    <p class="glow-up-society__sub">Get beginner-friendly AI tips, prompts, and creative ideas — plus your free Holiday Activity Book in your inbox.</p>
-    <div class="glow-up-society__form">
-      <script async data-uid="a4be6357d4" src="https://glam-hustle-hub.kit.com/a4be6357d4/index.js"></script>
-    </div>
-  </div>
-</section>
 <footer class="hub-footer"><div aria-label="Connect with Glam"><a href="https://pinterest.com/PromptLikeGlam/" data-config-link="pinterest">Pinterest</a>
 <a href="https://tiktok.com/@promptlikeglam" data-config-link="tiktok">TikTok</a>
 <a href="https://v.lemon8-app.com/al/OgmyhphcMY" data-config-link="lemon8">Lemon8</a>
