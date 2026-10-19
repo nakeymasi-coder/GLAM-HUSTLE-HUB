@@ -10,6 +10,21 @@
     if (typeof href === 'string' && href.trim() && href !== '#') link.href = href;
   });
 
+  // Keep the storefront destination consistent across existing page menus.
+  const websiteTemplatesUrl = 'https://glam-hustle-web-studio.nakeymasi.chatgpt.site';
+  document.querySelectorAll('#topNav a').forEach(link => {
+    if (/^Clearance$/i.test(link.textContent.trim())) {
+      link.href = websiteTemplatesUrl;
+      link.textContent = 'Website Templates';
+    }
+  });
+  document.querySelectorAll('#drawer a').forEach(link => {
+    if (/^(Website )?Templates$/i.test(link.textContent.trim())) {
+      link.href = websiteTemplatesUrl;
+      link.textContent = 'Website Templates';
+    }
+  });
+
   // Keep old bookmarks working after homepage sections move to their own pages.
   if (document.body.classList.contains('mansion-home')) {
     const legacyRoutes = { '#best': './best-sellers.html', '#about': './about.html', '#reviews': './reviews.html' };
