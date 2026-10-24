@@ -1,0 +1,137 @@
+/* Podcasts hub — Glam Hustle Hub */
+.podcasts-hero {
+  text-align: center;
+  padding: 56px 20px 8px;
+}
+.podcasts-hero small {
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  color: #2f6db3;
+}
+.podcasts-hero h1 {
+  margin: 10px 0 12px;
+  line-height: 1.05;
+}
+.podcasts-hero p {
+  max-width: 620px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+}
+.podcast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 26px;
+  max-width: 1120px;
+  margin: 38px auto 10px;
+  padding: 0 20px;
+}
+.podcast-card {
+  background: #ffffff;
+  border: 1px solid #dbe7f5;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(47, 109, 179, 0.12);
+  display: flex;
+  flex-direction: column;
+}
+.podcast-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+.podcast-card .card-body {
+  padding: 20px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.podcast-badge {
+  align-self: flex-start;
+  background: linear-gradient(90deg, #7db3e8, #cfdff2);
+  color: #123a63;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+.podcast-card h2 {
+  margin: 2px 0 0;
+  font-size: 1.45rem;
+}
+.podcast-hosts {
+  font-weight: 700;
+  color: #2f6db3;
+  margin: 0;
+}
+.podcast-tagline {
+  font-style: italic;
+  margin: 0;
+}
+.podcast-desc {
+  margin: 0;
+  flex: 1;
+}
+.podcast-btn {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  background: linear-gradient(135deg, #2f6db3, #7db3e8);
+  padding: 13px 20px;
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(47, 109, 179, 0.35);
+}
+.podcast-btn:hover { filter: brightness(1.07); }
+.podcast-card.coming-soon {
+  border: 2px dashed #b9d2ee;
+  background: linear-gradient(160deg, #f4f9ff, #ffffff);
+  align-items: stretch;
+  justify-content: center;
+  text-align: center;
+}
+.podcast-card.coming-soon .card-body { align-items: center; justify-content: center; }
+.podcast-card.coming-soon .mic { font-size: 2.6rem; }
+.podcast-cta {
+  max-width: 1120px;
+  margin: 44px auto 8px;
+  padding: 30px 20px 6px;
+  text-align: center;
+}
+.podcast-cta .cta-band {
+  background: linear-gradient(120deg, #eaf3fd, #f7f9fd 55%, #e8eef7);
+  border: 1px solid #dbe7f5;
+  border-radius: 20px;
+  padding: 28px 22px;
+}
+.podcast-cta h2 { margin: 0 0 6px; }
+.podcast-cta p { margin: 0 auto 18px; max-width: 560px; }
+.cta-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.cta-buttons a {
+  text-decoration: none;
+  font-weight: 800;
+  padding: 13px 22px;
+  border-radius: 999px;
+}
+.cta-join {
+  color: #ffffff;
+  background: linear-gradient(135deg, #2f6db3, #7db3e8);
+  box-shadow: 0 6px 16px rgba(47, 109, 179, 0.35);
+}
+.cta-shop {
+  color: #123a63;
+  background: #ffffff;
+  border: 2px solid #7db3e8;
+}
+.made-line { margin: 20px 0 4px; }
+.made-line .heart { color: #e35d8a; }
+.ref-line { font-size: 0.82rem; opacity: 0.75; margin: 0; }
