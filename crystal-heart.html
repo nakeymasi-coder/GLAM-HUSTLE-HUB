@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>The Crystal Heart — A Snow Serpent Adventure | Glam Hustle Hub</title>
-  <meta name="description" content="The Crystal Heart: an animated adventure show. A skier racing an avalanche meets the giant Snow Serpent who guards a glowing crystal heart deep inside the mountain. Watch Episode 1." />
+  <meta name="description" content="The Crystal Heart: an animated adventure show. A skier racing an avalanche meets the giant Snow Serpent who guards a glowing crystal heart deep inside the mountain. Watch Episodes 1 and 2." />
   <link rel="stylesheet" href="./style.css" />
   <link rel="stylesheet" href="./mansion.css" />
   <link rel="stylesheet" href="./mansion-pages.css" />
@@ -79,6 +79,20 @@
   <small>THE STORY SO FAR</small>
   <h2>An Avalanche. A Serpent. A Secret.</h2>
   <p>It starts with a race she cannot win — a wall of snow roaring down the mountain behind her. Then the mountain itself moves: a giant white serpent rises from the slopes, carves a glowing tunnel through the ice, and carries her deeper than any skier has ever gone. He talks. He has a world down there. And at the end of the deepest cave, something is shining pink through the dark — the Crystal Heart, where no avalanche can follow.</p>
+</section>
+
+<section class="ch-section">
+  <small>EPISODE 2 · OUT NOW</small>
+  <h2>The Touch</h2>
+  <p>One rule guards the heart: nobody touches it. But the heart is calling her name — and when Scarlett gives in, it leaves a piece of itself inside her glove. The fall that follows is nothing next to what wakes up in the dark, now that the thing sleeping inside the heart knows exactly who touched it.</p>
+</section>
+
+<section class="ch-watch" id="watch2">
+  <video id="epVideo2" controls playsinline preload="metadata" poster="./images/poster-crystal-heart-ep2.webp">
+    <source src="./videos/crystal-heart-episode-2.mp4" type="video/mp4" />
+    Your browser cannot play this video — but Episode 2 is worth finding a bigger screen for.
+  </video>
+  <p class="runtime">EPISODE 2 · THE TOUCH · THE FULL EPISODE · 82 SECONDS · SOUND ON 🔊</p>
 </section>
 
 <div class="fog fog-b" aria-hidden="true"></div>
@@ -254,7 +268,7 @@
   var secret = document.getElementById('heartSecret');
   if (heart) heart.addEventListener('click', function (e) {
     burst(e.clientX, e.clientY, 16, ['♥', '✦', '❄', '💗']);
-    secret.textContent = '💗 You felt it beat. The heart is awake — and Episode 2 is coming to find out what it wants.';
+    secret.textContent = '💗 You felt it beat. The heart is awake — and now it knows her name. Episode 3 will find out what it wants with her.';
   });
 })();
 </script>
