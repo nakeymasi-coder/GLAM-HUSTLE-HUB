@@ -67,15 +67,15 @@ window.GLAM_SITE_CONFIG = {
   // =====================================================
 
   links: {
-    shop: "https://payhip.com/GlowUpbyGlam/collection/all",
+    shop: "https://glamhustlehub.com/shop",
 
-    workshops: "workshops.html",
+    workshops: "https://glamhustlehub.com/products/build-your-brand-world",
 
     promptGenerators:
-      "https://payhip.com/GlowUpbyGlam/collection/luxury-prompt-generators",
+      "https://glamhustlehub.com/shop?category=generators",
 
     generatorBundles:
-      "https://payhip.com/GlowUpbyGlam/collection/bundles",
+      "https://glamhustlehub.com/shop",
 
     pngs:
       "https://pin.it/NGr63tHjX/",
@@ -84,13 +84,13 @@ window.GLAM_SITE_CONFIG = {
       "https://pin.it/7EFoolKlz",
 
     oneOnOne:
-      "one-on-one.html",
+      "https://glamhustlehub.com/#private-support",
 
     facebookCommunity:
       "https://www.facebook.com/share/g/1Sv3VVCSaR/",
 
     skoolCommunity:
-      "https://payhip.com/b/54LoK",
+      "https://glamhustlehub.com/products/the-glam-vault",
 
     reviews:
       "https://testimonial.to/glam-hustle-hub/all",
