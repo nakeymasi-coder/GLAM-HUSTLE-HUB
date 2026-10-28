@@ -28,3 +28,6 @@ body.playground{background:#f5faff;color:#103B63;font-family:Montserrat,sans-ser
 @media(max-width:900px){.arcade-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.arcade-hero-inner{gap:12px}.library-heading{align-items:start;flex-direction:column;gap:10px}}
 @media(max-width:600px){.arcade-hero-inner{grid-template-columns:1fr;padding:30px 20px}.hero-controller{display:none}.playground .arcade-hero h1{font-size:46px}.arcade-library{padding:28px 18px 45px}.arcade-grid{grid-template-columns:1fr;gap:22px}.arcade-filters{gap:7px}.arcade-filters button{padding:10px 13px;font-size:11px}.arcade-cover{aspect-ratio:2.15/1}.arcade-card-body{padding:20px}}
 @media(prefers-reduced-motion:reduce){.arcade-card,.playground .arcade-button{transition:none}.arcade-card:hover,.playground .arcade-button:hover{transform:none}}
+
+/* Override the shared seasonal page background on the arcade only. */
+body.playground.harvest-royale.destination-page{background:#f5faff}
