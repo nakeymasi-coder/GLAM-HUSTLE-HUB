@@ -1905,7 +1905,7 @@ document.addEventListener("DOMContentLoaded", () => {
         id: "shop",
         name: "The Grand Shop",
         link:
-          "https://payhip.com/GlowUpbyGlam/collection/all",
+          "https://glamhustlehub.com/shop",
         visible: true,
         x: 52,
         y: 55,
@@ -1936,7 +1936,7 @@ document.addEventListener("DOMContentLoaded", () => {
         id: "generators",
         name: "Generator Lab",
         link:
-          "https://payhip.com/GlowUpbyGlam/collection/luxury-prompt-generators",
+          "https://glamhustlehub.com/shop",
         visible: true,
         x: 26,
         y: 29,
@@ -1951,7 +1951,7 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         id: "vault",
         name: "Glam Vault Lounge",
-        link: "https://payhip.com/b/54LoK",
+        link: "https://www.skool.com/the-glam-vault-9512/about",
         visible: true,
         x: 65,
         y: 31,
@@ -1983,7 +1983,7 @@ document.addEventListener("DOMContentLoaded", () => {
         id: "bundles",
         name: "Bundle Vault",
         link:
-          "https://payhip.com/GlowUpbyGlam/collection/bundles",
+          "https://glamhustlehub.com/shop",
         visible: true,
         x: 45,
         y: 74,
